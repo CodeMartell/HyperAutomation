@@ -1,0 +1,7 @@
+## BPMN - Portal Fake Soluções Digitais
+
+![Portal Fake](images/ficha_portal_fake_sd_bpmn.png)
+
+## BPMN - Cadastro de Novo Cliente
+
+![Cadastro Novo Cliente](images/cadastro_novo_cliente_bpmn.png)
