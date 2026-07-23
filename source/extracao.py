@@ -34,10 +34,13 @@ def extrair_dados() -> dict:
             / "index.html"
         )
         url_portal = caminho_portal.resolve().as_posix()
+
+    # Garante que caminhos locais tenham o esquema file://
+    if not url_portal.startswith(("http://", "https://", "file://")):
         url_portal = f"file://{url_portal}"
 
     with sync_playwright() as p:
-        navegador = p.chromium.launch(headless=False)
+        navegador = p.chromium.launch(headless=True)
         pagina = navegador.new_page()
 
         # Abrir Portal Fake
