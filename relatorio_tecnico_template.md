@@ -325,24 +325,27 @@ Saída completa do terminal executando `python source/main.py`:
 
 [1/3] Extraindo dados do Portal Fake...
 Dados extraídos:
-  nome: Larissa
-  sobrenome: Barbosa
-  cpf: 085.500.332-24
-  email: larissa.barbosa@email.com
-  telefone: (73) 991049-3616
-  data_nascimento: 03/08/2002
-  endereco: Rua Barroso, 8320, Belém - PA
+  nome: Lucas
+  sobrenome: Ferreira
+  cpf: 135.028.738-49
+  email: lucas.ferreira@email.com
+  telefone: (43) 960019-2785
+  data_nascimento: 17/04/1989
+  endereco: Av. Getúlio Vargas, 1234, Belo Horizonte - MG
 ✓ Dados extraídos com sucesso.
 
 [2/3] Gerando ficha de cadastro (.docx)...
-✓ Ficha gerada: /mnt/projetos/romulus/HyperAutomation/resources/ficha_cadastro_20260723_133553.docx
+✓ Ficha gerada: /mnt/projetos/romulus/HyperAutomation/resources/ficha_cadastro_20260723_134431.docx
 
 [3/3] Enviando e-mail com a ficha em anexo...
 Conectando ao servidor SMTP (smtp.gmail.com:587)...
-✓ E-mail enviado com sucesso para destinatario@email.com.
+E-mail enviado com sucesso para romulolira1@hotmail.com.
+✓ E-mail enviado com sucesso.
 
 =======================================================
   Fluxo concluído com sucesso!
+  Ficha: /mnt/projetos/romulus/HyperAutomation/resources/ficha_cadastro_20260723_134431.docx
+  E-mail enviado para: romulolira1@hotmail.com
 =======================================================
 ```
 
@@ -352,17 +355,17 @@ Dados extraídos automaticamente do Portal Fake na execução de teste:
 
 | Campo | Valor Extraído |
 |---|---|
-| Nome | Larissa |
-| Sobrenome | Barbosa |
-| CPF | 085.500.332-24 |
-| E-mail | larissa.barbosa@email.com |
-| Telefone | (73) 991049-3616 |
-| Data de Nascimento | 03/08/2002 |
-| Endereço | Rua Barroso, 8320, Belém - PA |
+| Nome | Lucas |
+| Sobrenome | Ferreira |
+| CPF | 135.028.738-49 |
+| E-mail | lucas.ferreira@email.com |
+| Telefone | (43) 960019-2785 |
+| Data de Nascimento | 17/04/1989 |
+| Endereço | Av. Getúlio Vargas, 1234, Belo Horizonte - MG |
 
 ### 7.3 Ficha de cadastro gerada
 
-Arquivo gerado: `resources/ficha_cadastro_20260723_133553.docx` (37 KB)
+Arquivo gerado: `resources/ficha_cadastro_20260723_134431.docx` (37 KB)
 
 O documento Word contém:
 - Título centralizado "FICHA DE CADASTRO DE CLIENTE"
@@ -373,8 +376,7 @@ O documento Word contém:
 
 ### 7.4 E-mail recebido
 
-*(Captura de tela do e-mail recebido a ser inserida após configuração da
-Senha de App do Gmail.)*
+E-mail enviado com sucesso via servidor SMTP (`smtp.gmail.com:587`) para a caixa de destino `romulolira1@hotmail.com`, contendo em anexo a ficha de cadastro gerada `ficha_cadastro_20260723_134431.docx`.
 
 ### 7.5 Repositório no GitHub
 
