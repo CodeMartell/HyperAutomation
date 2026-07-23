@@ -47,9 +47,9 @@ Edite o `.env` com os dados do seu servidor de e-mail:
 
 | Variável | Descrição |
 |---|---|
-| `EMAIL_REMETENTE` | Seu endereço de e-mail |
+| `EMAIL_REMETENTE` | romulolira1@gmail.com |
 | `EMAIL_SENHA` | Senha de app (não a senha principal) |
-| `EMAIL_DESTINATARIO` | E-mail do destinatário da ficha |
+| `EMAIL_DESTINATARIO` | romulo.lira@ufam.edu.br |
 | `SMTP_HOST` | Servidor SMTP (padrão: `smtp.gmail.com`) |
 | `SMTP_PORT` | Porta SMTP (padrão: `587`) |
 | `PORTAL_FAKE_URL` | _(opcional)_ URL personalizada do portal |

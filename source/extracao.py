@@ -63,6 +63,13 @@ def extrair_dados() -> dict:
             "endereco": pagina.locator("#f_endereco").input_value(),
         }
 
+        # Salvar captura de tela da evidência
+        pasta_evidencias = Path(__file__).resolve().parent.parent / "evidencias"
+        pasta_evidencias.mkdir(exist_ok=True)
+        caminho_screenshot = pasta_evidencias / "01_portal_fake_extracao.png"
+        pagina.screenshot(path=str(caminho_screenshot), full_page=True)
+        print(f"  ✓ Captura de tela salva: {caminho_screenshot}")
+
         print("Dados extraídos:")
 
         for campo, valor in dados.items():

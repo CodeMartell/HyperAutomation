@@ -1,4 +1,4 @@
-# Relatório Técnico Final — HyperAutomation
+# Relatório Técnico — HyperAutomation
 
 ---
 
@@ -316,6 +316,8 @@ release/1.0 ──────────────→ main (merge final)
 
 ### 7.1 Robô em execução
 
+![Captura do Terminal na Execução do Robô](evidencias/02_execucao_terminal.png)
+
 Saída completa do terminal executando `python source/main.py`:
 
 ```
@@ -349,7 +351,9 @@ E-mail enviado com sucesso para romulolira1@hotmail.com.
 =======================================================
 ```
 
-### 7.2 Dados extraídos
+### 7.2 Dados extraídos (Portal Fake)
+
+![Captura do Portal Fake com dados extraídos](evidencias/01_portal_fake_extracao.png)
 
 Dados extraídos automaticamente do Portal Fake na execução de teste:
 
@@ -363,7 +367,9 @@ Dados extraídos automaticamente do Portal Fake na execução de teste:
 | Data de Nascimento | 17/04/1989 |
 | Endereço | Av. Getúlio Vargas, 1234, Belo Horizonte - MG |
 
-### 7.3 Ficha de cadastro gerada
+### 7.3 Ficha de cadastro gerada (.docx)
+
+![Captura da Ficha de Cadastro em Word](evidencias/03_ficha_cadastro_docx.png)
 
 Arquivo gerado: `resources/ficha_cadastro_20260723_134431.docx` (37 KB)
 
@@ -376,9 +382,13 @@ O documento Word contém:
 
 ### 7.4 E-mail recebido
 
+![Captura do E-mail enviado com anexo](evidencias/04_email_enviado.png)
+
 E-mail enviado com sucesso via servidor SMTP (`smtp.gmail.com:587`) para a caixa de destino `romulolira1@hotmail.com`, contendo em anexo a ficha de cadastro gerada `ficha_cadastro_20260723_134431.docx`.
 
 ### 7.5 Repositório no GitHub
+
+![Captura da Estrutura do Repositório GitHub](evidencias/05_github_repositorio.png)
 
 **URL:** https://github.com/CodeMartell/HyperAutomation
 
@@ -390,12 +400,14 @@ main ← release/1.0 ← develop ← feature/extracao
 Tag: v1.0 (Release 1.0 - Entrega Semana06 AX Academy)
 ```
 
-Arquivos na branch `main` (14 arquivos):
+Arquivos na branch `main` (15 arquivos):
 
 ```
 .env.example
 .gitignore
 README.md
+Relatorio_Tecnico_Final.pdf
+evidencias/
 images/ficha_portal_fake_sd_bpmn.drawio
 images/ficha_portal_fake_sd_bpmn.png
 portal_fake/index.html
