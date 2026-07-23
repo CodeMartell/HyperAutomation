@@ -94,7 +94,10 @@ HyperAutomation/
 
 | Integrante | Responsabilidade |
 |---|---|
-| _(preencher)_ | _(preencher)_ |
+| _Romulo Lira_ | _Líder do projeto, integração dos módulos, GitFlow e versionamento_ |
+| _Huan Cruz De Oliveira_ | _Modelagem BPMN e documentação visual_ |
+| _Gilvan Daniel da Silva_ | _Geração da ficha de cadastro em Word (.docx)_ |
+| _Jannas_ | _Extração de dados do Portal Fake (Playwright)_ |
 
 ## Licença
 
