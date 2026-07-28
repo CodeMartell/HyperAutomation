@@ -24,6 +24,7 @@ _RAIZ_PROJETO = Path(__file__).resolve().parent.parent.parent
 sys.path.insert(0, str(_RAIZ_PROJETO / "source"))
 sys.path.insert(0, str(_RAIZ_PROJETO / "source" / "atendimento"))
 
+import os
 from atendimento.classificacao import classificar_solicitacao, encaminhar_solicitacao  # noqa: E402
 from atendimento.leitura_email import receber_solicitacoes  # noqa: E402
 from atendimento.resposta_cliente import responder_cliente  # noqa: E402
@@ -54,13 +55,20 @@ def _banner(texto: str, largura: int = 60) -> None:
     print("=" * largura)
 
 
-def processar_solicitacao(solicitacao: dict, enviar_email_resposta: bool = True) -> dict:
+def processar_solicitacao(
+    solicitacao: dict,
+    enviar_email_resposta: bool = True,
+    drive_servico=None,
+    ids_pastas_drive: dict[str, str] = None,
+) -> dict:
     """
     Executa as etapas 3–6 para uma única solicitação.
 
     Args:
         solicitacao: Dicionário retornado por receber_solicitacoes().
         enviar_email_resposta: Se False, pula o envio de e-mail (modo simulação).
+        drive_servico: Serviço do Google Drive (opcional).
+        ids_pastas_drive: IDs das pastas ERP no Google Drive (opcional).
 
     Returns:
         Dicionário com o resultado do processamento:
@@ -87,6 +95,8 @@ def processar_solicitacao(solicitacao: dict, enviar_email_resposta: bool = True)
         pasta_downloads,
         _PASTA_ERP,
         resultado["completa"],
+        drive_servico=drive_servico,
+        ids_pastas_drive=ids_pastas_drive,
     )
 
     # ── Etapa 5: Responder ao Cliente ─────────────────────────────────────────
@@ -108,7 +118,12 @@ def processar_solicitacao(solicitacao: dict, enviar_email_resposta: bool = True)
     pasta_final = pasta_classificada
     if resultado["completa"]:
         logger.info("[6/6] Encaminhando ao próximo setor...")
-        pasta_final = encaminhar_solicitacao(pasta_classificada, _PASTA_ERP)
+        pasta_final = encaminhar_solicitacao(
+            pasta_classificada,
+            _PASTA_ERP,
+            drive_servico=drive_servico,
+            ids_pastas_drive=ids_pastas_drive,
+        )
     else:
         logger.info(
             "[6/6] Encaminhamento IGNORADO — documentação incompleta. "
@@ -132,9 +147,26 @@ def main(enviar_email_resposta: bool = True) -> None:
 
     _banner("HyperAutomation — Processo 1: Setor de Atendimento")
 
-    # Garantir estrutura ERP
-    for subpasta in ("Downloads", "Documentos_OK", "Documentos_Pendentes", "Encaminhados"):
-        (_PASTA_ERP / subpasta).mkdir(parents=True, exist_ok=True)
+    usar_drive = os.getenv("USAR_GOOGLE_DRIVE", "False").lower() in ("true", "1", "yes")
+    drive_servico = None
+    ids_pastas_drive = None
+
+    if usar_drive:
+        logger.info("Integração com Google Drive ATIVADA. Inicializando...")
+        from atendimento.google_drive import obter_servico_drive, inicializar_estrutura_erp
+        try:
+            drive_servico = obter_servico_drive()
+            ids_pastas_drive = inicializar_estrutura_erp(drive_servico)
+            logger.info("Estrutura do Google Drive inicializada com sucesso!")
+        except Exception as e:
+            logger.error("Erro ao inicializar o Google Drive: %s", e)
+            logger.info("Prosseguindo no modo local...")
+            usar_drive = False
+
+    if not usar_drive:
+        # Garantir estrutura ERP local
+        for subpasta in ("Downloads", "Documentos_OK", "Documentos_Pendentes", "Encaminhados"):
+            (_PASTA_ERP / subpasta).mkdir(parents=True, exist_ok=True)
 
     # Garantir pasta de evidências
     (_RAIZ_PROJETO / "evidencias").mkdir(exist_ok=True)
@@ -163,7 +195,12 @@ def main(enviar_email_resposta: bool = True) -> None:
     for i, solicitacao in enumerate(solicitacoes, start=1):
         print(f"\n[Solicitação {i}/{len(solicitacoes)}]")
         try:
-            resultado = processar_solicitacao(solicitacao, enviar_email_resposta)
+            resultado = processar_solicitacao(
+                solicitacao,
+                enviar_email_resposta,
+                drive_servico=drive_servico,
+                ids_pastas_drive=ids_pastas_drive,
+            )
             resultados.append(resultado)
         except Exception as erro:
             logger.error(
