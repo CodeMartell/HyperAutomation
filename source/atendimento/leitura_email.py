@@ -108,7 +108,8 @@ def receber_solicitacoes(pasta_erp: Path) -> list[dict]:
     imap_port = int(os.getenv("IMAP_PORT", "993"))
     imap_user = os.getenv("IMAP_USER") or os.getenv("EMAIL_REMETENTE")
     imap_password = os.getenv("IMAP_PASSWORD") or os.getenv("EMAIL_SENHA")
-    filtro_assunto = (os.getenv("IMAP_FILTRO_ASSUNTO") or "").strip().lower()
+    filtro_assunto = (os.getenv("IMAP_FILTRO_ASSUNTO") or "").strip()
+    max_emails = int(os.getenv("IMAP_MAX_EMAILS", "50"))
 
     if not imap_user or not imap_password:
         raise ValueError(
@@ -124,7 +125,8 @@ def receber_solicitacoes(pasta_erp: Path) -> list[dict]:
 
     logger.info("Conectando ao servidor IMAP (%s:%s)...", imap_host, imap_port)
     if filtro_assunto:
-        logger.info("Filtro de assunto ativo: '%s'", filtro_assunto)
+        logger.info("Filtro de assunto (servidor): '%s'", filtro_assunto)
+    logger.info("Limite de e-mails por execução: %d", max_emails)
 
     # Resolve para IPv4 explícito para evitar falha em redes sem rota IPv6
     try:
@@ -137,14 +139,31 @@ def receber_solicitacoes(pasta_erp: Path) -> list[dict]:
         servidor.login(imap_user, imap_password)
         servidor.select("INBOX")
 
-        _, dados = servidor.search(None, "UNSEEN")
+        # ── Busca no servidor (filtra antes de baixar qualquer coisa) ──────────
+        # Se há filtro de assunto, o Gmail filtra no servidor: muito mais rápido
+        # do que baixar todos os e-mails e filtrar localmente.
+        if filtro_assunto:
+            criterio = f'UNSEEN SUBJECT "{filtro_assunto}"'
+        else:
+            criterio = "UNSEEN"
+
+        _, dados = servidor.search(None, criterio)
         ids_mensagens = dados[0].split()
 
+        total_encontrados = len(ids_mensagens)
         if not ids_mensagens:
-            logger.info("Nenhuma mensagem não lida encontrada.")
+            logger.info("Nenhuma mensagem não lida encontrada (critério: %s).", criterio)
             return solicitacoes
 
-        logger.info("%d mensagem(ns) não lida(s) encontrada(s).", len(ids_mensagens))
+        # Pega apenas os mais recentes (últimos N da lista, que são os mais novos)
+        if len(ids_mensagens) > max_emails:
+            logger.info(
+                "%d mensagem(ns) encontrada(s). Processando apenas as %d mais recentes.",
+                total_encontrados, max_emails,
+            )
+            ids_mensagens = ids_mensagens[-max_emails:]
+        else:
+            logger.info("%d mensagem(ns) encontrada(s) — processando todas.", total_encontrados)
 
         for msg_id in ids_mensagens:
             try:
