@@ -1,0 +1,80 @@
+2026-07-28 10:20:15 [INFO] simulacao — Estrutura ERP_Portal_Fake verificada/criada.
+2026-07-28 10:20:15 [INFO] simulacao — Arquivos de teste criados em: /mnt/projetos/romulus/HyperAutomation/ERP_Portal_Fake/Downloads/20260728_100000_joao.silva@exemplo.com
+2026-07-28 10:20:15 [INFO] simulacao — [3/6] Validando documentação...
+2026-07-28 10:20:15 [INFO] atendimento.validacao —   ✓ [documento_identidade] → rg_joao_silva.pdf
+2026-07-28 10:20:15 [INFO] atendimento.validacao —   ✓ [comprovante_residencia] → comprovante_residencia_jan2026.pdf
+2026-07-28 10:20:15 [INFO] atendimento.validacao —   ✓ [ficha_cadastro] → ficha_cadastro_preenchida.pdf
+2026-07-28 10:20:15 [INFO] atendimento.validacao — Documentação COMPLETA — todos os 3 documentos encontrados.
+2026-07-28 10:20:15 [INFO] simulacao — [4/6] Classificando arquivos...
+2026-07-28 10:20:15 [INFO] atendimento.classificacao — Solicitação '20260728_100000_joao.silva@exemplo.com' classificada como OK → /mnt/projetos/romulus/HyperAutomation/ERP_Portal_Fake/Documentos_OK/20260728_100000_joao.silva@exemplo.com
+2026-07-28 10:20:15 [INFO] simulacao — [5/6] [SIMULAÇÃO] Resposta ao cliente: situação COMPLETA ✓
+2026-07-28 10:20:15 [INFO] simulacao — [6/6] Encaminhando ao próximo setor...
+2026-07-28 10:20:15 [INFO] atendimento.classificacao — Solicitação '20260728_100000_joao.silva@exemplo.com' encaminhada ao próximo setor → /mnt/projetos/romulus/HyperAutomation/ERP_Portal_Fake/Encaminhados/20260728_100000_joao.silva@exemplo.com
+2026-07-28 10:20:15 [INFO] simulacao — Arquivos de teste criados em: /mnt/projetos/romulus/HyperAutomation/ERP_Portal_Fake/Downloads/20260728_100001_maria.souza@exemplo.com
+2026-07-28 10:20:15 [INFO] simulacao — [3/6] Validando documentação...
+2026-07-28 10:20:15 [INFO] atendimento.validacao —   ✓ [documento_identidade] → cnh_frente_verso.pdf
+2026-07-28 10:20:15 [WARNING] atendimento.validacao —   ✗ [comprovante_residencia] → NÃO ENCONTRADO
+2026-07-28 10:20:15 [WARNING] atendimento.validacao —   ✗ [ficha_cadastro] → NÃO ENCONTRADO
+2026-07-28 10:20:15 [WARNING] atendimento.validacao — Documentação INCOMPLETA — 1/3 documentos presentes. Pendentes: comprovante_residencia, ficha_cadastro
+2026-07-28 10:20:15 [INFO] simulacao — [4/6] Classificando arquivos...
+2026-07-28 10:20:15 [INFO] atendimento.classificacao — Solicitação '20260728_100001_maria.souza@exemplo.com' classificada como PENDENTE → /mnt/projetos/romulus/HyperAutomation/ERP_Portal_Fake/Documentos_Pendentes/20260728_100001_maria.souza@exemplo.com
+2026-07-28 10:20:15 [INFO] simulacao — [5/6] [SIMULAÇÃO] Resposta ao cliente: situação PENDENTE ✗
+2026-07-28 10:20:15 [INFO] simulacao — [6/6] Encaminhamento ignorado — aguardando documentação.
+=======================================================
+  HyperAutomation — Simulação do Processo 1
+  Setor de Atendimento — Portal Fake Soluções Digitais
+=======================================================
+
+⚠  Modo SIMULAÇÃO — nenhum e-mail real será enviado.
+
+=======================================================
+  Cenário: Documentação COMPLETA
+  Remetente: joao.silva@exemplo.com
+  Assunto: Solicitação de Atendimento — João Silva
+  Anexos: rg_joao_silva.pdf, comprovante_residencia_jan2026.pdf, ficha_cadastro_preenchida.pdf
+=======================================================
+
+  📧 [SIMULAÇÃO] E-mail de resposta ao cliente (joao.silva@exemplo.com):
+     Assunto: Re: Solicitação de Atendimento — João Silva
+     Situação: COMPLETA ✓
+
+  ✓ Solicitação encaminhada ao próximo setor.
+
+=======================================================
+  Cenário: Documentação INCOMPLETA (falta ficha e comprovante)
+  Remetente: maria.souza@exemplo.com
+  Assunto: Documentos para Atendimento — Maria Souza
+  Anexos: cnh_frente_verso.pdf
+=======================================================
+
+  📧 [SIMULAÇÃO] E-mail de resposta ao cliente (maria.souza@exemplo.com):
+     Assunto: Re: Documentos para Atendimento — Maria Souza
+     Situação: PENDENTE ✗
+     Documentos faltantes: Comprovante Residencia, Ficha Cadastro
+
+  ✗ Solicitação retida em Documentos_Pendentes/.
+
+=======================================================
+  RESUMO DA SIMULAÇÃO
+=======================================================
+  ✓ joao.silva@exemplo.com → ENCAMINHADA
+     Pasta final: ERP_Portal_Fake/Encaminhados/20260728_100000_joao.silva@exemplo.com
+  ✗ maria.souza@exemplo.com → PENDENTE
+     Pasta final: ERP_Portal_Fake/Documentos_Pendentes/20260728_100001_maria.souza@exemplo.com
+
+📁 Estado final do ERP_Portal_Fake/
+─────────────────────────────────────────────
+  ├── Downloads/  (0 arquivo(s))
+  ├── Documentos_OK/  (0 arquivo(s))
+  ├── Documentos_Pendentes/  (1 arquivo(s))
+  │   └── 20260728_100001_maria.souza@exemplo.com/cnh_frente_verso.pdf
+  ├── Encaminhados/  (3 arquivo(s))
+  │   └── 20260728_100000_joao.silva@exemplo.com/ficha_cadastro_preenchida.pdf
+  │   └── 20260728_100000_joao.silva@exemplo.com/comprovante_residencia_jan2026.pdf
+  │   └── 20260728_100000_joao.silva@exemplo.com/rg_joao_silva.pdf
+─────────────────────────────────────────────
+
+  ✓ Simulação concluída com sucesso!
+  Para executar com e-mails reais, configure o .env e execute:
+  $ python source/atendimento/main_atendimento.py
+=======================================================
