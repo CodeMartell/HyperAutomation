@@ -2,3 +2,8 @@
 .env
 __pycache__/
 *.pyc
+credentials.json
+token.json
+# Ignorar arquivos nas pastas do ERP temporárias (mas manter estrutura via gitkeep)
+ERP_Portal_Fake/**/*
+!ERP_Portal_Fake/**/.gitkeep
