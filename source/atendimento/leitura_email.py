@@ -15,8 +15,8 @@ Justificativa da biblioteca:
     imaplib — biblioteca padrão do Python, sem dependência extra.
     Consistente com o uso de smtplib já adotado no projeto. Suporta
     IMAP4 over SSL (porta 993), compatível com Gmail e Outlook.
-    Uso de RFC822.PEEK evita marcar e-mails como lidos antes da
-    validação de anexos.
+    Uso de BODY.PEEK[] evita marcar e-mails como lidos antes da
+    validação de anexos (RFC822.PEEK não é um comando IMAP válido).
 """
 
 import email
@@ -127,8 +127,9 @@ def receber_solicitacoes(pasta_erp: Path) -> list[dict]:
 
         for msg_id in ids_mensagens:
             try:
-                # RFC822.PEEK lê sem marcar como lido — permite filtrar antes
-                _, dados_msg = servidor.fetch(msg_id, "(RFC822.PEEK)")
+                # BODY.PEEK[] lê a mensagem completa sem marcar como lida
+                # (RFC822.PEEK não é um comando IMAP válido)
+                _, dados_msg = servidor.fetch(msg_id, "(BODY.PEEK[])")
                 raw = dados_msg[0][1]
                 mensagem = email.message_from_bytes(raw)
 
