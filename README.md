@@ -69,6 +69,9 @@ ERP_Portal_Fake/
 | `logging` | Registro de execução | stdlib Python — padrão de logging estruturado |
 | `pathlib` | Manipulação de caminhos | já adotado no projeto |
 | `Pillow` | Geração do PNG do BPMN | única dependência nova; geração programática de imagem |
+| `google-api-python-client` | Integração com Google Drive | SDK oficial do Google — permite manipular pastas e arquivos na nuvem |
+| `google-auth-oauthlib` | Autenticação no Google Cloud | biblioteca oficial do Google para gerenciar o fluxo OAuth2 com credentials.json |
+
 
 ---
 
@@ -124,9 +127,19 @@ cp .env.example .env
 | `IMAP_USER` | Usuário IMAP (fallback: `EMAIL_REMETENTE`) | Atendimento |
 | `IMAP_PASSWORD` | Senha IMAP (fallback: `EMAIL_SENHA`) | Atendimento |
 | `PORTAL_FAKE_URL` | _(opcional)_ URL personalizada do portal | Cadastro |
+| `USAR_GOOGLE_DRIVE` | `True` para salvar e classificar arquivos no Google Drive, `False` para local | Atendimento |
 
 > **Nota:** Para Gmail, gere uma [Senha de App](https://myaccount.google.com/apppasswords).
 > A mesma senha de app pode ser usada para SMTP e IMAP.
+
+### Configuração do Google Drive (ERP)
+Para usar o Google Drive como ERP da empresa:
+1. Ative a **Google Drive API** no Google Cloud Console e baixe o arquivo de credenciais OAuth (tipo "Aplicativo para Computador").
+2. Renomeie o arquivo baixado para `credentials.json` e coloque-o na raiz do projeto.
+3. Defina `USAR_GOOGLE_DRIVE=True` no arquivo `.env`.
+4. Crie uma pasta raiz chamada `ERP_Portal_Fake` no seu Google Drive com as subpastas `Downloads`, `Documentos_OK`, `Documentos_Pendentes` e `Encaminhados`.
+5. Na primeira execução do script, o navegador abrirá automaticamente para você autorizar o acesso à sua conta do Google Drive (gerando o arquivo local `token.json` para as próximas conexões).
+
 
 ## Execução
 

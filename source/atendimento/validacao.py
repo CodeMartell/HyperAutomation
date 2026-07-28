@@ -18,6 +18,7 @@ Critério de "documentação completa" (justificativa):
 """
 
 import logging
+import re
 from pathlib import Path
 
 logger = logging.getLogger(__name__)
@@ -76,12 +77,26 @@ def _arquivo_pertence_categoria(nome_arquivo: str, categoria: str) -> bool:
     extensao = Path(nome_arquivo).suffix.lower()
 
     extensoes_ok = extensao in EXTENSOES_ACEITAS.get(categoria, [])
-    palavras_ok = any(
-        palavra in nome_lower
-        for palavra in DOCUMENTOS_OBRIGATORIOS[categoria]
-    )
+    if not extensoes_ok:
+        return False
 
-    return extensoes_ok and palavras_ok
+    nome_sem_ext = Path(nome_arquivo).stem.lower()
+    tokens = re.split(r'[_.\-\s]+', nome_sem_ext)
+
+    for palavra in DOCUMENTOS_OBRIGATORIOS[categoria]:
+        if palavra == "id":
+            # "id" deve ser um token exato para evitar casar dentro de "residencia"
+            if "id" in tokens:
+                return True
+        elif palavra == "rg":
+            # "rg" deve ser um token exato ou prefixo/sufixo de um token (ex: rg_joao, rgjoao)
+            if any(t == "rg" or t.startswith("rg") or t.endswith("rg") for t in tokens):
+                return True
+        else:
+            if palavra in nome_lower:
+                return True
+
+    return False
 
 
 def validar_documentacao(
@@ -179,3 +194,16 @@ if __name__ == "__main__":
     )
     print(f"Completa: {resultado['completa']}")
     print(f"Pendentes: {resultado['pendentes']}")
+
+    # Cenário Regressão: Apenas comprovante e ficha, sem documento de identidade
+    # (Não deve casar comprovante_residencia em documento_identidade via "id")
+    print("\n=== Cenário: FALSO POSITIVO (Apenas comprovante e ficha, sem identidade) ===")
+    resultado = validar_documentacao(
+        pasta_teste,
+        ["comprovante_residencia.pdf", "ficha_cadastro.pdf"],
+    )
+    print(f"Completa: {resultado['completa']}")
+    print(f"Pendentes: {resultado['pendentes']}")
+    assert not resultado['completa'], "FALHA: A validação deveria estar incompleta!"
+    assert "documento_identidade" in resultado['pendentes'], "FALHA: documento_identidade deveria estar pendente!"
+    print("✓ Teste de regressão passou com sucesso!")

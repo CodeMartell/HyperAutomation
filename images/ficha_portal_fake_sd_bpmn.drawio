@@ -11,10 +11,10 @@
           <mxGeometry height="260" width="1110" y="20" as="geometry" />
         </mxCell>
         <mxCell id="Q9vHVCl5U6ip794IbKEQ-1" parent="Q9vHVCl5U6ip794IbKEQ-3" style="points=[[0.145,0.145,0],[0.5,0,0],[0.855,0.145,0],[1,0.5,0],[0.855,0.855,0],[0.5,1,0],[0.145,0.855,0],[0,0.5,0]];shape=mxgraph.bpmn.event;html=1;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;align=center;perimeter=ellipsePerimeter;outlineConnect=0;aspect=fixed;outline=standard;symbol=general;" value="&lt;b&gt;Início do processo&lt;/b&gt;" vertex="1">
-          <mxGeometry height="73" width="73" x="110" y="30" as="geometry" />
+          <mxGeometry height="70" width="70" x="110" y="35" as="geometry" />
         </mxCell>
         <mxCell id="Q9vHVCl5U6ip794IbKEQ-10" parent="Q9vHVCl5U6ip794IbKEQ-3" style="points=[[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0.25,0],[1,0.5,0],[1,0.75,0],[0.75,1,0],[0.5,1,0],[0.25,1,0],[0,0.75,0],[0,0.5,0],[0,0.25,0]];shape=mxgraph.bpmn.task2;whiteSpace=wrap;rectStyle=rounded;size=10;html=1;container=1;expand=0;collapsible=0;taskMarker=abstract;" value="Acessar Portal Fake" vertex="1">
-          <mxGeometry height="46.5" width="90" x="240" y="47" as="geometry" />
+          <mxGeometry height="50" width="90" x="240" y="45" as="geometry" />
         </mxCell>
         <mxCell id="Q9vHVCl5U6ip794IbKEQ-11" edge="1" parent="Q9vHVCl5U6ip794IbKEQ-3" source="Q9vHVCl5U6ip794IbKEQ-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=-0.005;entryY=0.409;entryDx=0;entryDy=0;entryPerimeter=0;" target="Q9vHVCl5U6ip794IbKEQ-10">
           <mxGeometry relative="1" as="geometry" />
@@ -26,7 +26,7 @@
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="Q9vHVCl5U6ip794IbKEQ-14" parent="Q9vHVCl5U6ip794IbKEQ-3" style="points=[[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0.25,0],[1,0.5,0],[1,0.75,0],[0.75,1,0],[0.5,1,0],[0.25,1,0],[0,0.75,0],[0,0.5,0],[0,0.25,0]];shape=mxgraph.bpmn.task2;whiteSpace=wrap;rectStyle=rounded;size=10;html=1;container=1;expand=0;collapsible=0;taskMarker=abstract;align=center;" value="Gerar ficha de cadastro em Word&amp;nbsp; &amp;nbsp; &amp;nbsp;&amp;nbsp;" vertex="1">
-          <mxGeometry height="53.5" width="90" x="520" y="43.5" as="geometry" />
+          <mxGeometry height="50" width="90" x="520" y="45" as="geometry" />
         </mxCell>
         <mxCell id="Q9vHVCl5U6ip794IbKEQ-15" edge="1" parent="Q9vHVCl5U6ip794IbKEQ-3" source="Q9vHVCl5U6ip794IbKEQ-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" target="Q9vHVCl5U6ip794IbKEQ-14">
           <mxGeometry relative="1" as="geometry" />
