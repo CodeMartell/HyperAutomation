@@ -182,7 +182,7 @@ def receber_solicitacoes(pasta_erp: Path) -> list[dict]:
                 email_remetente = match.group(0) if match else remetente_raw
 
                 # ── Filtro 1: assunto (se configurado) ────────────────────────
-                if filtro_assunto and filtro_assunto not in assunto.lower():
+                if filtro_assunto and filtro_assunto.lower() not in assunto.lower():
                     logger.debug(
                         "Ignorado (assunto não corresponde): %s | Assunto: %s",
                         email_remetente, assunto,
