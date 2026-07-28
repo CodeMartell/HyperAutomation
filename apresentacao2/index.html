@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HyperAutomation — Apresentação Técnica Interativa</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;800&family=Outfit:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Particle Glow Canvas -->
+  <canvas id="bg-canvas"></canvas>
+
+  <div class="app-container">
+    
+    <!-- Top Header -->
+    <header class="top-header">
+      <div class="brand-logo">
+        <i class="fa-solid fa-robot" style="color: var(--neon-red);"></i>
+        <span>HyperAutomation</span>
+        <span class="brand-badge">IFAM / AX Academy</span>
+      </div>
+
+      <div class="progress-container">
+        <div class="progress-info">
+          <span id="slide-title-indicator">1. Capa & Identificação Executiva</span>
+          <span id="slide-count-indicator">Slide 1 de 9</span>
+        </div>
+        <div class="progress-bar-bg">
+          <div class="progress-bar-fill" id="progress-fill"></div>
+        </div>
+      </div>
+
+      <div class="header-actions">
+        <button class="btn-icon" id="fullscreen-btn" title="Modo Tela Cheia">
+          <i class="fa-solid fa-expand"></i>
+          <span>Tela Cheia</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Viewport for Slides -->
+    <main class="slides-viewport">
+
+      <!-- SLIDE 1: HERO COVER -->
+      <section class="slide active" id="slide-1">
+        <div class="hero-wrapper">
+          <div class="hero-main-card">
+            <div class="slide-tag">
+              <i class="fa-solid fa-fire"></i> Atividade 11 — Defesa da Solução
+            </div>
+            <h1 class="hero-title">Portal Fake Soluções Digitais</h1>
+            <p class="hero-desc">
+              Suíte de Hiperautomação end-to-end integrando captura inteligente de formulário web via <strong>Playwright</strong>, geração de fichas em Word (<strong>python-docx</strong>), monitoramento <strong>IMAP</strong>, validação documental por token/Regex e governança no <strong>Google Drive</strong>.
+            </p>
+
+            <div class="hero-meta-badges">
+              <div class="meta-chip"><i class="fa-solid fa-graduation-cap"></i> AX Academy / IFAM</div>
+              <div class="meta-chip"><i class="fa-solid fa-book-open"></i> Técnicas de Hyperautomation</div>
+              <div class="meta-chip"><i class="fa-solid fa-chalkboard-user"></i> Prof. Moisés Levy</div>
+              <div class="meta-chip"><i class="fa-solid fa-clock"></i> Tempo: 20 Minutos</div>
+              <div class="meta-chip"><i class="fa-solid fa-calendar"></i> 28/07/2026</div>
+            </div>
+          </div>
+
+          <div class="hero-team-container">
+            <h3><i class="fa-solid fa-users"></i> Equipe do Projeto</h3>
+            <div class="team-grid">
+              <div class="team-card">
+                <div class="avatar">RL</div>
+                <div class="team-info">
+                  <h4>Romulo Lira</h4>
+                  <p>Líder, Orquestração, GitFlow & Bugs</p>
+                </div>
+              </div>
+              <div class="team-card">
+                <div class="avatar">HC</div>
+                <div class="team-info">
+                  <h4>Huan Cruz</h4>
+                  <p>Modelagem BPMN & Visuais</p>
+                </div>
+              </div>
+              <div class="team-card">
+                <div class="avatar">GD</div>
+                <div class="team-info">
+                  <h4>Gilvan Daniel</h4>
+                  <p>Geração Ficha Word & SMTP</p>
+                </div>
+              </div>
+              <div class="team-card">
+                <div class="avatar">JN</div>
+                <div class="team-info">
+                  <h4>Jannas</h4>
+                  <p>Extração Web RPA (Playwright)</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 2: PIPELINE & OVERVIEW -->
+      <section class="slide" id="slide-2">
+        <div class="slide-header">
+          <div class="slide-tag"><i class="fa-solid fa-diagram-project"></i> Visão Geral da Arquitetura</div>
+          <h2 class="slide-title">Pipeline de Hyperautomation em 3 Etapas</h2>
+          <p class="slide-subtitle">Conexão contínua entre raspagem de dados web, orquestração de documentos e triagem inteligente de e-mails.</p>
+        </div>
+
+        <div class="pipeline-container">
+          <!-- Step 1 -->
+          <div class="pipeline-card">
+            <span class="stage-number">01</span>
+            <div class="stage-icon"><i class="fa-solid fa-globe"></i></div>
+            <h3 class="stage-title">Extração Web RPA</h3>
+            <p class="stage-desc">Playwright abre o Portal Fake em modo headless, clica no botão de cadastro e extrai os 7 campos cadastrais.</p>
+            <ul class="stage-details">
+              <li><i class="fa-solid fa-check" style="color:var(--neon-red)"></i> Chromium Headless Sync</li>
+              <li><i class="fa-solid fa-check" style="color:var(--neon-red)"></i> 7 Campos de formulário</li>
+              <li><i class="fa-solid fa-check" style="color:var(--neon-red)"></i> Screenshot em evidencias/</li>
+            </ul>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="pipeline-card">
+            <span class="stage-number">02</span>
+            <div class="stage-icon"><i class="fa-solid fa-file-word"></i></div>
+            <h3 class="stage-title">Documentação & E-mail</h3>
+            <p class="stage-desc">Geração da ficha oficial de cadastro em formato .docx com tabela estilizada e envio imediato via SMTP TLS.</p>
+            <ul class="stage-details">
+              <li><i class="fa-solid fa-check" style="color:var(--neon-red)"></i> Modelo python-docx</li>
+              <li><i class="fa-solid fa-check" style="color:var(--neon-red)"></i> Transmissão SMTP TLS</li>
+              <li><i class="fa-solid fa-check" style="color:var(--neon-red)"></i> Segredos com python-dotenv</li>
+            </ul>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="pipeline-card">
+            <span class="stage-number">03</span>
+            <div class="stage-icon"><i class="fa-solid fa-headset"></i></div>
+            <h3 class="stage-title">Atendimento & Google Drive</h3>
+            <p class="stage-desc">Monitoramento IMAP da caixa de entrada, validação de checklist documental por token/Regex e upload na nuvem.</p>
+            <ul class="stage-details">
+              <li><i class="fa-solid fa-check" style="color:var(--neon-red)"></i> IMAP SSL Monitor</li>
+              <li><i class="fa-solid fa-check" style="color:var(--neon-red)"></i> Validação por Token Match</li>
+              <li><i class="fa-solid fa-check" style="color:var(--neon-red)"></i> Sync com Google Drive API</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Metrics Stats -->
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-value" id="stat-auto">100%</div>
+            <div class="stat-label">Automação End-to-End</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value" id="stat-fields">95%</div>
+            <div class="stat-label">Redução do TMA</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value" id="stat-time">&lt; 3s</div>
+            <div class="stat-label">Tempo de Processamento</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value" id="stat-errors">0</div>
+            <div class="stat-label">Intervenções Manuais</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 3: BPMN INTERACTIVE FLOW -->
+      <section class="slide" id="slide-3">
+        <div class="slide-header">
+          <div class="slide-tag"><i class="fa-solid fa-sitemap"></i> BPMN 2.0</div>
+          <h2 class="slide-title">Modelagem Interativa do Processo</h2>
+          <p class="slide-subtitle">Clique nas etapas abaixo ou use as setas para simular visualmente a execução do fluxo BPMN.</p>
+        </div>
+
+        <div class="bpmn-view-wrapper">
+          <div class="bpmn-image-card">
+            <div class="bpmn-tabs" style="margin-bottom: 10px;">
+              <button class="bpmn-tab-btn active" id="tab-bpmn-1" onclick="switchBpmnSlide('cadastro')">
+                <i class="fa-solid fa-user-plus"></i> Cadastro (Original)
+              </button>
+              <button class="bpmn-tab-btn" id="tab-bpmn-2" onclick="switchBpmnSlide('atendimento')">
+                <i class="fa-solid fa-headset"></i> Atendimento (Novo BPMN)
+              </button>
+            </div>
+            <img src="../images/ficha_portal_fake_sd_bpmn.png" alt="BPMN Diagram" class="bpmn-img" id="bpmn-display-img" onclick="openModal(this.src, 'Modelagem BPMN 2.0 — Processo do Projeto')">
+            <div class="bpmn-controls">
+              <button class="btn-icon" id="bpmn-prev-btn"><i class="fa-solid fa-chevron-left"></i> Etapa Anterior</button>
+              <button class="btn-primary" id="bpmn-next-btn">Próxima Etapa <i class="fa-solid fa-chevron-right"></i></button>
+            </div>
+          </div>
+
+          <div class="step-card">
+            <div>
+              <div class="step-indicator">
+                <span class="step-badge" id="bpmn-step-badge">Etapa 1 / 5</span>
+                <i class="fa-solid fa-microchip" style="color:var(--neon-red)"></i>
+              </div>
+              <h3 class="step-title" id="bpmn-step-title">Início & Inicialização</h3>
+              <p class="step-body" id="bpmn-step-body">
+                O evento de início é disparado quando o orquestrador <code>main.py</code> carrega as variáveis de ambiente do arquivo <code>.env</code> e prepara os módulos de execução.
+              </p>
+            </div>
+
+            <div class="bpmn-nodes-list" id="bpmn-nodes-container">
+              <div class="bpmn-node-item active" data-step="0">1. Disparo do Evento de Início</div>
+              <div class="bpmn-node-item" data-step="1">2. Navegação ao Portal Fake (Playwright)</div>
+              <div class="bpmn-node-item" data-step="2">3. Extração dos Campos do Formulário</div>
+              <div class="bpmn-node-item" data-step="3">4. Geração do Artefato Ficha.docx</div>
+              <div class="bpmn-node-item" data-step="4">5. Triagem IMAP, Validação & Drive</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 4: TECH STACK & CODE VIEWER -->
+      <section class="slide" id="slide-4">
+        <div class="slide-header">
+          <div class="slide-tag"><i class="fa-solid fa-code"></i> Engenharia & Código</div>
+          <h2 class="slide-title">Stack Tecnológica & Implementação</h2>
+          <p class="slide-subtitle">Inspecione os módulos Python desenvolvidos com suporte a typings, tratamento de exceções e resiliência.</p>
+        </div>
+
+        <div class="tech-bar">
+          <div class="tech-chip"><i class="fa-brands fa-python" style="color:#ff4d6d;"></i> Python <span>3.10+</span></div>
+          <div class="tech-chip"><i class="fa-solid fa-masks-theater" style="color:#ff4d6d;"></i> Playwright <span>1.61.0</span></div>
+          <div class="tech-chip"><i class="fa-solid fa-file-word" style="color:#ff4d6d;"></i> python-docx <span>1.2.0</span></div>
+          <div class="tech-chip"><i class="fa-solid fa-envelope" style="color:#ff4d6d;"></i> smtplib <span>(stdlib)</span></div>
+          <div class="tech-chip"><i class="fa-solid fa-inbox" style="color:#ff4d6d;"></i> IMAP SSL <span>(stdlib)</span></div>
+          <div class="tech-chip"><i class="fa-brands fa-google-drive" style="color:#ff4d6d;"></i> Google Drive API</div>
+        </div>
+
+        <div class="code-viewer-container">
+          <div class="code-tabs">
+            <button class="code-tab active" data-file="main">main.py (Orquestrador)</button>
+            <button class="code-tab" data-file="extracao">extracao.py (Playwright)</button>
+            <button class="code-tab" data-file="documento">documento_email.py (Word)</button>
+            <button class="code-tab" data-file="leitura_email">leitura_email.py (IMAP Fix)</button>
+            <button class="code-tab" data-file="validacao">validacao.py (Token Match)</button>
+            <button class="code-tab" data-file="env_example">.env.example</button>
+          </div>
+          <div class="code-body">
+            <pre><code id="code-content-block">loading code...</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 5: RPA TERMINAL SIMULATOR -->
+      <section class="slide" id="slide-5">
+        <div class="slide-header">
+          <div class="slide-tag"><i class="fa-solid fa-terminal"></i> Live Demonstration</div>
+          <h2 class="slide-title">Simulador do Robô em Execução</h2>
+          <p class="slide-subtitle">Acompanhe a simulação em tempo real dos dois processos da suíte de Hiperautomação.</p>
+        </div>
+
+        <div class="sim-top-bar">
+          <button class="btn-primary" id="run-sim-btn">
+            <i class="fa-solid fa-play"></i> Executar Robô RPA
+          </button>
+          <button class="btn-icon" id="clear-sim-btn">
+            <i class="fa-solid fa-rotate-left"></i> Limpar Output
+          </button>
+          <div class="sim-status-box">
+            <span class="status-title">Status:</span>
+            <span id="sim-status-indicator" class="status-indicator-badge">
+              <span class="status-dot-idle"></span> Aguardando Disparo
+            </span>
+          </div>
+        </div>
+
+        <div class="sim-terminal-window">
+          <div class="sim-titlebar">
+            <div class="dots">
+              <span class="dot red"></span>
+              <span class="dot yellow"></span>
+              <span class="dot green"></span>
+            </div>
+            <span class="sim-title">bash — HyperAutomation (source/main.py & source/atendimento/main_atendimento.py)</span>
+          </div>
+          <pre class="sim-body" id="terminal-screen-output">Pressione "Executar Robô RPA" para iniciar a simulação...</pre>
+        </div>
+      </section>
+
+      <!-- SLIDE 6: VERSIONAMENTO & GITFLOW -->
+      <section class="slide" id="slide-6">
+        <div class="slide-header">
+          <div class="slide-tag"><i class="fa-solid fa-code-branch"></i> Governança de Código</div>
+          <h2 class="slide-title">Versionamento, GitFlow & Resiliência</h2>
+          <p class="slide-subtitle">Estratégia de branches no GitHub, ciclo de entregas por tags semânticas e refatoração de bugs cruciais.</p>
+        </div>
+
+        <div class="gitflow-container">
+          <div class="gitflow-tree-card">
+            <h3><i class="fa-solid fa-code-merge"></i> Ciclo de Vida do GitFlow no Projeto</h3>
+            <div class="gitflow-visual-box">
+              <div class="gitflow-row">
+                <span class="git-node feat"><i class="fa-solid fa-code-branch"></i> 1. feature/extracao, feature/documento-email, feature/processo-atendimento</span>
+              </div>
+              <div class="git-arrow-down" style="color:var(--bright-rose); text-align:center; font-weight:bold;">↓ Merge via Pull Request (PR)</div>
+              <div class="gitflow-row">
+                <span class="git-node dev"><i class="fa-solid fa-code-merge"></i> 2. develop (Branch de Integração Contínua)</span>
+              </div>
+              <div class="git-arrow-down" style="color:var(--bright-rose); text-align:center; font-weight:bold;">↓ Preparação de Release</div>
+              <div class="gitflow-row">
+                <span class="git-node release"><i class="fa-solid fa-rocket"></i> 3. release/1.0 & release/2.0 (Homologação)</span>
+              </div>
+              <div class="git-arrow-down" style="color:var(--bright-rose); text-align:center; font-weight:bold;">↓ Merge Final de Produção</div>
+              <div class="gitflow-row">
+                <span class="git-node main"><i class="fa-solid fa-shield-halved"></i> 4. main (Produção Auditada) ➔ Tag v1.0 & v2.0 - v2.3</span>
+              </div>
+            </div>
+
+            <div class="releases-tags-list" style="margin-top:12px;">
+              <div class="tag-chip red"><strong>Tag v1.0:</strong> Lançamento do Cadastro Básico (Playwright + Word + SMTP)</div>
+              <div class="tag-chip blue"><strong>Tag v2.0 - v2.3:</strong> Módulo de Atendimento Integrado (IMAP + Drive + Respostas Auto)</div>
+            </div>
+          </div>
+
+          <div class="gitflow-log-card">
+            <h3><i class="fa-solid fa-bug-slash"></i> Resolução de Bugs Críticos</h3>
+            <div class="commits-list">
+              <div class="commit-item">
+                <span class="commit-hash">Bug IMAP Fix</span>
+                <p class="commit-msg">Filtro de Assunto Case-Sensitive</p>
+                <span class="commit-author">Normalização com .lower() em ambas as pontas em leitura_email.py</span>
+              </div>
+              <div class="commit-item">
+                <span class="commit-hash">Bug Regex Token</span>
+                <p class="commit-msg">Falso Positivo de Identidade ("id")</p>
+                <span class="commit-author">Isolamento por delimitadores (re.split) em validacao.py para evitar conflito com "residencia"</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 7: EVIDENCE GALLERY -->
+      <section class="slide" id="slide-7">
+        <div class="slide-header">
+          <div class="slide-tag"><i class="fa-solid fa-camera"></i> Validação Experimental</div>
+          <h2 class="slide-title">Galeria de Evidências & Testes</h2>
+          <p class="slide-subtitle">Capturas em alta resolução comprovando o funcionamento do robô. Clique em qualquer imagem para ampliar.</p>
+        </div>
+
+        <div class="gallery-grid">
+          <!-- Card 1 -->
+          <div class="gallery-card" onclick="openModal('../evidencias/01_portal_fake_extracao.png', 'Evidência 1 — Portal Fake (Extração Playwright)')">
+            <div class="gallery-thumb">
+              <img src="../evidencias/01_portal_fake_extracao.png" alt="Portal Fake">
+            </div>
+            <div class="gallery-meta">
+              <div>
+                <h4 class="gallery-title">1. Portal Fake & Extração</h4>
+                <p class="gallery-caption">Formulário web capturado via Playwright.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="gallery-card" onclick="openModal('../evidencias/02_execucao_terminal.png', 'Evidência 2 — Execução no Terminal (main.py)')">
+            <div class="gallery-thumb">
+              <img src="../evidencias/02_execucao_terminal.png" alt="Terminal Execution">
+            </div>
+            <div class="gallery-meta">
+              <div>
+                <h4 class="gallery-title">2. Execução do Orquestrador</h4>
+                <p class="gallery-caption">Logs no terminal executando main.py.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="gallery-card" onclick="openModal('../evidencias/03_ficha_cadastro_docx.png', 'Evidência 3 — Ficha de Cadastro em Word (.docx)')">
+            <div class="gallery-thumb">
+              <img src="../evidencias/03_ficha_cadastro_docx.png" alt="Ficha Word">
+            </div>
+            <div class="gallery-meta">
+              <div>
+                <h4 class="gallery-title">3. Ficha em Word (.docx)</h4>
+                <p class="gallery-caption">Documento estruturado gerado nativamente.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="gallery-card" onclick="openModal('../evidencias/04_email_enviado.png', 'Evidência 4 — Confirmação de E-mail Enviado via SMTP')">
+            <div class="gallery-thumb">
+              <img src="../evidencias/04_email_enviado.png" alt="E-mail Sent">
+            </div>
+            <div class="gallery-meta">
+              <div>
+                <h4 class="gallery-title">4. Confirmação de E-mail</h4>
+                <p class="gallery-caption">Disparo via SMTP TLS com anexo.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 5 -->
+          <div class="gallery-card" onclick="openModal('../evidencias/05_github_repositorio.png', 'Evidência 5 — Repositório GitHub & Versionamento GitFlow')">
+            <div class="gallery-thumb">
+              <img src="../evidencias/05_github_repositorio.png" alt="GitHub Repo">
+            </div>
+            <div class="gallery-meta">
+              <div>
+                <h4 class="gallery-title">5. Repositório GitHub</h4>
+                <p class="gallery-caption">Branches, Pull Requests e Tags semânticas.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 6 -->
+          <div class="gallery-card" onclick="openModal('../evidencias/06_resposta_bot_atendimento.jpg', 'Evidência 6 — Resposta Automática do Robô no Gmail (Documentação Completa)')">
+            <div class="gallery-thumb">
+              <img src="../evidencias/06_resposta_bot_atendimento.jpg" alt="Resposta do Bot no Gmail">
+            </div>
+            <div class="gallery-meta">
+              <div>
+                <h4 class="gallery-title">6. Resposta Automática do Bot</h4>
+                <p class="gallery-caption">E-mail notificado com validação documental.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 8: DESAFIOS, SOLUÇÕES & ROADMAP -->
+      <section class="slide" id="slide-8">
+        <div class="slide-header">
+          <div class="slide-tag"><i class="fa-solid fa-map-location-dot"></i> Negócios & Roadmap</div>
+          <h2 class="slide-title">Impacto Operacional & Evolução</h2>
+          <p class="slide-subtitle">Análise dos ganhos quantitativos atingidos pela solução e direcionamento para expansão da plataforma.</p>
+        </div>
+
+        <div class="impact-cards-grid">
+          <!-- Impact 1 -->
+          <div class="impact-card">
+            <div class="impact-header-row">
+              <div class="impact-icon-wrapper">
+                <i class="fa-solid fa-clock-rotate-left"></i>
+              </div>
+              <div class="impact-number">-95%</div>
+            </div>
+            <div class="impact-title">Redução do TMA</div>
+            <div class="impact-desc">Processamento ultrarrápido reduzindo o tempo de atendimento de horas para 3 segundos.</div>
+          </div>
+
+          <!-- Impact 2 -->
+          <div class="impact-card">
+            <div class="impact-header-row">
+              <div class="impact-icon-wrapper">
+                <i class="fa-solid fa-file-circle-check"></i>
+              </div>
+              <div class="impact-number">100%</div>
+            </div>
+            <div class="impact-title">Precisão Documental</div>
+            <div class="impact-desc">Checagem exata por token matching (Regex) prevenindo aceitação de arquivos incorretos.</div>
+          </div>
+
+          <!-- Impact 3 -->
+          <div class="impact-card">
+            <div class="impact-header-row">
+              <div class="impact-icon-wrapper">
+                <i class="fa-brands fa-google-drive"></i>
+              </div>
+              <div class="impact-number">Nuvem</div>
+            </div>
+            <div class="impact-title">Governança Google Drive</div>
+            <div class="impact-desc">Organização e upload automático de solicitações validadas diretamente na nuvem.</div>
+          </div>
+        </div>
+
+        <div class="roadmap-wrapper">
+          <div class="roadmap-card">
+            <h3><i class="fa-solid fa-rocket" style="color:var(--bright-rose)"></i> Próximos Passos (Roadmap de Expansão)</h3>
+            <ul class="roadmap-list">
+              <li>
+                <div class="rm-badge">01</div>
+                <div>
+                  <strong>Leitura OCR com Visão Computacional (IA):</strong> Leitura automatizada do conteúdo interno de CNH e comprovantes.
+                </div>
+              </li>
+              <li>
+                <div class="rm-badge">02</div>
+                <div>
+                  <strong>Omnichannel WhatsApp Business:</strong> Notificações e recebimento de anexos via mensageria instantânea.
+                </div>
+              </li>
+              <li>
+                <div class="rm-badge">03</div>
+                <div>
+                  <strong>Dashboard BI de SLA em Tempo Real:</strong> Painel gerencial para acompanhamento de métricas operacionais.
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 9: CONCLUSÃO & ENCERRAMENTO -->
+      <section class="slide" id="slide-9">
+        <div class="conclusion-wrapper">
+          <div class="slide-tag"><i class="fa-solid fa-flag-checkered"></i> Encerramento</div>
+          <h2 class="conclusion-title">HyperAutomation Concluído com Sucesso</h2>
+          <p class="conclusion-text">
+            O projeto demonstrou na prática o poder da Hiperautomação ao integrar RPA Web (Playwright), orquestração de documentos Word (python-docx), comunicação SMTP/IMAP e sincronização de dados na nuvem com o Google Drive.
+          </p>
+
+          <div class="conclusion-actions">
+            <button class="btn-primary btn-large" id="restart-presentation-btn">
+              <i class="fa-solid fa-rotate-left"></i> Reiniciar Apresentação
+            </button>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Navigation Footer -->
+    <footer class="bottom-footer">
+      <div class="footer-left">
+        <button class="btn-nav" id="prev-slide-btn"><i class="fa-solid fa-arrow-left"></i> Anterior</button>
+        <button class="btn-nav" id="next-slide-btn">Próximo <i class="fa-solid fa-arrow-right"></i></button>
+      </div>
+
+      <div class="dots-container" id="dots-wrapper">
+        <!-- Generated by JS -->
+      </div>
+
+      <div class="footer-right">
+        <span class="keyboard-tip"><i class="fa-solid fa-keyboard"></i> Setas ◄ ► do teclado</span>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- Image Modal Lightbox -->
+  <div class="modal-overlay" id="img-modal">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeModal()">&times;</button>
+      <img id="modal-img-target" src="" alt="Ampliação da Evidência">
+      <div class="modal-caption" id="modal-caption-target"></div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+
+  <script>
+    function switchBpmnSlide(type) {
+      const img = document.getElementById('bpmn-display-img');
+      const tab1 = document.getElementById('tab-bpmn-1');
+      const tab2 = document.getElementById('tab-bpmn-2');
+
+      if (type === 'cadastro') {
+        img.src = '../images/ficha_portal_fake_sd_bpmn.png';
+        img.alt = 'BPMN Processo de Cadastro';
+        tab1.classList.add('active');
+        tab2.classList.remove('active');
+      } else {
+        img.src = '../images/Processo01_Atendimento_Novo.png';
+        img.alt = 'BPMN Processo 1 - Atendimento';
+        tab2.classList.add('active');
+        tab1.classList.remove('active');
+      }
+    }
+
+    // Modal functions for Evidence / BPMN zoom
+    function openModal(src, captionText) {
+      const modal = document.getElementById('img-modal');
+      const modalImg = document.getElementById('modal-img-target');
+      const modalCaption = document.getElementById('modal-caption-target');
+      
+      modalImg.src = src;
+      modalCaption.textContent = captionText;
+      modal.classList.add('active');
+    }
+
+    function closeModal() {
+      const modal = document.getElementById('img-modal');
+      modal.classList.remove('active');
+    }
+
+    document.getElementById('img-modal').addEventListener('click', (e) => {
+      if (e.target.id === 'img-modal') {
+        closeModal();
+      }
+    });
+  </script>
+
+</body>
+</html>
