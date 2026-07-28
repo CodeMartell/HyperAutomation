@@ -24,11 +24,25 @@ import imaplib
 import logging
 import os
 import re
+import socket
 from datetime import datetime
 from email.header import decode_header
 from pathlib import Path
 
 from dotenv import load_dotenv
+
+
+def _resolver_ipv4(host: str) -> str:
+    """
+    Resolve o hostname para um endereço IPv4 explícito.
+
+    Evita que o sistema tente IPv6 primeiro quando não há rota IPv6
+    disponível na rede local (erro 'No route to host' / errno -3).
+    """
+    infos = socket.getaddrinfo(host, None, socket.AF_INET)
+    if infos:
+        return infos[0][4][0]  # primeiro endereço IPv4 encontrado
+    return host  # fallback: retorna o host original
 
 logger = logging.getLogger(__name__)
 
@@ -112,7 +126,14 @@ def receber_solicitacoes(pasta_erp: Path) -> list[dict]:
     if filtro_assunto:
         logger.info("Filtro de assunto ativo: '%s'", filtro_assunto)
 
-    with imaplib.IMAP4_SSL(imap_host, imap_port) as servidor:
+    # Resolve para IPv4 explícito para evitar falha em redes sem rota IPv6
+    try:
+        imap_host_ipv4 = _resolver_ipv4(imap_host)
+        logger.info("Endereço IPv4 resolvido: %s", imap_host_ipv4)
+    except socket.gaierror:
+        imap_host_ipv4 = imap_host  # fallback: tenta com o hostname mesmo
+
+    with imaplib.IMAP4_SSL(imap_host_ipv4, imap_port) as servidor:
         servidor.login(imap_user, imap_password)
         servidor.select("INBOX")
 
