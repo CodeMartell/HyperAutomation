@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HyperAutomation — Apresentação Técnica Interativa</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;800&family=Outfit:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Particle Glow Canvas -->
+  <canvas id="bg-canvas"></canvas>
+
+  <div class="app-container">
+    
+    <!-- Top Header -->
+    <header class="top-header">
+      <div class="brand-logo">
+        <i class="fa-solid fa-robot" style="color: var(--neon-red);"></i>
+        <span>HyperAutomation</span>
+        <span class="brand-badge">IFAM / AX Academy</span>
+      </div>
+
+      <div class="progress-container">
+        <div class="progress-info">
+          <span id="slide-title-indicator">1. Capa & Identificação</span>
+          <span id="slide-count-indicator">Slide 1 de 9</span>
+        </div>
+        <div class="progress-bar-bg">
+          <div class="progress-bar-fill" id="progress-fill"></div>
+        </div>
+      </div>
+
+      <div class="header-actions">
+        <button class="btn-icon" id="fullscreen-btn" title="Modo Tela Cheia">
+          <i class="fa-solid fa-expand"></i>
+          <span>Tela Cheia</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Viewport for Slides -->
+    <main class="slides-viewport">
+
+      <!-- SLIDE 1: HERO COVER -->
+      <section class="slide active" id="slide-1">
+        <div class="hero-wrapper">
+          <div class="hero-main-card">
+            <div class="slide-tag">
+              <i class="fa-solid fa-fire"></i> Relatório Técnico Final
+            </div>
+            <h1 class="hero-title">Portal Fake Soluções Digitais</h1>
+            <p class="hero-desc">
+              Automação RPA end-to-end integrando captura inteligente de formulário web via <strong>Playwright</strong>, geração estruturada de documentos em Word (<strong>python-docx</strong>) e disparo seguro por e-mail <strong>SMTP TLS</strong>.
+            </p>
+
+            <div class="hero-meta-badges">
+              <div class="meta-chip"><i class="fa-solid fa-graduation-cap"></i> AX Academy / IFAM</div>
+              <div class="meta-chip"><i class="fa-solid fa-book-open"></i> Técnicas de Hyperautomation</div>
+              <div class="meta-chip"><i class="fa-solid fa-chalkboard-user"></i> Prof. Moisés Levy</div>
+              <div class="meta-chip"><i class="fa-solid fa-calendar"></i> 23/07/2026</div>
+            </div>
+          </div>
+
+          <div class="hero-team-container">
+            <h3><i class="fa-solid fa-users"></i> Equipe do Projeto</h3>
+            <div class="team-grid">
+              <div class="team-card">
+                <div class="avatar">RL</div>
+                <div class="team-info">
+                  <h4>Romulo Lira</h4>
+                  <p>Líder, Orquestração, GitFlow</p>
+                </div>
+              </div>
+              <div class="team-card">
+                <div class="avatar">HC</div>
+                <div class="team-info">
+                  <h4>Huan Cruz</h4>
+                  <p>Modelagem BPMN & Visuais</p>
+                </div>
+              </div>
+              <div class="team-card">
+                <div class="avatar">GD</div>
+                <div class="team-info">
+                  <h4>Gilvan Daniel</h4>
+                  <p>Geração de Ficha Word (.docx)</p>
+                </div>
+              </div>
+              <div class="team-card">
+                <div class="avatar">JN</div>
+                <div class="team-info">
+                  <h4>Jannas</h4>
+                  <p>Extração Web RPA (Playwright)</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 2: PIPELINE & OVERVIEW -->
+      <section class="slide" id="slide-2">
+        <div class="slide-header">
+          <div class="slide-tag"><i class="fa-solid fa-diagram-project"></i> Visão Geral da Arquitetura</div>
+          <h2 class="slide-title">Pipeline de Hyperautomation em 3 Etapas</h2>
+          <p class="slide-subtitle">Conexão contínua entre raspagem de dados web, orquestração de documentos e mensageria automatizada.</p>
+        </div>
+
+        <div class="pipeline-container">
+          <!-- Step 1 -->
+          <div class="pipeline-card">
+            <span class="stage-number">01</span>
+            <div class="stage-icon"><i class="fa-solid fa-globe"></i></div>
+            <h3 class="stage-title">Extração Web RPA</h3>
+            <p class="stage-desc">Playwright abre o Portal Fake em modo headless, dispara a geração de novo cadastro e extrai dados do formulário.</p>
+            <ul class="stage-details">
+              <li><i class="fa-solid fa-check" style="color:var(--neon-red)"></i> Chromium Headless Sync</li>
+              <li><i class="fa-solid fa-check" style="color:var(--neon-red)"></i> 7 Campos de formulário</li>
+              <li><i class="fa-solid fa-check" style="color:var(--neon-red)"></i> Evidência em Screenshot</li>
+            </ul>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="pipeline-card">
+            <span class="stage-number">02</span>
+            <div class="stage-icon"><i class="fa-solid fa-file-word"></i></div>
+            <h3 class="stage-title">Documentação Word</h3>
+            <p class="stage-desc">Geração dinâmica da ficha oficial de cadastro em formato .docx com formatação corporativa e tabela estilizada.</p>
+            <ul class="stage-details">
+              <li><i class="fa-solid fa-check" style="color:var(--neon-red)"></i> Modelo python-docx</li>
+              <li><i class="fa-solid fa-check" style="color:var(--neon-red)"></i> Tabela Grid com negrito</li>
+              <li><i class="fa-solid fa-check" style="color:var(--neon-red)"></i> Checklist & Assinatura</li>
+            </ul>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="pipeline-card">
+            <span class="stage-number">03</span>
+            <div class="stage-icon"><i class="fa-solid fa-paper-plane"></i></div>
+            <h3 class="stage-title">Disparo por E-mail</h3>
+            <p class="stage-desc">Envio automático do documento como anexo binário codificado via protocolo SMTP com criptografia TLS.</p>
+            <ul class="stage-details">
+              <li><i class="fa-solid fa-check" style="color:var(--neon-red)"></i> MIMEMultipart Base64</li>
+              <li><i class="fa-solid fa-check" style="color:var(--neon-red)"></i> Autenticação por .env</li>
+              <li><i class="fa-solid fa-check" style="color:var(--neon-red)"></i> Notificação de entrega</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Metrics Stats -->
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-value" id="stat-auto">100%</div>
+            <div class="stat-label">Automação End-to-End</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value" id="stat-fields">7/7</div>
+            <div class="stat-label">Campos Capturados</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value" id="stat-time">&lt; 3s</div>
+            <div class="stat-label">Tempo de Execução</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value" id="stat-errors">0</div>
+            <div class="stat-label">Intervenções Manuais</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 3: BPMN INTERACTIVE FLOW -->
+      <section class="slide" id="slide-3">
+        <div class="slide-header">
+          <div class="slide-tag"><i class="fa-solid fa-sitemap"></i> BPMN 2.0</div>
+          <h2 class="slide-title">Modelagem Interativa do Processo</h2>
+          <p class="slide-subtitle">Clique nas etapas abaixo ou use as setas para simular visualmente a execução do fluxo BPMN.</p>
+        </div>
+
+        <div class="bpmn-view-wrapper">
+          <div class="bpmn-image-card">
+            <img src="../images/ficha_portal_fake_sd_bpmn.png" alt="BPMN Diagram" class="bpmn-img" id="bpmn-display-img">
+            <div class="bpmn-controls">
+              <button class="btn-icon" id="bpmn-prev-btn"><i class="fa-solid fa-chevron-left"></i> Etapa Anterior</button>
+              <button class="btn-primary" id="bpmn-next-btn">Próxima Etapa <i class="fa-solid fa-chevron-right"></i></button>
+            </div>
+          </div>
+
+          <div class="step-card">
+            <div>
+              <div class="step-indicator">
+                <span class="step-badge" id="bpmn-step-badge">Etapa 1 / 5</span>
+                <i class="fa-solid fa-microchip" style="color:var(--neon-red)"></i>
+              </div>
+              <h3 class="step-title" id="bpmn-step-title">Início & Inicialização</h3>
+              <p class="step-body" id="bpmn-step-body">
+                O evento de início é disparado quando o orquestrador <code>main.py</code> carrega as variáveis de ambiente do arquivo <code>.env</code> e prepara os módulos de execução.
+              </p>
+            </div>
+
+            <div class="bpmn-nodes-list" id="bpmn-nodes-container">
+              <div class="bpmn-node-item active" data-step="0">1. Disparo do Evento de Início</div>
+              <div class="bpmn-node-item" data-step="1">2. Navegação ao Portal Fake (Playwright)</div>
+              <div class="bpmn-node-item" data-step="2">3. Extração dos Campos do Formulário</div>
+              <div class="bpmn-node-item" data-step="3">4. Geração do Artefato Ficha.docx</div>
+              <div class="bpmn-node-item" data-step="4">5. Disparo de E-mail SMTP e Encerramento</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 4: TECH STACK & CODE VIEWER -->
+      <section class="slide" id="slide-4">
+        <div class="slide-header">
+          <div class="slide-tag"><i class="fa-solid fa-code"></i> Engenharia & Código</div>
+          <h2 class="slide-title">Stack Tecnológica & Implementação</h2>
+          <p class="slide-subtitle">Inspecione os módulos em Python 3.14 desenvolvidos com suporte a typings e tratamento resiliente de erros.</p>
+        </div>
+
+        <div class="tech-bar">
+          <div class="tech-chip"><i class="fa-brands fa-python" style="color:#ff4d6d;"></i> Python <span>3.14</span></div>
+          <div class="tech-chip"><i class="fa-solid fa-masks-theater" style="color:#ff4d6d;"></i> Playwright <span>1.61.0</span></div>
+          <div class="tech-chip"><i class="fa-solid fa-file-word" style="color:#ff4d6d;"></i> python-docx <span>1.2.0</span></div>
+          <div class="tech-chip"><i class="fa-solid fa-envelope" style="color:#ff4d6d;"></i> smtplib <span>(stdlib)</span></div>
+          <div class="tech-chip"><i class="fa-solid fa-key" style="color:#ff4d6d;"></i> python-dotenv <span>1.2.2</span></div>
+        </div>
+
+        <div class="code-viewer-container">
+          <div class="code-tabs">
+            <button class="code-tab active" data-file="main">main.py (Orquestrador)</button>
+            <button class="code-tab" data-file="extracao">extracao.py (Playwright)</button>
+            <button class="code-tab" data-file="documento">documento_email.py (Word)</button>
+            <button class="code-tab" data-file="envio">envio_email.py (SMTP)</button>
+            <button class="code-tab" data-file="env_example">.env.example</button>
+          </div>
+          <div class="code-body">
+            <pre><code id="code-content-block">loading code...</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 5: RPA TERMINAL SIMULATOR -->
+      <section class="slide" id="slide-5">
+        <div class="slide-header">
+          <div class="slide-tag"><i class="fa-solid fa-terminal"></i> Live Demonstration</div>
+          <h2 class="slide-title">Simulador de Execução do Robô RPA</h2>
+          <p class="slide-subtitle">Clique no botão abaixo para assistir à simulação interativa da execução em tempo real do script <code>source/main.py</code>.</p>
+        </div>
+
+        <div class="terminal-wrapper">
+          <div class="terminal-header">
+            <div class="terminal-dots">
+              <span class="dot red"></span>
+              <span class="dot yellow"></span>
+              <span class="dot green"></span>
+            </div>
+            <div class="terminal-title">bash — python source/main.py</div>
+            <div></div>
+          </div>
+
+          <div class="terminal-body" id="terminal-screen">
+            <div class="terminal-output" id="terminal-log">Clique em "Executar Robô RPA" para iniciar o fluxo completo de automação...</div>
+            <span class="terminal-cursor"></span>
+          </div>
+
+          <div class="terminal-actions">
+            <span style="font-size:0.85rem; color:var(--text-muted);">Status: <strong id="terminal-status-text" style="color:var(--bright-rose)">Aguardando Início</strong></span>
+            <button class="btn-primary" id="run-rpa-btn">
+              <i class="fa-solid fa-play"></i> Executar Robô RPA
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 6: GITFLOW & VERSIONING -->
+      <section class="slide" id="slide-6">
+        <div class="slide-header">
+          <div class="slide-tag"><i class="fa-solid fa-code-branch"></i> GitFlow & Governança</div>
+          <h2 class="slide-title">Estratégia de Branches & Versionamento</h2>
+          <p class="slide-subtitle">Controle rigoroso de alterações com fluxo de Pull Requests e Releases etiquetadas no GitHub.</p>
+        </div>
+
+        <div class="gitflow-container">
+          <div class="branches-card">
+            <h3><i class="fa-solid fa-code-merge" style="color:var(--neon-red)"></i> Estrutura de Branches</h3>
+
+            <div class="branch-item">
+              <div class="branch-name"><i class="fa-solid fa-shield-halved"></i> main</div>
+              <span class="branch-tag">Tag v1.0 (Release Final)</span>
+            </div>
+            <div class="branch-item">
+              <div class="branch-name"><i class="fa-solid fa-boxes-packing"></i> release/1.0</div>
+              <span class="branch-tag">Validação e Ajustes</span>
+            </div>
+            <div class="branch-item">
+              <div class="branch-name"><i class="fa-solid fa-code-pull-request"></i> develop</div>
+              <span class="branch-tag">Integração Contínua</span>
+            </div>
+            <div class="branch-item">
+              <div class="branch-name"><i class="fa-solid fa-cube"></i> feature/extracao</div>
+              <span class="branch-tag">Dev: Playwright Scraping</span>
+            </div>
+            <div class="branch-item">
+              <div class="branch-name"><i class="fa-solid fa-cube"></i> feature/documento-email</div>
+              <span class="branch-tag">Dev: Word Doc & SMTP</span>
+            </div>
+          </div>
+
+          <div class="commits-card">
+            <h3><i class="fa-solid fa-clock-rotate-left" style="color:var(--neon-red)"></i> Linha do Tempo de Commits</h3>
+            <br>
+            <div class="timeline">
+              <div class="commit-node">
+                <span class="commit-hash">fae5c29</span>
+                <div class="commit-msg">chore: merge release/1.0 para entrega final</div>
+                <div class="commit-author">Romulo Lira • 23/07/2026</div>
+              </div>
+              <div class="commit-node">
+                <span class="commit-hash">fcc0d02</span>
+                <div class="commit-msg">feat: resolve pendências da auditoria Semana06</div>
+                <div class="commit-author">Romulo Lira • 23/07/2026</div>
+              </div>
+              <div class="commit-node">
+                <span class="commit-hash">181f152</span>
+                <div class="commit-msg">feat: implementa template e layout da ficha .docx</div>
+                <div class="commit-author">Gilvan Daniel • 21/07/2026</div>
+              </div>
+              <div class="commit-node">
+                <span class="commit-hash">9cb2e2a</span>
+                <div class="commit-msg">feat: adiciona script de extração web via Playwright</div>
+                <div class="commit-author">Jannas • 21/07/2026</div>
+              </div>
+              <div class="commit-node">
+                <span class="commit-hash">4d532de</span>
+                <div class="commit-msg">docs: inclusão dos diagramas e especificações BPMN</div>
+                <div class="commit-author">Huan Cruz • 21/07/2026</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 7: EVIDENCE GALLERY -->
+      <section class="slide" id="slide-7">
+        <div class="slide-header">
+          <div class="slide-tag"><i class="fa-solid fa-images"></i> Evidências & Testes</div>
+          <h2 class="slide-title">Galeria de Resultados & Validação</h2>
+          <p class="slide-subtitle">Clique em qualquer imagem para ampliação em alta resolução com detalhes de execução.</p>
+        </div>
+
+        <div class="gallery-grid">
+          <!-- Card 1 -->
+          <div class="gallery-card" data-img="../evidencias/01_portal_fake_extracao.png" data-title="01. Extração no Portal Fake" data-desc="Navegação via Playwright, clique no botão Novo Cadastro e captura automática dos 7 campos de teste.">
+            <div class="gallery-thumb">
+              <img src="../evidencias/01_portal_fake_extracao.png" alt="Portal Fake">
+            </div>
+            <div class="gallery-meta">
+              <h4 class="gallery-title">01. Portal Fake & Extração</h4>
+              <p class="gallery-caption">Campos de entrada preenchidos com dados randômicos e extraídos.</p>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="gallery-card" data-img="../evidencias/02_execucao_terminal.png" data-title="02. Terminal de Execução" data-desc="Log detalhado de saída do script main.py comprovando a conclusão das 3 etapas sem erros.">
+            <div class="gallery-thumb">
+              <img src="../evidencias/02_execucao_terminal.png" alt="Execução Terminal">
+            </div>
+            <div class="gallery-meta">
+              <h4 class="gallery-title">02. Execução no Terminal</h4>
+              <p class="gallery-caption">Terminal exibindo orquestração dos 3 módulos com sucesso.</p>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="gallery-card" data-img="../evidencias/03_ficha_cadastro_docx.png" data-title="03. Ficha Gerada em Word" data-desc="Documento Word (.docx) criado na pasta resources/ contendo tabela formatada e checklist.">
+            <div class="gallery-thumb">
+              <img src="../evidencias/03_ficha_cadastro_docx.png" alt="Ficha Word">
+            </div>
+            <div class="gallery-meta">
+              <h4 class="gallery-title">03. Documento .docx Gerado</h4>
+              <p class="gallery-caption">Ficha de cadastro formatada com layout corporativo.</p>
+            </div>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="gallery-card" data-img="../evidencias/04_email_enviado.png" data-title="04. E-mail Recebido com Anexo" data-desc="Confirmação de recebimento da mensagem no destinatário com a ficha em anexo via Gmail SMTP.">
+            <div class="gallery-thumb">
+              <img src="../evidencias/04_email_enviado.png" alt="E-mail enviado">
+            </div>
+            <div class="gallery-meta">
+              <h4 class="gallery-title">04. Disparo por E-mail</h4>
+              <p class="gallery-caption">Caixa de entrada com a ficha anexada e corpo MIME.</p>
+            </div>
+          </div>
+
+          <!-- Card 5 -->
+          <div class="gallery-card" data-img="../evidencias/05_github_repositorio.png" data-title="05. Repositório no GitHub" data-desc="Estrutura de repositório público com branches e tag v1.0 configuradas.">
+            <div class="gallery-thumb">
+              <img src="../evidencias/05_github_repositorio.png" alt="GitHub Repo">
+            </div>
+            <div class="gallery-meta">
+              <h4 class="gallery-title">05. Repositório GitHub</h4>
+              <p class="gallery-caption">Publicação em CodeMartell/HyperAutomation com tag v1.0.</p>
+            </div>
+          </div>
+
+          <!-- Card 6 -->
+          <div class="gallery-card" data-img="../images/ficha_portal_fake_sd_bpmn.png" data-title="06. Diagrama BPMN 2.0 Oficial" data-desc="Modelagem gráfica de processo exportada do aplicativo Draw.io.">
+            <div class="gallery-thumb">
+              <img src="../images/ficha_portal_fake_sd_bpmn.png" alt="BPMN Diagram">
+            </div>
+            <div class="gallery-meta">
+              <h4 class="gallery-title">06. BPMN Diagram Flow</h4>
+              <p class="gallery-caption">Fluxo de processo padronizado em notação BPMN.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 8: CHALLENGES & ROADMAP -->
+      <section class="slide" id="slide-8">
+        <div class="slide-header">
+          <div class="slide-tag"><i class="fa-solid fa-lightbulb"></i> Lições & Futuro</div>
+          <h2 class="slide-title">Desafios Superados & Roadmap</h2>
+          <p class="slide-subtitle">Soluções engenhosas aplicadas e oportunidades de evolução tecnológica.</p>
+        </div>
+
+        <div class="roadmap-wrapper">
+          <div class="challenge-card">
+            <h3><i class="fa-solid fa-triangle-exclamation" style="color:var(--neon-red)"></i> Desafios & Soluções</h3>
+            <br>
+            <div class="challenge-item">
+              <div class="challenge-title"><i class="fa-solid fa-link"></i> Caminho Relativo do Portal HTML</div>
+              <div class="solution-box">
+                O arquivo original referenciava caminhos absolutos do Windows. Solucionado com fallback usando <code>Path(__file__).resolve().parent</code> e protocolo <code>file://</code> multiplataforma.
+              </div>
+            </div>
+
+            <div class="challenge-item">
+              <div class="challenge-title"><i class="fa-solid fa-lock"></i> Autenticação SMTP no Gmail</div>
+              <div class="solution-box">
+                Restrição de acesso por senha convencional. Resolvido configurando <em>Senhas de App</em> com 2FA ativado e suporte a TLS na porta 587.
+              </div>
+            </div>
+
+            <div class="challenge-item">
+              <div class="challenge-title"><i class="fa-solid fa-arrows-split-up-and-left"></i> Modularização e GitFlow</div>
+              <div class="solution-box">
+                Scripts funcionavam de forma isolada. Desenvolvido o orquestrador <code>main.py</code> e padronizadas as mesclagens via Pull Requests.
+              </div>
+            </div>
+          </div>
+
+          <div class="future-card">
+            <h3><i class="fa-solid fa-rocket" style="color:var(--neon-red)"></i> Melhorias Futuras</h3>
+            <div class="future-grid">
+              <div class="future-item">
+                <i class="fa-solid fa-desktop"></i>
+                <h4>Interface Gráfica (GUI)</h4>
+                <p>Desenvolver painel web/desktop para disparo por operadores.</p>
+              </div>
+              <div class="future-item">
+                <i class="fa-solid fa-file-pdf"></i>
+                <h4>Conversão para PDF</h4>
+                <p>Exportação direta do arquivo Word para formato PDF compilado.</p>
+              </div>
+              <div class="future-item">
+                <i class="fa-solid fa-clock"></i>
+                <h4>Agendamento Cron</h4>
+                <p>Processamento automático em lote em horários programados.</p>
+              </div>
+              <div class="future-item">
+                <i class="fa-solid fa-bug"></i>
+                <h4>Logging Estruturado</h4>
+                <p>Gravação de logs em arquivos .log e monitoramento de falhas.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 9: CONCLUSION -->
+      <section class="slide" id="slide-9">
+        <div style="display:flex; align-items:center; justify-content:center; height:100%;">
+          <div class="conclusion-card">
+            <div class="slide-tag" style="justify-content: center;"><i class="fa-solid fa-flag-checkered"></i> Encerramento</div>
+            <h2 class="conclusion-title">Projeto Concluído com Sucesso!</h2>
+            <p class="conclusion-body">
+              A automação do <strong>Portal Fake Soluções Digitais</strong> exemplifica com maestria o poder da <strong>Hyperautomation</strong> — integrando robótica de navegação web, orquestração de documentos corporativos e comunicação segura em um fluxo 100% autônomo e confiável.
+            </p>
+            <div class="conclusion-actions">
+              <a href="https://github.com/CodeMartell/HyperAutomation" target="_blank" class="btn-primary" style="text-decoration:none;">
+                <i class="fa-brands fa-github"></i> Ver no GitHub (CodeMartell)
+              </a>
+              <button class="btn-icon" id="restart-presentation-btn">
+                <i class="fa-solid fa-rotate-left"></i> Reiniciar Apresentação
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Bottom Controls Bar -->
+    <nav class="bottom-nav">
+      <button class="nav-btn" id="prev-slide-btn" title="Slide Anterior"><i class="fa-solid fa-arrow-left"></i></button>
+      
+      <div class="slide-dots-container" id="dots-wrapper">
+        <!-- Dots injected by JS -->
+      </div>
+
+      <button class="nav-btn" id="next-slide-btn" title="Próximo Slide"><i class="fa-solid fa-arrow-right"></i></button>
+    </nav>
+
+  </div>
+
+  <!-- Lightbox Modal -->
+  <div class="lightbox-modal" id="lightbox-modal">
+    <button class="lightbox-close" id="lightbox-close">&times;</button>
+    <div class="lightbox-content">
+      <img src="" alt="Lightbox image" class="lightbox-img" id="lightbox-target-img">
+    </div>
+  </div>
+
+  <!-- JavaScript App Script -->
+  <script src="app.js"></script>
+</body>
+</html>
