@@ -2,3 +2,6 @@ playwright
 python-docx
 python-dotenv
 Pillow
+google-api-python-client
+google-auth-httplib2
+google-auth-oauthlib
