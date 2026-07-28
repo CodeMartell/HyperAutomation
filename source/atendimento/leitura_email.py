@@ -5,12 +5,18 @@ Conecta a uma caixa IMAP, lista e-mails não lidos na pasta INBOX,
 baixa os anexos de cada mensagem para a estrutura ERP_Portal_Fake/Downloads/
 e retorna uma lista de solicitações com seus metadados.
 
+Filtros aplicados (configuráveis via .env):
+    - Somente e-mails com pelo menos 1 anexo são processados.
+    - IMAP_FILTRO_ASSUNTO: se definido, somente e-mails cujo assunto
+      contenha essa palavra-chave (case-insensitive) são processados.
+      Exemplo: IMAP_FILTRO_ASSUNTO=atendimento
+
 Justificativa da biblioteca:
     imaplib — biblioteca padrão do Python, sem dependência extra.
     Consistente com o uso de smtplib já adotado no projeto. Suporta
     IMAP4 over SSL (porta 993), compatível com Gmail e Outlook.
-    email.policy.default — garante parsing correto de MIME/multipart
-    em Python ≥ 3.6.
+    Uso de RFC822.PEEK evita marcar e-mails como lidos antes da
+    validação de anexos.
 """
 
 import email
@@ -44,14 +50,27 @@ def _sanitizar_nome(nome: str) -> str:
     return re.sub(r"[^\w\-_. ]", "_", nome).strip()
 
 
+def _tem_anexo(mensagem: email.message.Message) -> bool:
+    """Verifica rapidamente se a mensagem possui ao menos um anexo."""
+    for parte in mensagem.walk():
+        if "attachment" in parte.get("Content-Disposition", "") and parte.get_filename():
+            return True
+    return False
+
+
 def receber_solicitacoes(pasta_erp: Path) -> list[dict]:
     """
     Conecta ao servidor IMAP, lê os e-mails não lidos e baixa os anexos.
 
-    Para cada e-mail não lido, cria uma subpasta em:
-        ERP_Portal_Fake/Downloads/<YYYYMMDD_HHMMSS_remetente>/
+    Somente processa e-mails que:
+        1. Possuam ao menos 1 anexo.
+        2. (Opcional) Tenham a palavra-chave IMAP_FILTRO_ASSUNTO no assunto.
 
-    e salva todos os anexos nela. Marca o e-mail como lido após o processamento.
+    E-mails sem anexo são ignorados e NÃO são marcados como lidos,
+    para não interferir com a caixa do usuário.
+
+    Para cada e-mail aceito, cria uma subpasta em:
+        ERP_Portal_Fake/Downloads/<YYYYMMDD_HHMMSS_remetente>/
 
     Args:
         pasta_erp: Caminho raiz do ERP_Portal_Fake.
@@ -75,6 +94,7 @@ def receber_solicitacoes(pasta_erp: Path) -> list[dict]:
     imap_port = int(os.getenv("IMAP_PORT", "993"))
     imap_user = os.getenv("IMAP_USER") or os.getenv("EMAIL_REMETENTE")
     imap_password = os.getenv("IMAP_PASSWORD") or os.getenv("EMAIL_SENHA")
+    filtro_assunto = (os.getenv("IMAP_FILTRO_ASSUNTO") or "").strip().lower()
 
     if not imap_user or not imap_password:
         raise ValueError(
@@ -86,8 +106,11 @@ def receber_solicitacoes(pasta_erp: Path) -> list[dict]:
     pasta_downloads.mkdir(parents=True, exist_ok=True)
 
     solicitacoes: list[dict] = []
+    ignorados = 0
 
     logger.info("Conectando ao servidor IMAP (%s:%s)...", imap_host, imap_port)
+    if filtro_assunto:
+        logger.info("Filtro de assunto ativo: '%s'", filtro_assunto)
 
     with imaplib.IMAP4_SSL(imap_host, imap_port) as servidor:
         servidor.login(imap_user, imap_password)
@@ -104,18 +127,38 @@ def receber_solicitacoes(pasta_erp: Path) -> list[dict]:
 
         for msg_id in ids_mensagens:
             try:
-                _, dados_msg = servidor.fetch(msg_id, "(RFC822)")
+                # RFC822.PEEK lê sem marcar como lido — permite filtrar antes
+                _, dados_msg = servidor.fetch(msg_id, "(RFC822.PEEK)")
                 raw = dados_msg[0][1]
                 mensagem = email.message_from_bytes(raw)
 
-                remetente = _decodificar_cabecalho(mensagem.get("From", ""))
+                remetente_raw = _decodificar_cabecalho(mensagem.get("From", ""))
                 assunto = _decodificar_cabecalho(mensagem.get("Subject", "(sem assunto)"))
                 data_recebimento = mensagem.get("Date", "")
 
                 # Extrair apenas o endereço de e-mail do remetente
-                match = re.search(r"[\w.\-+]+@[\w.\-]+", remetente)
-                email_remetente = match.group(0) if match else remetente
+                match = re.search(r"[\w.\-+]+@[\w.\-]+", remetente_raw)
+                email_remetente = match.group(0) if match else remetente_raw
 
+                # ── Filtro 1: assunto (se configurado) ────────────────────────
+                if filtro_assunto and filtro_assunto not in assunto.lower():
+                    logger.debug(
+                        "Ignorado (assunto não corresponde): %s | Assunto: %s",
+                        email_remetente, assunto,
+                    )
+                    ignorados += 1
+                    continue
+
+                # ── Filtro 2: obrigatório ter pelo menos 1 anexo ──────────────
+                if not _tem_anexo(mensagem):
+                    logger.debug(
+                        "Ignorado (sem anexo): %s | Assunto: %s",
+                        email_remetente, assunto,
+                    )
+                    ignorados += 1
+                    continue
+
+                # ── Aceito: baixar anexos ──────────────────────────────────────
                 timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
                 id_solicitacao = _sanitizar_nome(
                     f"{timestamp}_{email_remetente}"
@@ -156,12 +199,13 @@ def receber_solicitacoes(pasta_erp: Path) -> list[dict]:
                     }
                 )
 
-                # Marcar como lido
+                # Marca como lido SOMENTE após aceitar e processar
                 servidor.store(msg_id, "+FLAGS", "\\Seen")
                 logger.info(
-                    "Solicitação recebida de %s com %d anexo(s).",
+                    "✓ Solicitação aceita de %s com %d anexo(s). Assunto: '%s'",
                     email_remetente,
                     len(anexos_baixados),
+                    assunto,
                 )
 
             except Exception as erro:
@@ -169,6 +213,12 @@ def receber_solicitacoes(pasta_erp: Path) -> list[dict]:
                     "Erro ao processar mensagem ID %s: %s", msg_id, erro
                 )
                 continue
+
+    if ignorados:
+        logger.info(
+            "%d e-mail(s) ignorado(s) por não ter anexo ou não passar no filtro de assunto.",
+            ignorados,
+        )
 
     return solicitacoes
 
