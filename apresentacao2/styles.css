@@ -581,32 +581,48 @@ html, body {
 .code-left-panel {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 8px;
   overflow-y: auto;
   padding-right: 4px;
 }
 
 .code-left-panel .slide-header {
+  margin-bottom: 4px;
+}
+
+.code-left-panel .slide-tag {
+  font-size: 0.8rem;
   margin-bottom: 2px;
+}
+
+.code-left-panel .slide-title {
+  font-size: 1.6rem;
+  line-height: 1.2;
+}
+
+.code-left-panel .slide-subtitle {
+  font-size: 0.85rem;
+  margin-top: 2px;
+  line-height: 1.3;
 }
 
 .tech-grid {
   display: flex;
   flex-wrap: wrap;
-  gap: 6px;
+  gap: 5px;
   margin-bottom: 4px;
 }
 
 .tech-chip {
   background: var(--bg-card);
   border: 1px solid var(--border-crimson);
-  padding: 5px 10px;
+  padding: 4px 8px;
   border-radius: var(--radius-sm);
-  font-size: 0.78rem;
+  font-size: 0.75rem;
   font-weight: 600;
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 5px;
 }
 
 .tech-chip span {
@@ -615,7 +631,7 @@ html, body {
 
 .code-files-header {
   font-family: var(--font-mono);
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   font-weight: 700;
   color: var(--neon-red);
   text-transform: uppercase;
@@ -623,13 +639,14 @@ html, body {
   display: flex;
   align-items: center;
   gap: 6px;
-  margin-top: 2px;
+  margin-top: 4px;
+  margin-bottom: 2px;
 }
 
 .code-vertical-tabs {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 5px;
 }
 
 .code-vertical-tabs .code-tab {
@@ -639,7 +656,7 @@ html, body {
   background: var(--bg-glass);
   border: 1px solid var(--border-crimson);
   border-radius: var(--radius-sm);
-  padding: 8px 12px;
+  padding: 7px 10px;
   cursor: pointer;
   transition: var(--transition-smooth);
   text-align: left;
@@ -647,10 +664,10 @@ html, body {
 }
 
 .code-vertical-tabs .code-tab i {
-  font-size: 1rem;
+  font-size: 0.95rem;
   color: var(--text-dim);
   transition: var(--transition-smooth);
-  width: 20px;
+  width: 18px;
   text-align: center;
 }
 
@@ -661,13 +678,13 @@ html, body {
 
 .code-vertical-tabs .code-tab .file-name {
   font-family: var(--font-mono);
-  font-size: 0.85rem;
+  font-size: 0.82rem;
   font-weight: 700;
   color: var(--text-main);
 }
 
 .code-vertical-tabs .code-tab .file-desc {
-  font-size: 0.72rem;
+  font-size: 0.7rem;
   color: var(--text-muted);
 }
 
