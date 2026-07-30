@@ -781,21 +781,163 @@ html, body {
 .token-comment { color: #7a6369; font-style: italic; }
 .token-num { color: #ffd166; }
 
-/* Slide 5: RPA Terminal Simulator */
-.terminal-wrapper {
-  background: #080204;
-  border: 1px solid var(--border-crimson);
-  border-radius: var(--radius-md);
+/* Slide 5: RPA Terminal Simulator (Two-Column Split Layout) */
+.sim-left-panel {
   display: flex;
   flex-direction: column;
-  height: calc(100% - 120px);
-  box-shadow: 0 20px 50px rgba(0,0,0,0.8);
+  gap: 8px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.sim-left-panel .slide-header {
+  margin-bottom: 4px;
+}
+
+.sim-left-panel .slide-tag {
+  font-size: 0.8rem;
+  margin-bottom: 2px;
+}
+
+.sim-left-panel .slide-title {
+  font-size: 1.6rem;
+  line-height: 1.2;
+}
+
+.sim-left-panel .slide-subtitle {
+  font-size: 0.85rem;
+  margin-top: 2px;
+  line-height: 1.3;
+}
+
+.sim-control-card {
+  background: var(--bg-glass);
+  border: 1px solid var(--border-crimson);
+  border-radius: var(--radius-md);
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.sim-card-title {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--neon-red);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.sim-actions-grid {
+  display: flex;
+  gap: 8px;
+}
+
+.sim-actions-grid .btn-primary {
+  flex: 1;
+  justify-content: center;
+  padding: 8px 12px;
+  font-size: 0.82rem;
+}
+
+.sim-actions-grid .btn-icon {
+  padding: 8px 10px;
+  font-size: 0.82rem;
+}
+
+.sim-status-box {
+  background: rgba(0,0,0,0.4);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: var(--radius-sm);
+  padding: 6px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.78rem;
+}
+
+.status-title {
+  color: var(--text-muted);
+}
+
+.status-dot-idle {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #ffbd2e;
+  margin-right: 4px;
+}
+
+.sim-info-card {
+  background: rgba(255, 77, 109, 0.05);
+  border: 1px solid var(--border-crimson);
+  border-radius: var(--radius-md);
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.sim-info-title {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--bright-rose);
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.sim-steps-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.sim-steps-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 0.75rem;
+  color: var(--text-main);
+  line-height: 1.3;
+}
+
+.sim-steps-list li i {
+  margin-top: 2px;
+  font-size: 0.8rem;
+}
+
+/* Right Panel - Terminal Window Full Height */
+.sim-right-panel {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.terminal-window {
+  background: #050103;
+  border: 1px solid var(--border-crimson);
+  border-radius: var(--radius-md);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
   overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.8);
 }
 
 .terminal-header {
   background: #140509;
-  padding: 12px 20px;
+  padding: 10px 16px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -807,50 +949,41 @@ html, body {
   gap: 8px;
 }
 
-.dot {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-}
-.dot.red { background: #ff5f56; }
-.dot.yellow { background: #ffbd2e; }
-.dot.green { background: #27c93f; }
-
 .terminal-title {
   font-family: var(--font-mono);
-  font-size: 0.85rem;
-  color: var(--text-muted);
+  font-size: 0.82rem;
+  color: var(--text-main);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.terminal-badge {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  background: rgba(0, 255, 102, 0.15);
+  color: #00ff66;
+  padding: 2px 8px;
+  border-radius: 4px;
+  border: 1px solid rgba(0, 255, 102, 0.3);
 }
 
 .terminal-body {
   flex: 1;
-  padding: 1.8rem;
-  font-family: var(--font-mono);
-  font-size: 0.95rem;
-  color: #00ff66;
-  background: #060103;
+  padding: 1.4rem;
   overflow-y: auto;
-  line-height: 1.6;
+  background: #040002;
 }
 
-.terminal-output {
+.sim-body {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: #00ff66;
   white-space: pre-wrap;
   word-break: break-all;
-}
-
-.terminal-cursor {
-  display: inline-block;
-  width: 10px;
-  height: 18px;
-  background: var(--neon-red);
-  margin-left: 4px;
-  animation: blink 1s infinite;
-  vertical-align: middle;
-}
-
-@keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
 }
 
 .terminal-actions {

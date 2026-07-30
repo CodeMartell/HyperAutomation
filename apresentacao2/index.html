@@ -317,39 +317,83 @@
         </div>
       </section>
 
-      <!-- SLIDE 5: RPA TERMINAL SIMULATOR -->
+      <!-- SLIDE 5: RPA TERMINAL SIMULATOR (LAYOUT DIVIDIDO DE 2 COLUNAS) -->
       <section class="slide" id="slide-5">
-        <div class="slide-header">
-          <div class="slide-tag"><i class="fa-solid fa-terminal"></i> Live Demonstration</div>
-          <h2 class="slide-title">Simulador do Robô em Execução</h2>
-          <p class="slide-subtitle">Acompanhe a simulação em tempo real dos dois processos da suíte de Hiperautomação.</p>
-        </div>
-
-        <div class="sim-top-bar">
-          <button class="btn-primary" id="run-sim-btn">
-            <i class="fa-solid fa-play"></i> Executar Robô RPA
-          </button>
-          <button class="btn-icon" id="clear-sim-btn">
-            <i class="fa-solid fa-rotate-left"></i> Limpar Output
-          </button>
-          <div class="sim-status-box">
-            <span class="status-title">Status:</span>
-            <span id="sim-status-indicator" class="status-indicator-badge">
-              <span class="status-dot-idle"></span> Aguardando Disparo
-            </span>
-          </div>
-        </div>
-
-        <div class="sim-terminal-window">
-          <div class="sim-titlebar">
-            <div class="dots">
-              <span class="dot red"></span>
-              <span class="dot yellow"></span>
-              <span class="dot green"></span>
+        <div class="slide-split-container">
+          
+          <!-- LADO ESQUERDO: Header, Painel de Controle & Resumo -->
+          <div class="sim-left-panel">
+            <div class="slide-header">
+              <div class="slide-tag"><i class="fa-solid fa-terminal"></i> Live Demonstration</div>
+              <h2 class="slide-title">Simulador do Robô</h2>
+              <p class="slide-subtitle">Acompanhe a simulação em tempo real da execução dos processos.</p>
             </div>
-            <span class="sim-title">bash — HyperAutomation (source/main.py & source/atendimento/main_atendimento.py)</span>
+
+            <!-- Card de Controle -->
+            <div class="sim-control-card">
+              <div class="sim-card-title">
+                <i class="fa-solid fa-sliders"></i> Painel de Controle RPA
+              </div>
+
+              <div class="sim-actions-grid">
+                <button class="btn-primary" id="run-sim-btn">
+                  <i class="fa-solid fa-play"></i> Executar Robô RPA
+                </button>
+                <button class="btn-icon" id="clear-sim-btn">
+                  <i class="fa-solid fa-rotate-left"></i> Limpar
+                </button>
+              </div>
+
+              <div class="sim-status-box">
+                <span class="status-title">Status:</span>
+                <span id="sim-status-indicator" class="status-indicator-badge">
+                  <span class="status-dot-idle"></span> Aguardando Disparo
+                </span>
+              </div>
+            </div>
+
+            <!-- Card Informativo -->
+            <div class="sim-info-card">
+              <div class="sim-info-title">
+                <i class="fa-solid fa-diagram-project"></i> Escopo da Demonstração:
+              </div>
+              <ul class="sim-steps-list">
+                <li>
+                  <i class="fa-solid fa-check-circle" style="color:var(--bright-rose)"></i>
+                  <div><strong>1. Extração Web:</strong> Raspagem no Portal Fake via Playwright.</div>
+                </li>
+                <li>
+                  <i class="fa-solid fa-check-circle" style="color:var(--bright-rose)"></i>
+                  <div><strong>2. Geração & E-mail:</strong> Ficha em Word (.docx) & Envio SMTP.</div>
+                </li>
+                <li>
+                  <i class="fa-solid fa-check-circle" style="color:var(--bright-rose)"></i>
+                  <div><strong>3. Triagem & Cloud:</strong> Monitor IMAP, Regex & Google Drive API.</div>
+                </li>
+              </ul>
+            </div>
           </div>
-          <pre class="sim-body" id="terminal-screen-output">Pressione "Executar Robô RPA" para iniciar a simulação...</pre>
+
+          <!-- LADO DIREITO: Terminal Bash de Altura Total -->
+          <div class="sim-right-panel">
+            <div class="terminal-window">
+              <div class="terminal-header">
+                <div class="terminal-dots">
+                  <span class="dot red"></span>
+                  <span class="dot yellow"></span>
+                  <span class="dot green"></span>
+                </div>
+                <div class="terminal-title">
+                  <i class="fa-solid fa-terminal" style="color:var(--neon-red)"></i> bash — HyperAutomation Execution Log
+                </div>
+                <div class="terminal-badge">RPA Terminal</div>
+              </div>
+              <div class="terminal-body">
+                <pre class="sim-body" id="terminal-screen-output">Pressione "Executar Robô RPA" para iniciar a simulação...</pre>
+              </div>
+            </div>
+          </div>
+
         </div>
       </section>
 
