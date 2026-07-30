@@ -1017,69 +1017,261 @@ html, body {
   background: var(--neon-red);
 }
 
-/* Slide 6: GitFlow & Versioning */
-.gitflow-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2rem;
-  height: calc(100% - 120px);
-}
-
-.branches-card {
-  background: var(--bg-glass);
-  border: 1px solid var(--border-crimson);
-  border-radius: var(--radius-md);
-  padding: 2rem;
+/* Slide 6: GitFlow & Governance (Two-Column Split Layout) */
+.gitflow-left-panel {
   display: flex;
   flex-direction: column;
-  gap: 1.2rem;
+  gap: 8px;
+  overflow-y: auto;
+  padding-right: 4px;
 }
 
-.branch-item {
-  background: var(--bg-card);
+.gitflow-left-panel .slide-header {
+  margin-bottom: 4px;
+}
+
+.gitflow-left-panel .slide-tag {
+  font-size: 0.8rem;
+  margin-bottom: 2px;
+}
+
+.gitflow-left-panel .slide-title {
+  font-size: 1.6rem;
+  line-height: 1.2;
+}
+
+.gitflow-left-panel .slide-subtitle {
+  font-size: 0.85rem;
+  margin-top: 2px;
+  line-height: 1.3;
+}
+
+.gitflow-steps-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.gf-step-card {
+  background: var(--bg-glass);
   border: 1px solid var(--border-crimson);
   border-radius: var(--radius-sm);
-  padding: 1rem 1.2rem;
+  padding: 8px 12px;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  flex-direction: column;
+  gap: 4px;
   transition: var(--transition-smooth);
 }
 
-.branch-item:hover {
+.gf-step-card:hover {
   border-color: var(--neon-red);
-  transform: translateX(6px);
+  background: rgba(255, 77, 109, 0.06);
 }
 
-.branch-name {
-  font-family: var(--font-mono);
-  font-weight: 700;
-  color: var(--neon-red);
+.gf-step-header {
   display: flex;
   align-items: center;
   gap: 10px;
 }
 
-.branch-tag {
+.gf-num {
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  font-weight: 800;
+  color: var(--neon-red);
   background: rgba(255, 77, 109, 0.15);
-  color: var(--bright-rose);
-  font-size: 0.75rem;
-  padding: 4px 10px;
-  border-radius: 4px;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 77, 109, 0.3);
 }
 
-.commits-card {
+.gf-step-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex: 1;
+}
+
+.gf-step-title h4 {
+  font-size: 0.85rem;
+  font-weight: 700;
+  margin: 0;
+  color: var(--text-main);
+}
+
+.gf-branch-badge {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+.gf-branch-badge.feat {
+  background: rgba(255, 77, 109, 0.15);
+  color: #ff6b8b;
+  border: 1px solid rgba(255, 77, 109, 0.3);
+}
+
+.gf-branch-badge.dev {
+  background: rgba(255, 189, 46, 0.15);
+  color: #ffbd2e;
+  border: 1px solid rgba(255, 189, 46, 0.3);
+}
+
+.gf-branch-badge.release {
+  background: rgba(37, 99, 235, 0.15);
+  color: #60a5fa;
+  border: 1px solid rgba(37, 99, 235, 0.3);
+}
+
+.gf-branch-badge.main {
+  background: rgba(39, 201, 63, 0.15);
+  color: #27c93f;
+  border: 1px solid rgba(39, 201, 63, 0.3);
+}
+
+.gf-step-desc {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+.gf-step-role {
+  font-size: 0.72rem;
+  color: var(--bright-rose);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* GitFlow Right Panel */
+.gitflow-right-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  height: 100%;
+}
+
+.gf-matrix-card, .gf-bugs-card {
   background: var(--bg-glass);
   border: 1px solid var(--border-crimson);
   border-radius: var(--radius-md);
-  padding: 2rem;
-  overflow-y: auto;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
-.timeline {
-  position: relative;
-  padding-left: 24px;
+.gf-card-title {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--neon-red);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }
+
+.matrix-table {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.matrix-row {
+  display: grid;
+  grid-template-columns: 100px 1fr 100px;
+  gap: 8px;
+  align-items: center;
+  background: rgba(0,0,0,0.3);
+  padding: 6px 10px;
+  border-radius: var(--radius-sm);
+  font-size: 0.75rem;
+  border: 1px solid rgba(255,255,255,0.04);
+}
+
+.matrix-branch {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 0.72rem;
+}
+
+.matrix-branch.feat { color: #ff6b8b; }
+.matrix-branch.dev { color: #ffbd2e; }
+.matrix-branch.release { color: #60a5fa; }
+.matrix-branch.main { color: #27c93f; }
+
+.matrix-desc {
+  color: var(--text-main);
+}
+
+.matrix-user {
+  font-weight: 700;
+  color: var(--bright-rose);
+  text-align: right;
+}
+
+.bugs-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.bug-item {
+  background: rgba(0,0,0,0.3);
+  border: 1px solid rgba(255, 77, 109, 0.2);
+  border-radius: var(--radius-sm);
+  padding: 8px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.bug-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.bug-badge {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.bug-badge.red {
+  background: rgba(255, 77, 109, 0.2);
+  color: var(--bright-rose);
+}
+
+.bug-badge.blue {
+  background: rgba(37, 99, 235, 0.2);
+  color: #60a5fa;
+}
+
+.bug-loc {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--text-muted);
+}
+
+.bug-desc, .bug-sol {
+  font-size: 0.74rem;
+  margin: 0;
+  line-height: 1.3;
+}
+
+.bug-desc { color: var(--text-muted); }
+.bug-sol { color: var(--text-main); }
 
 .timeline::before {
   content: '';

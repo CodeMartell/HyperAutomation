@@ -397,56 +397,134 @@
         </div>
       </section>
 
-      <!-- SLIDE 6: VERSIONAMENTO & GITFLOW -->
+      <!-- SLIDE 6: VERSIONAMENTO & GITFLOW (LAYOUT DIVIDIDO DE 2 COLUNAS) -->
       <section class="slide" id="slide-6">
-        <div class="slide-header">
-          <div class="slide-tag"><i class="fa-solid fa-code-branch"></i> Governança de Código</div>
-          <h2 class="slide-title">Versionamento, GitFlow & Resiliência</h2>
-          <p class="slide-subtitle">Estratégia de branches no GitHub, ciclo de entregas por tags semânticas e refatoração de bugs cruciais.</p>
-        </div>
-
-        <div class="gitflow-container">
-          <div class="gitflow-tree-card">
-            <h3><i class="fa-solid fa-code-merge"></i> Ciclo de Vida do GitFlow no Projeto</h3>
-            <div class="gitflow-visual-box">
-              <div class="gitflow-row">
-                <span class="git-node feat"><i class="fa-solid fa-code-branch"></i> 1. feature/extracao, feature/documento-email, feature/processo-atendimento</span>
-              </div>
-              <div class="git-arrow-down" style="color:var(--bright-rose); text-align:center; font-weight:bold;">↓ Merge via Pull Request (PR)</div>
-              <div class="gitflow-row">
-                <span class="git-node dev"><i class="fa-solid fa-code-merge"></i> 2. develop (Branch de Integração Contínua)</span>
-              </div>
-              <div class="git-arrow-down" style="color:var(--bright-rose); text-align:center; font-weight:bold;">↓ Preparação de Release</div>
-              <div class="gitflow-row">
-                <span class="git-node release"><i class="fa-solid fa-rocket"></i> 3. release/1.0 & release/2.0 (Homologação)</span>
-              </div>
-              <div class="git-arrow-down" style="color:var(--bright-rose); text-align:center; font-weight:bold;">↓ Merge Final de Produção</div>
-              <div class="gitflow-row">
-                <span class="git-node main"><i class="fa-solid fa-shield-halved"></i> 4. main (Produção Auditada) ➔ Tag v1.0 & v2.0 - v2.3</span>
-              </div>
+        <div class="slide-split-container">
+          
+          <!-- LADO ESQUERDO: Header & Passo a Passo de Manuseio do GitFlow -->
+          <div class="gitflow-left-panel">
+            <div class="slide-header">
+              <div class="slide-tag"><i class="fa-solid fa-code-branch"></i> Governança de Código</div>
+              <h2 class="slide-title">GitFlow & Matriz de Papéis</h2>
+              <p class="slide-subtitle">Ciclo de vida de branches, responsabilidades da equipe e tags semânticas.</p>
             </div>
 
-            <div class="releases-tags-list" style="margin-top:12px;">
-              <div class="tag-chip red"><strong>Tag v1.0:</strong> Lançamento do Cadastro Básico (Playwright + Word + SMTP)</div>
-              <div class="tag-chip blue"><strong>Tag v2.0 - v2.3:</strong> Módulo de Atendimento Integrado (IMAP + Drive + Respostas Auto)</div>
+            <!-- Passo a Passo Sequencial do GitFlow -->
+            <div class="gitflow-steps-timeline">
+              <!-- Passo 1 -->
+              <div class="gf-step-card">
+                <div class="gf-step-header">
+                  <span class="gf-num">01</span>
+                  <div class="gf-step-title">
+                    <h4>Criação de Feature Branches</h4>
+                    <span class="gf-branch-badge feat">feature/*</span>
+                  </div>
+                </div>
+                <p class="gf-step-desc">Desenvolvimento isolado de funcionalidades por cada membro.</p>
+                <div class="gf-step-role"><i class="fa-solid fa-users"></i> <strong>Devs:</strong> Jannas, Gilvan, Romulo, Huan</div>
+              </div>
+
+              <!-- Passo 2 -->
+              <div class="gf-step-card">
+                <div class="gf-step-header">
+                  <span class="gf-num">02</span>
+                  <div class="gf-step-title">
+                    <h4>Code Review & PR Merge</h4>
+                    <span class="gf-branch-badge dev">develop</span>
+                  </div>
+                </div>
+                <p class="gf-step-desc">Integração contínua com validação técnica de sintaxe e padrões.</p>
+                <div class="gf-step-role"><i class="fa-solid fa-user-shield"></i> <strong>Tech Lead:</strong> Romulo Lira</div>
+              </div>
+
+              <!-- Passo 3 -->
+              <div class="gf-step-card">
+                <div class="gf-step-header">
+                  <span class="gf-num">03</span>
+                  <div class="gf-step-title">
+                    <h4>Homologação & Release</h4>
+                    <span class="gf-branch-badge release">release/1.0 & release/2.0</span>
+                  </div>
+                </div>
+                <p class="gf-step-desc">Testes de integração end-to-end e refatorações estáveis.</p>
+                <div class="gf-step-role"><i class="fa-solid fa-flask"></i> <strong>QA / Devs:</strong> Equipe de Homologação</div>
+              </div>
+
+              <!-- Passo 4 -->
+              <div class="gf-step-card">
+                <div class="gf-step-header">
+                  <span class="gf-num">04</span>
+                  <div class="gf-step-title">
+                    <h4>Produção & Versionamento</h4>
+                    <span class="gf-branch-badge main">main (Tags v1.0 / v2.3)</span>
+                  </div>
+                </div>
+                <p class="gf-step-desc">Merge final auditado em produção com marcação de versão.</p>
+                <div class="gf-step-role"><i class="fa-solid fa-crown"></i> <strong>PO / Professor:</strong> Prof. Moisés Levy</div>
+              </div>
             </div>
           </div>
 
-          <div class="gitflow-log-card">
-            <h3><i class="fa-solid fa-bug-slash"></i> Resolução de Bugs Críticos</h3>
-            <div class="commits-list">
-              <div class="commit-item">
-                <span class="commit-hash">Bug IMAP Fix</span>
-                <p class="commit-msg">Filtro de Assunto Case-Sensitive</p>
-                <span class="commit-author">Normalização com .lower() em ambas as pontas em leitura_email.py</span>
+          <!-- LADO DIREITO: Matriz de Responsabilidades & Resolução de Bugs Críticos -->
+          <div class="gitflow-right-panel">
+            
+            <!-- Card 1: Matriz de Branches vs Papéis -->
+            <div class="gf-matrix-card">
+              <div class="gf-card-title">
+                <i class="fa-solid fa-diagram-next"></i> Matriz de Branches vs Responsabilidades
               </div>
-              <div class="commit-item">
-                <span class="commit-hash">Bug Regex Token</span>
-                <p class="commit-msg">Falso Positivo de Identidade ("id")</p>
-                <span class="commit-author">Isolamento por delimitadores (re.split) em validacao.py para evitar conflito com "residencia"</span>
+              <div class="matrix-table">
+                <div class="matrix-row">
+                  <div class="matrix-branch feat">feature/*</div>
+                  <div class="matrix-desc">Features isoladas (RPA, Docx, IMAP, Drive)</div>
+                  <div class="matrix-user">Devs</div>
+                </div>
+                <div class="matrix-row">
+                  <div class="matrix-branch dev">develop</div>
+                  <div class="matrix-desc">Integração contínua & testes da suíte</div>
+                  <div class="matrix-user">Tech Lead</div>
+                </div>
+                <div class="matrix-row">
+                  <div class="matrix-branch release">release/*</div>
+                  <div class="matrix-desc">Homologação de entregáveis e relatórios</div>
+                  <div class="matrix-user">Equipe QA</div>
+                </div>
+                <div class="matrix-row">
+                  <div class="matrix-branch main">main</div>
+                  <div class="matrix-desc">Produção auditada com Tags (v1.0 / v2.3)</div>
+                  <div class="matrix-user">PO / Prof.</div>
+                </div>
               </div>
             </div>
+
+            <!-- Card 2: Resolução de Bugs Críticos no GitFlow -->
+            <div class="gf-bugs-card">
+              <div class="gf-card-title">
+                <i class="fa-solid fa-bug-slash"></i> Resolução de Bugs Críticos no Fluxo
+              </div>
+              <div class="bugs-list">
+                <div class="bug-item">
+                  <div class="bug-header">
+                    <span class="bug-badge red">Bug IMAP Fix</span>
+                    <span class="bug-loc">leitura_email.py</span>
+                  </div>
+                  <p class="bug-desc"><strong>Problema:</strong> Assuntos com maiúsculas/minúsculas falhavam no filtro.</p>
+                  <p class="bug-sol"><strong>Solução:</strong> Normalização com <code>.lower()</code> em ambas as pontas da busca.</p>
+                </div>
+
+                <div class="bug-item">
+                  <div class="bug-header">
+                    <span class="bug-badge blue">Bug Token Regex</span>
+                    <span class="bug-loc">validacao.py</span>
+                  </div>
+                  <p class="bug-desc"><strong>Problema:</strong> Falso positivo no token <code>"id"</code> dentro de <code>"residencia.pdf"</code>.</p>
+                  <p class="bug-sol"><strong>Solução:</strong> Separação estrita de tokens por delimitadores via <code>re.split</code>.</p>
+                </div>
+              </div>
+            </div>
+
           </div>
+
         </div>
       </section>
 
