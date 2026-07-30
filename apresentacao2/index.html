@@ -223,35 +223,97 @@
         </div>
       </section>
 
-      <!-- SLIDE 4: TECH STACK & CODE VIEWER -->
+      <!-- SLIDE 4: TECH STACK & CODE VIEWER (LAYOUT DIVIDIDO DE 2 COLUNAS) -->
       <section class="slide" id="slide-4">
-        <div class="slide-header">
-          <div class="slide-tag"><i class="fa-solid fa-code"></i> Engenharia & Código</div>
-          <h2 class="slide-title">Stack Tecnológica & Implementação</h2>
-          <p class="slide-subtitle">Inspecione os módulos Python desenvolvidos com suporte a typings, tratamento de exceções e resiliência.</p>
-        </div>
+        <div class="slide-split-container">
+          
+          <!-- LADO ESQUERDO: Título, Stack & Seleção Vertical de Arquivos -->
+          <div class="code-left-panel">
+            <div class="slide-header">
+              <div class="slide-tag"><i class="fa-solid fa-code"></i> Engenharia & Código</div>
+              <h2 class="slide-title">Stack & Implementação</h2>
+              <p class="slide-subtitle">Inspecione os módulos Python desenvolvidos com typings e resiliência.</p>
+            </div>
 
-        <div class="tech-bar">
-          <div class="tech-chip"><i class="fa-brands fa-python" style="color:#ff4d6d;"></i> Python <span>3.10+</span></div>
-          <div class="tech-chip"><i class="fa-solid fa-masks-theater" style="color:#ff4d6d;"></i> Playwright <span>1.61.0</span></div>
-          <div class="tech-chip"><i class="fa-solid fa-file-word" style="color:#ff4d6d;"></i> python-docx <span>1.2.0</span></div>
-          <div class="tech-chip"><i class="fa-solid fa-envelope" style="color:#ff4d6d;"></i> smtplib <span>(stdlib)</span></div>
-          <div class="tech-chip"><i class="fa-solid fa-inbox" style="color:#ff4d6d;"></i> IMAP SSL <span>(stdlib)</span></div>
-          <div class="tech-chip"><i class="fa-brands fa-google-drive" style="color:#ff4d6d;"></i> Google Drive API</div>
-        </div>
+            <div class="tech-grid">
+              <div class="tech-chip"><i class="fa-brands fa-python" style="color:#ff4d6d;"></i> Python <span>3.10+</span></div>
+              <div class="tech-chip"><i class="fa-solid fa-masks-theater" style="color:#ff4d6d;"></i> Playwright <span>1.61</span></div>
+              <div class="tech-chip"><i class="fa-solid fa-file-word" style="color:#ff4d6d;"></i> python-docx</div>
+              <div class="tech-chip"><i class="fa-solid fa-envelope" style="color:#ff4d6d;"></i> SMTP / TLS</div>
+              <div class="tech-chip"><i class="fa-solid fa-inbox" style="color:#ff4d6d;"></i> IMAP SSL</div>
+              <div class="tech-chip"><i class="fa-brands fa-google-drive" style="color:#ff4d6d;"></i> Google Drive API</div>
+            </div>
 
-        <div class="code-viewer-container">
-          <div class="code-tabs">
-            <button class="code-tab active" data-file="main">main.py (Orquestrador)</button>
-            <button class="code-tab" data-file="extracao">extracao.py (Playwright)</button>
-            <button class="code-tab" data-file="documento">documento_email.py (Word)</button>
-            <button class="code-tab" data-file="leitura_email">leitura_email.py (IMAP Fix)</button>
-            <button class="code-tab" data-file="validacao">validacao.py (Token Match)</button>
-            <button class="code-tab" data-file="env_example">.env.example</button>
+            <div class="code-files-header">
+              <i class="fa-solid fa-folder-open"></i> Arquivos do Código Fonte:
+            </div>
+
+            <div class="code-vertical-tabs">
+              <button class="code-tab active" data-file="main">
+                <i class="fa-solid fa-file-code"></i>
+                <div class="tab-info">
+                  <span class="file-name">main.py</span>
+                  <span class="file-desc">Orquestrador Principal</span>
+                </div>
+              </button>
+              <button class="code-tab" data-file="extracao">
+                <i class="fa-solid fa-spider"></i>
+                <div class="tab-info">
+                  <span class="file-name">extracao.py</span>
+                  <span class="file-desc">Extração Web RPA (Playwright)</span>
+                </div>
+              </button>
+              <button class="code-tab" data-file="documento">
+                <i class="fa-solid fa-file-word"></i>
+                <div class="tab-info">
+                  <span class="file-name">documento_email.py</span>
+                  <span class="file-desc">Geração de Ficha Word (.docx)</span>
+                </div>
+              </button>
+              <button class="code-tab" data-file="leitura_email">
+                <i class="fa-solid fa-inbox"></i>
+                <div class="tab-info">
+                  <span class="file-name">leitura_email.py</span>
+                  <span class="file-desc">Monitoramento IMAP SSL</span>
+                </div>
+              </button>
+              <button class="code-tab" data-file="validacao">
+                <i class="fa-solid fa-shield-halved"></i>
+                <div class="tab-info">
+                  <span class="file-name">validacao.py</span>
+                  <span class="file-desc">Validação Token & Regex</span>
+                </div>
+              </button>
+              <button class="code-tab" data-file="env_example">
+                <i class="fa-solid fa-gear"></i>
+                <div class="tab-info">
+                  <span class="file-name">.env.example</span>
+                  <span class="file-desc">Template de Segredos</span>
+                </div>
+              </button>
+            </div>
           </div>
-          <div class="code-body">
-            <pre><code id="code-content-block">loading code...</code></pre>
+
+          <!-- LADO DIREITO: IDE Code Viewer de Altura Total -->
+          <div class="code-right-panel">
+            <div class="ide-window">
+              <div class="ide-header">
+                <div class="ide-dots">
+                  <span class="dot red"></span>
+                  <span class="dot yellow"></span>
+                  <span class="dot green"></span>
+                </div>
+                <div class="ide-title" id="ide-file-indicator">
+                  <i class="fa-brands fa-python" style="color:var(--neon-red)"></i> <span id="active-filename-display">main.py</span>
+                </div>
+                <div class="ide-badge">Python IDE</div>
+              </div>
+              <div class="code-body">
+                <pre><code id="code-content-block">loading code...</code></pre>
+              </div>
+            </div>
           </div>
+
         </div>
       </section>
 

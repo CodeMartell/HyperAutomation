@@ -568,83 +568,192 @@ html, body {
   padding-left: 20px;
 }
 
-/* Slide 4: Code Viewer & Tech Stack */
-.tech-bar {
+/* Slide 4: Code Viewer & Tech Stack (Two-Column Split Layout) */
+.slide-split-container {
+  display: grid;
+  grid-template-columns: 360px 1fr;
+  gap: 1.5rem;
+  height: 100%;
+  max-height: calc(100vh - 140px);
+  overflow: hidden;
+}
+
+.code-left-panel {
   display: flex;
-  gap: 1rem;
-  margin-bottom: 1.5rem;
+  flex-direction: column;
+  gap: 10px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.code-left-panel .slide-header {
+  margin-bottom: 2px;
+}
+
+.tech-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 4px;
 }
 
 .tech-chip {
   background: var(--bg-card);
   border: 1px solid var(--border-crimson);
-  padding: 8px 16px;
+  padding: 5px 10px;
   border-radius: var(--radius-sm);
-  font-size: 0.85rem;
+  font-size: 0.78rem;
   font-weight: 600;
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
 }
 
 .tech-chip span {
   color: var(--bright-rose);
 }
 
-.code-viewer-container {
-  background: #0d0407;
-  border: 1px solid var(--border-crimson);
-  border-radius: var(--radius-md);
-  overflow: hidden;
+.code-files-header {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--neon-red);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 2px;
+}
+
+.code-vertical-tabs {
   display: flex;
   flex-direction: column;
-  height: calc(100% - 150px);
-  box-shadow: 0 15px 35px rgba(0,0,0,0.6);
+  gap: 6px;
 }
 
-.code-tabs {
+.code-vertical-tabs .code-tab {
   display: flex;
-  background: #140509;
-  border-bottom: 1px solid var(--border-crimson);
-  overflow-x: auto;
-}
-
-.code-tab {
-  padding: 12px 20px;
-  font-family: var(--font-mono);
-  font-size: 0.85rem;
-  color: var(--text-dim);
-  background: transparent;
-  border: none;
-  border-right: 1px solid rgba(255,255,255,0.05);
+  align-items: center;
+  gap: 10px;
+  background: var(--bg-glass);
+  border: 1px solid var(--border-crimson);
+  border-radius: var(--radius-sm);
+  padding: 8px 12px;
   cursor: pointer;
   transition: var(--transition-smooth);
-  white-space: nowrap;
+  text-align: left;
+  width: 100%;
 }
 
-.code-tab.active {
-  background: #1e0911;
-  color: var(--neon-red);
+.code-vertical-tabs .code-tab i {
+  font-size: 1rem;
+  color: var(--text-dim);
+  transition: var(--transition-smooth);
+  width: 20px;
+  text-align: center;
+}
+
+.code-vertical-tabs .code-tab .tab-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.code-vertical-tabs .code-tab .file-name {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
   font-weight: 700;
-  border-bottom: 2px solid var(--neon-red);
-}
-
-.code-tab:hover:not(.active) {
   color: var(--text-main);
-  background: rgba(255,255,255,0.02);
 }
 
-.code-body {
+.code-vertical-tabs .code-tab .file-desc {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+
+.code-vertical-tabs .code-tab:hover {
+  border-color: var(--neon-red);
+  background: rgba(255, 77, 109, 0.08);
+}
+
+.code-vertical-tabs .code-tab.active {
+  background: rgba(255, 77, 109, 0.18);
+  border-color: var(--neon-red);
+  box-shadow: 0 0 15px rgba(255, 77, 109, 0.2);
+}
+
+.code-vertical-tabs .code-tab.active i {
+  color: var(--neon-red);
+}
+
+.code-vertical-tabs .code-tab.active .file-name {
+  color: var(--bright-rose);
+}
+
+/* Right Panel - Full IDE Window */
+.code-right-panel {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.ide-window {
+  background: #090205;
+  border: 1px solid var(--border-crimson);
+  border-radius: var(--radius-md);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.7);
+}
+
+.ide-header {
+  background: #140509;
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--border-crimson);
+}
+
+.ide-dots {
+  display: flex;
+  gap: 8px;
+}
+
+.ide-title {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--text-main);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.ide-badge {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  background: rgba(255,77,109,0.15);
+  color: var(--bright-rose);
+  padding: 2px 8px;
+  border-radius: 4px;
+  border: 1px solid rgba(255,77,109,0.3);
+}
+
+.code-right-panel .code-body {
   flex: 1;
-  padding: 1.5rem;
+  padding: 1.4rem;
   overflow: auto;
   font-family: var(--font-mono);
-  font-size: 0.9rem;
+  font-size: 0.88rem;
   line-height: 1.6;
-  color: #e0d0d5;
+  color: #f1e4e8;
+  background: #060103;
 }
 
-.code-body pre {
+.code-right-panel .code-body pre {
   margin: 0;
 }
 

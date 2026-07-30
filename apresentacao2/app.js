@@ -430,10 +430,14 @@ PORTAL_FAKE_URL=`
 
   const codeTabs = document.querySelectorAll('.code-tab');
   const codeContentBlock = document.getElementById('code-content-block');
+  const activeFileNameDisplay = document.getElementById('active-filename-display');
 
-  function loadCodeTab(key) {
+  function loadCodeTab(key, fileName) {
     if (codeSnippets[key] && codeContentBlock) {
       codeContentBlock.textContent = codeSnippets[key];
+    }
+    if (activeFileNameDisplay && fileName) {
+      activeFileNameDisplay.textContent = fileName;
     }
   }
 
@@ -441,11 +445,14 @@ PORTAL_FAKE_URL=`
     tab.addEventListener('click', () => {
       codeTabs.forEach(t => t.classList.remove('active'));
       tab.classList.add('active');
-      loadCodeTab(tab.getAttribute('data-file'));
+      const fileKey = tab.getAttribute('data-file');
+      const fileNameEl = tab.querySelector('.file-name');
+      const fileName = fileNameEl ? fileNameEl.textContent : fileKey;
+      loadCodeTab(fileKey, fileName);
     });
   });
 
-  loadCodeTab('main');
+  loadCodeTab('main', 'main.py');
 
   // ── 5. RPA Terminal Execution Simulator ────────────────────────────────
   const runSimBtn = document.getElementById('run-sim-btn');
