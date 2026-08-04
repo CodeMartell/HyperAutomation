@@ -134,3 +134,106 @@
 2026-08-03 17:25:36 [INFO] main_organizacao — Processando pasta local: 20260728_100000_joao.silva@exemplo.com
 2026-08-03 17:25:36 [WARNING] main_organizacao — Documento duplicado detectado (Hash: 5653c480dcd25577f9819606c2ca05b445e034eb6b15edb87727360315bcd129). Arquivando sem processar.
 2026-08-03 17:25:36 [INFO] organizacao.arquivamento — Pasta '20260728_100000_joao.silva@exemplo.com' arquivada localmente em '20260728_100000_joao.silva@exemplo.com_dup1'
+2026-08-04 16:01:02 [INFO] simulacao_organizacao — Estrutura do ERP limpa e resetada para a simulação.
+2026-08-04 16:01:02 [INFO] simulacao_organizacao — Criando dossiê de teste VÁLIDO (João Silva)...
+2026-08-04 16:01:02 [INFO] simulacao_organizacao — Criando dossiê de teste INVÁLIDO (Maria Souza)...
+2026-08-04 16:01:02 [INFO] organizacao.planilha_mestra — Planilha Mestra inicializada localmente em: C:\Users\Turma01\Documents\HyperAutomation\ERP_Portal_Fake\Sistema_Integrador_Portal_Fake\Planilha_Mestra.xlsx
+2026-08-04 16:01:02 [INFO] main_organizacao — Total de dossiês locais encontrados para processar: 2
+2026-08-04 16:01:02 [INFO] main_organizacao — Processando pasta local: 20260728_100000_joao.silva@exemplo.com
+2026-08-04 16:01:02 [INFO] main_organizacao — Extraindo dados da ficha: ficha_cadastro_preenchida.pdf
+2026-08-04 16:01:02 [INFO] organizacao.extracao_dados — Iniciando extração do arquivo: ficha_cadastro_preenchida.pdf
+2026-08-04 16:01:02 [WARNING] pypdf._reader — invalid pdf header: b'FICHA'
+2026-08-04 16:01:02 [WARNING] pypdf._reader — EOF marker not found
+2026-08-04 16:01:02 [WARNING] organizacao.extracao_dados — Falha ao ler 'ficha_cadastro_preenchida.pdf' como PDF nativo (Stream has ended unexpectedly). Tentando ler como texto plano (simulado)...
+2026-08-04 16:01:02 [INFO] main_organizacao — Validando dados cadastrais...
+2026-08-04 16:01:02 [INFO] organizacao.planilha_mestra — Registro do cliente 'João Silva' adicionado com status VALIDADO.
+2026-08-04 16:01:02 [INFO] organizacao.arquivamento — Pasta '20260728_100000_joao.silva@exemplo.com' arquivada localmente em '20260728_100000_joao.silva@exemplo.com'
+2026-08-04 16:01:02 [INFO] main_organizacao — Processando pasta local: 20260728_100001_maria.souza@exemplo.com
+2026-08-04 16:01:02 [INFO] main_organizacao — Extraindo dados da ficha: ficha_cadastro.pdf
+2026-08-04 16:01:02 [INFO] organizacao.extracao_dados — Iniciando extração do arquivo: ficha_cadastro.pdf
+2026-08-04 16:01:02 [WARNING] pypdf._reader — invalid pdf header: b'FICHA'
+2026-08-04 16:01:02 [WARNING] pypdf._reader — EOF marker not found
+2026-08-04 16:01:02 [WARNING] organizacao.extracao_dados — Falha ao ler 'ficha_cadastro.pdf' como PDF nativo (Stream has ended unexpectedly). Tentando ler como texto plano (simulado)...
+2026-08-04 16:01:02 [INFO] main_organizacao — Validando dados cadastrais...
+2026-08-04 16:01:02 [INFO] organizacao.planilha_mestra — Registro do cliente 'Maria Souza' adicionado com status ERRO.
+2026-08-04 16:01:02 [INFO] organizacao.arquivamento — Pasta '20260728_100001_maria.souza@exemplo.com' arquivada localmente em '20260728_100001_maria.souza@exemplo.com'
+2026-08-04 16:01:02 [INFO] simulacao_organizacao — Recriando dossiê idêntico de João Silva na pasta OK...
+2026-08-04 16:01:02 [INFO] main_organizacao — Total de dossiês locais encontrados para processar: 1
+2026-08-04 16:01:02 [INFO] main_organizacao — Processando pasta local: 20260728_100000_joao.silva@exemplo.com
+2026-08-04 16:01:02 [WARNING] main_organizacao — Documento duplicado detectado (Hash: 9f78a2f68c3a771052be00a5fef5fec9eb4b5402b577294ae5752f86322fde48). Arquivando sem processar.
+2026-08-04 16:01:02 [INFO] organizacao.arquivamento — Pasta '20260728_100000_joao.silva@exemplo.com' arquivada localmente em '20260728_100000_joao.silva@exemplo.com_dup1'
+2026-08-04 16:47:35 [INFO] simulacao_organizacao — Estrutura do ERP limpa e resetada para a simulação.
+2026-08-04 16:47:35 [INFO] simulacao_organizacao — Criando dossiê de teste VÁLIDO (João Silva)...
+2026-08-04 16:47:35 [INFO] simulacao_organizacao — Criando dossiê de teste INVÁLIDO (Maria Souza)...
+2026-08-04 16:47:35 [INFO] organizacao.planilha_mestra — Planilha Mestra inicializada localmente em: C:\Users\Turma01\Documents\HyperAutomation\ERP_Portal_Fake\Sistema_Integrador_Portal_Fake\Planilha_Mestra.xlsx
+2026-08-04 16:47:35 [INFO] main_organizacao — Total de dossiês locais encontrados para processar: 2
+2026-08-04 16:47:35 [INFO] main_organizacao — Processando pasta local: 20260728_100000_joao.silva@exemplo.com
+2026-08-04 16:47:35 [INFO] main_organizacao — Extraindo dados da ficha: ficha_cadastro_preenchida.pdf
+2026-08-04 16:47:35 [INFO] organizacao.extracao_dados — Iniciando extração do arquivo: ficha_cadastro_preenchida.pdf
+2026-08-04 16:47:35 [INFO] main_organizacao — Validando dados cadastrais...
+2026-08-04 16:47:35 [INFO] organizacao.planilha_mestra — Registro do cliente 'João Silva' adicionado com status VALIDADO.
+2026-08-04 16:47:35 [INFO] organizacao.arquivamento — Pasta '20260728_100000_joao.silva@exemplo.com' arquivada localmente em '20260728_100000_joao.silva@exemplo.com'
+2026-08-04 16:47:35 [INFO] main_organizacao — Processando pasta local: 20260728_100001_maria.souza@exemplo.com
+2026-08-04 16:47:35 [INFO] main_organizacao — Extraindo dados da ficha: ficha_cadastro.pdf
+2026-08-04 16:47:35 [INFO] organizacao.extracao_dados — Iniciando extração do arquivo: ficha_cadastro.pdf
+2026-08-04 16:47:35 [INFO] main_organizacao — Validando dados cadastrais...
+2026-08-04 16:47:35 [INFO] organizacao.planilha_mestra — Registro do cliente 'Maria Souza' adicionado com status ERRO.
+2026-08-04 16:47:35 [INFO] organizacao.arquivamento — Pasta '20260728_100001_maria.souza@exemplo.com' arquivada localmente em '20260728_100001_maria.souza@exemplo.com'
+2026-08-04 16:47:35 [INFO] simulacao_organizacao — Recriando dossiê idêntico de João Silva na pasta OK...
+2026-08-04 16:47:35 [INFO] main_organizacao — Total de dossiês locais encontrados para processar: 1
+2026-08-04 16:47:35 [INFO] main_organizacao — Processando pasta local: 20260728_100000_joao.silva@exemplo.com
+2026-08-04 16:47:35 [INFO] main_organizacao — Extraindo dados da ficha: ficha_cadastro_preenchida.pdf
+2026-08-04 16:47:35 [INFO] organizacao.extracao_dados — Iniciando extração do arquivo: ficha_cadastro_preenchida.pdf
+2026-08-04 16:47:35 [INFO] main_organizacao — Validando dados cadastrais...
+2026-08-04 16:47:35 [INFO] organizacao.planilha_mestra — Registro do cliente 'João Silva' adicionado com status VALIDADO.
+2026-08-04 16:47:35 [INFO] organizacao.arquivamento — Pasta '20260728_100000_joao.silva@exemplo.com' arquivada localmente em '20260728_100000_joao.silva@exemplo.com_dup1'
+2026-08-04 16:51:58 [INFO] simulacao_organizacao — Estrutura do ERP limpa e resetada para a simulação.
+2026-08-04 16:51:58 [INFO] simulacao_organizacao — Criando dossiê de teste VÁLIDO (João Silva)...
+2026-08-04 16:51:58 [INFO] simulacao_organizacao — Criando dossiê de teste INVÁLIDO (Maria Souza)...
+2026-08-04 16:51:58 [INFO] organizacao.planilha_mestra — Planilha Mestra inicializada localmente em: C:\Users\Turma01\Documents\HyperAutomation\ERP_Portal_Fake\Sistema_Integrador_Portal_Fake\Planilha_Mestra.xlsx
+2026-08-04 16:51:58 [INFO] main_organizacao — Total de dossiês locais encontrados para processar: 2
+2026-08-04 16:51:58 [INFO] main_organizacao — Processando pasta local: 20260728_100000_joao.silva@exemplo.com
+2026-08-04 16:51:58 [INFO] main_organizacao — Extraindo dados da ficha: ficha_cadastro_preenchida.pdf
+2026-08-04 16:51:58 [INFO] organizacao.extracao_dados — Iniciando extração do arquivo: ficha_cadastro_preenchida.pdf
+2026-08-04 16:51:58 [INFO] main_organizacao — Validando dados cadastrais...
+2026-08-04 16:51:58 [INFO] organizacao.planilha_mestra — Registro do cliente 'João Silva' adicionado com status VALIDADO.
+2026-08-04 16:51:58 [INFO] organizacao.arquivamento — Pasta '20260728_100000_joao.silva@exemplo.com' arquivada localmente em '20260728_100000_joao.silva@exemplo.com'
+2026-08-04 16:51:58 [INFO] main_organizacao — Processando pasta local: 20260728_100001_maria.souza@exemplo.com
+2026-08-04 16:51:58 [INFO] main_organizacao — Extraindo dados da ficha: ficha_cadastro.pdf
+2026-08-04 16:51:58 [INFO] organizacao.extracao_dados — Iniciando extração do arquivo: ficha_cadastro.pdf
+2026-08-04 16:51:58 [INFO] main_organizacao — Validando dados cadastrais...
+2026-08-04 16:51:58 [INFO] organizacao.planilha_mestra — Registro do cliente 'Maria Souza' adicionado com status ERRO.
+2026-08-04 16:51:58 [INFO] organizacao.arquivamento — Pasta '20260728_100001_maria.souza@exemplo.com' arquivada localmente em '20260728_100001_maria.souza@exemplo.com'
+2026-08-04 16:51:58 [INFO] simulacao_organizacao — Recriando dossiê idêntico de João Silva na pasta OK...
+2026-08-04 16:51:58 [INFO] main_organizacao — Total de dossiês locais encontrados para processar: 1
+2026-08-04 16:51:58 [INFO] main_organizacao — Processando pasta local: 20260728_100000_joao.silva@exemplo.com
+2026-08-04 16:51:58 [INFO] main_organizacao — Extraindo dados da ficha: ficha_cadastro_preenchida.pdf
+2026-08-04 16:51:58 [INFO] organizacao.extracao_dados — Iniciando extração do arquivo: ficha_cadastro_preenchida.pdf
+2026-08-04 16:51:58 [INFO] main_organizacao — Validando dados cadastrais...
+2026-08-04 16:51:58 [INFO] organizacao.planilha_mestra — Registro do cliente 'João Silva' adicionado com status VALIDADO.
+2026-08-04 16:51:58 [INFO] organizacao.arquivamento — Pasta '20260728_100000_joao.silva@exemplo.com' arquivada localmente em '20260728_100000_joao.silva@exemplo.com_dup1'
+2026-08-04 16:57:55 [INFO] simulacao_organizacao — Estrutura do ERP limpa e resetada para a simulação.
+2026-08-04 16:57:55 [INFO] simulacao_organizacao — Criando dossiê de teste VÁLIDO (João Silva)...
+2026-08-04 16:57:55 [INFO] simulacao_organizacao — Criando dossiê de teste INVÁLIDO (Maria Souza)...
+2026-08-04 16:57:55 [INFO] organizacao.planilha_mestra — Planilha Mestra inicializada localmente em: C:\Users\Turma01\Documents\HyperAutomation\ERP_Portal_Fake\Sistema_Integrador_Portal_Fake\Planilha_Mestra.xlsx
+2026-08-04 16:57:55 [INFO] main_organizacao — Total de dossiês locais encontrados para processar: 2
+2026-08-04 16:57:55 [INFO] main_organizacao — Processando pasta local: 20260728_100000_joao.silva@exemplo.com
+2026-08-04 16:57:56 [INFO] main_organizacao — Extraindo dados da ficha: ficha_cadastro_preenchida.pdf
+2026-08-04 16:57:56 [INFO] organizacao.extracao_dados — Iniciando extração do arquivo: ficha_cadastro_preenchida.pdf
+2026-08-04 16:57:56 [INFO] main_organizacao — Validando dados cadastrais...
+2026-08-04 16:57:56 [INFO] organizacao.planilha_mestra — Registro do cliente 'João Silva' adicionado com status VALIDADO.
+2026-08-04 16:57:56 [INFO] organizacao.arquivamento — Pasta '20260728_100000_joao.silva@exemplo.com' arquivada localmente em '20260728_100000_joao.silva@exemplo.com'
+2026-08-04 16:57:56 [INFO] main_organizacao — Processando pasta local: 20260728_100001_maria.souza@exemplo.com
+2026-08-04 16:57:56 [INFO] main_organizacao — Extraindo dados da ficha: ficha_cadastro.pdf
+2026-08-04 16:57:56 [INFO] organizacao.extracao_dados — Iniciando extração do arquivo: ficha_cadastro.pdf
+2026-08-04 16:57:56 [INFO] main_organizacao — Validando dados cadastrais...
+2026-08-04 16:57:56 [INFO] organizacao.planilha_mestra — Registro do cliente 'Maria Souza' adicionado com status ERRO.
+2026-08-04 16:57:56 [INFO] organizacao.arquivamento — Pasta '20260728_100001_maria.souza@exemplo.com' arquivada localmente em '20260728_100001_maria.souza@exemplo.com'
+2026-08-04 16:57:56 [INFO] simulacao_organizacao — Recriando dossiê idêntico de João Silva na pasta OK...
+2026-08-04 16:57:56 [INFO] main_organizacao — Total de dossiês locais encontrados para processar: 1
+2026-08-04 16:57:56 [INFO] main_organizacao — Processando pasta local: 20260728_100000_joao.silva@exemplo.com
+2026-08-04 16:57:56 [INFO] main_organizacao — Extraindo dados da ficha: ficha_cadastro_preenchida.pdf
+2026-08-04 16:57:56 [INFO] organizacao.extracao_dados — Iniciando extração do arquivo: ficha_cadastro_preenchida.pdf
+2026-08-04 16:57:56 [INFO] main_organizacao — Validando dados cadastrais...
+2026-08-04 16:57:56 [INFO] organizacao.planilha_mestra — Registro do cliente 'João Silva' adicionado com status VALIDADO.
+2026-08-04 16:57:56 [INFO] organizacao.arquivamento — Pasta '20260728_100000_joao.silva@exemplo.com' arquivada localmente em '20260728_100000_joao.silva@exemplo.com_dup1'

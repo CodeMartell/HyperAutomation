@@ -18,6 +18,9 @@ import sys
 import shutil
 from pathlib import Path
 
+from reportlab.pdfgen import canvas
+from reportlab.lib.pagesizes import A4
+
 # Permite execução direta
 _RAIZ_PROJETO = Path(__file__).resolve().parent.parent.parent
 sys.path.insert(0, str(_RAIZ_PROJETO / "source"))
@@ -42,9 +45,48 @@ def _limpar_ambiente_teste() -> None:
     logger.info("Estrutura do ERP limpa e resetada para a simulação.")
 
 def _criar_documento_ficha(pasta: Path, nome_arquivo: str, conteudo: str) -> None:
-    """Cria um arquivo de texto simulando a ficha PDF preenchida pelo cliente."""
+    """
+    Cria um PDF verdadeiro contendo o conteúdo da ficha.
+    """
     pasta.mkdir(parents=True, exist_ok=True)
-    (pasta / nome_arquivo).write_text(conteudo, encoding="utf-8")
+
+    caminho_pdf = pasta / nome_arquivo
+
+    pdf = canvas.Canvas(str(caminho_pdf), pagesize=A4)
+
+    largura, altura = A4
+    y = altura - 50
+
+    pdf.setFont("Helvetica", 12)
+
+    for linha in conteudo.splitlines():
+        pdf.drawString(50, y, linha)
+        y -= 20
+
+        if y < 50:
+            pdf.showPage()
+            pdf.setFont("Helvetica", 12)
+            y = altura - 50
+
+    pdf.save()
+    
+def _criar_pdf_simples(pasta: Path, nome_arquivo: str, titulo: str) -> None:
+    """
+    Cria um PDF simples para simular documentos anexos.
+    """
+    caminho_pdf = pasta / nome_arquivo
+
+    pdf = canvas.Canvas(str(caminho_pdf), pagesize=A4)
+
+    pdf.setFont("Helvetica-Bold", 16)
+    pdf.drawString(50, 800, titulo)
+
+    pdf.setFont("Helvetica", 12)
+    pdf.drawString(50, 770, "Documento utilizado apenas para simulação.")
+
+    pdf.save()
+    
+    
 
 def _exibir_arvore_erp() -> None:
     """Exibe de forma visual a árvore de diretórios do ERP."""
@@ -86,8 +128,8 @@ def main() -> None:
         "Endereço: Rua das Flores, 123 - Manaus - AM"
     )
     _criar_documento_ficha(joao_dir, "ficha_cadastro_preenchida.pdf", joao_ficha)
-    (joao_dir / "rg_joao_silva.pdf").write_text("Simulação RG", encoding="utf-8")
-    (joao_dir / "comprovante_residencia.pdf").write_text("Simulação Residência", encoding="utf-8")
+    _criar_pdf_simples(joao_dir, "rg_joao_silva.pdf", "RG - João Silva")
+    _criar_pdf_simples(joao_dir, "comprovante_residencia.pdf", "Comprovante de Residência")
 
     # ── Cenário 2: Criar dossiê INVÁLIDO (Maria Souza) ──────────────────────
     logger.info("Criando dossiê de teste INVÁLIDO (Maria Souza)...")
@@ -103,8 +145,8 @@ def main() -> None:
         "Data de nascimento: 31/02/1995\n"  # Data inexistente
         "Endereço: Rua"  # Endereço muito curto
     )
-    _criar_documento_ficha(maria_dir, "ficha_cadastro.pdf", maria_ficha)
-    (maria_dir / "cnh.pdf").write_text("Simulação CNH", encoding="utf-8")
+    _criar_documento_ficha(maria_dir, "ficha_cadastro.pdf", maria_ficha)    
+    _criar_pdf_simples(maria_dir, "cnh.pdf", "CNH - Maria Souza")
 
     print("\n>>> INICIANDO EXECUÇÃO 1/2 (Processando Fichas Iniciais) <<<")
     main_org.main()
@@ -112,9 +154,20 @@ def main() -> None:
     # ── Cenário 3: Reprocessar João Silva (Duplicado) ────────────────────────
     print("\n>>> PREPARANDO EXECUÇÃO 2/2 (Teste de Idempotência) <<<")
     logger.info("Recriando dossiê idêntico de João Silva na pasta OK...")
+    
     _criar_documento_ficha(joao_dir, "ficha_cadastro_preenchida.pdf", joao_ficha)
-    (joao_dir / "rg_joao_silva.pdf").write_text("Simulação RG", encoding="utf-8")
-    (joao_dir / "comprovante_residencia.pdf").write_text("Simulação Residência", encoding="utf-8")
+
+    _criar_pdf_simples(
+    joao_dir,
+    "rg_joao_silva.pdf",
+    "RG - João Silva"
+)
+
+    _criar_pdf_simples(
+    joao_dir,
+    "comprovante_residencia.pdf",
+    "Comprovante de Residência"
+)
 
     print("\n>>> INICIANDO EXECUÇÃO 2/2 (Processando Dossiê Duplicado) <<<")
     main_org.main()
