@@ -1,0 +1,136 @@
+2026-08-03 17:18:28 [INFO] simulacao_organizacao — Estrutura do ERP limpa e resetada para a simulação.
+2026-08-03 17:18:28 [INFO] simulacao_organizacao — Criando dossiê de teste VÁLIDO (João Silva)...
+2026-08-03 17:18:28 [INFO] simulacao_organizacao — Criando dossiê de teste INVÁLIDO (Maria Souza)...
+2026-08-03 17:18:47 [INFO] simulacao_organizacao — Estrutura do ERP limpa e resetada para a simulação.
+2026-08-03 17:18:47 [INFO] simulacao_organizacao — Criando dossiê de teste VÁLIDO (João Silva)...
+2026-08-03 17:18:47 [INFO] simulacao_organizacao — Criando dossiê de teste INVÁLIDO (Maria Souza)...
+2026-08-03 17:18:47 [INFO] main_organizacao — Integração com Google Drive ATIVADA. Inicializando conexão...
+2026-08-03 17:18:47 [INFO] atendimento.google_drive — Atualizando token de acesso do Google Drive expirado...
+2026-08-03 17:18:48 [INFO] googleapiclient.discovery_cache — file_cache is only supported with oauth2client<4.0.0
+2026-08-03 17:18:51 [INFO] atendimento.google_drive — Pasta criada no Google Drive: Sistema_Integrador_Portal_Fake (ID: 1YGVkHIaLZhBH3S-DMCT_RwcZYwq8XGeV)
+2026-08-03 17:18:52 [INFO] atendimento.google_drive — Pasta criada no Google Drive: Arquivados (ID: 1-mbH8vrI745oPqmMztuS9Rs3Y4dtYD6-)
+2026-08-03 17:18:52 [INFO] main_organizacao — Estrutura do Google Drive inicializada com sucesso!
+2026-08-03 17:18:52 [INFO] organizacao.planilha_mestra — Planilha Mestra inicializada localmente em: /mnt/projetos/romulus/HyperAutomation/ERP_Portal_Fake/Sistema_Integrador_Portal_Fake/Planilha_Mestra.xlsx
+2026-08-03 17:18:53 [INFO] main_organizacao — [Drive] Dossiê encontrado: 20260730_164735_romulus.lira1_gmail.com (ID: 1C8seauWILtfQrbo4ZPv1wawVEg-_Mu21)
+2026-08-03 17:18:54 [INFO] main_organizacao — [Drive] Arquivo baixado: comprovante_residencia.pdf
+2026-08-03 17:18:56 [INFO] main_organizacao — [Drive] Arquivo baixado: ficha_cadastro.pdf
+2026-08-03 17:18:59 [INFO] main_organizacao — [Drive] Arquivo baixado: rg_frente.pdf
+2026-08-03 17:18:59 [INFO] organizacao.extracao_dados — Iniciando extração do arquivo: ficha_cadastro.pdf
+2026-08-03 17:18:59 [INFO] organizacao.planilha_mestra — Registro do cliente ' ' adicionado com status ERRO.
+2026-08-03 17:18:59 [INFO] organizacao.arquivamento — [Drive] Movendo pasta ID 1C8seauWILtfQrbo4ZPv1wawVEg-_Mu21 para a pasta Arquivados...
+2026-08-03 17:19:00 [INFO] atendimento.google_drive — Pasta de ID 1C8seauWILtfQrbo4ZPv1wawVEg-_Mu21 movida no Google Drive.
+2026-08-03 17:19:00 [INFO] main_organizacao — [Drive] Dossiê encontrado: 20260728_162700_romulus.lira1_gmail.com (ID: 1jFYrDYqI-Jt-UON6RYT3waYNf3zSCbKZ)
+2026-08-03 17:19:01 [INFO] main_organizacao — [Drive] Arquivo baixado: comprovante_residencia.pdf
+2026-08-03 17:19:02 [INFO] main_organizacao — [Drive] Arquivo baixado: ficha_cadastro.pdf
+2026-08-03 17:19:04 [INFO] main_organizacao — [Drive] Arquivo baixado: rg_frente.pdf
+2026-08-03 17:19:04 [WARNING] main_organizacao — [Drive] Documento duplicado detectado (Hash: f021a0236f993dfce4d794cdd8f69a8373dbfeb0722ba5882f6077120364f1a9). Arquivando...
+2026-08-03 17:19:04 [INFO] organizacao.arquivamento — [Drive] Movendo pasta ID 1jFYrDYqI-Jt-UON6RYT3waYNf3zSCbKZ para a pasta Arquivados...
+2026-08-03 17:19:05 [INFO] atendimento.google_drive — Pasta de ID 1jFYrDYqI-Jt-UON6RYT3waYNf3zSCbKZ movida no Google Drive.
+2026-08-03 17:19:05 [INFO] main_organizacao — [Drive] Dossiê encontrado: 20260728_151353_romulus.lira1_gmail.com (ID: 1wwKTopVI-opmZSwNh8HpnaBP57dRP8a0)
+2026-08-03 17:19:06 [INFO] main_organizacao — [Drive] Arquivo baixado: comprovante_residencia.pdf
+2026-08-03 17:19:08 [INFO] main_organizacao — [Drive] Arquivo baixado: ficha_cadastro.pdf
+2026-08-03 17:19:09 [INFO] main_organizacao — [Drive] Arquivo baixado: rg_frente.pdf
+2026-08-03 17:19:09 [WARNING] main_organizacao — [Drive] Documento duplicado detectado (Hash: f021a0236f993dfce4d794cdd8f69a8373dbfeb0722ba5882f6077120364f1a9). Arquivando...
+2026-08-03 17:19:09 [INFO] organizacao.arquivamento — [Drive] Movendo pasta ID 1wwKTopVI-opmZSwNh8HpnaBP57dRP8a0 para a pasta Arquivados...
+2026-08-03 17:19:10 [INFO] atendimento.google_drive — Pasta de ID 1wwKTopVI-opmZSwNh8HpnaBP57dRP8a0 movida no Google Drive.
+2026-08-03 17:19:10 [INFO] main_organizacao — [Drive] Dossiê encontrado: 20260728_141112_romulus.lira1_gmail.com (ID: 1ptuunIFAHf2D2Fz8BMb3YG1g-rbQvpbE)
+2026-08-03 17:19:11 [INFO] main_organizacao — [Drive] Arquivo baixado: comprovante_residencia.pdf
+2026-08-03 17:19:12 [INFO] main_organizacao — [Drive] Arquivo baixado: ficha_cadastro.pdf
+2026-08-03 17:19:14 [INFO] main_organizacao — [Drive] Arquivo baixado: rg_frente.pdf
+2026-08-03 17:19:14 [WARNING] main_organizacao — [Drive] Documento duplicado detectado (Hash: f021a0236f993dfce4d794cdd8f69a8373dbfeb0722ba5882f6077120364f1a9). Arquivando...
+2026-08-03 17:19:14 [INFO] organizacao.arquivamento — [Drive] Movendo pasta ID 1ptuunIFAHf2D2Fz8BMb3YG1g-rbQvpbE para a pasta Arquivados...
+2026-08-03 17:19:16 [INFO] atendimento.google_drive — Pasta de ID 1ptuunIFAHf2D2Fz8BMb3YG1g-rbQvpbE movida no Google Drive.
+2026-08-03 17:19:16 [INFO] organizacao.planilha_mestra — [Drive] Criando nova planilha Mestra no Drive...
+2026-08-03 17:19:18 [WARNING] googleapiclient.http — Encountered 403 Forbidden with reason "storageQuotaExceeded"
+2026-08-03 17:19:18 [ERROR] organizacao.planilha_mestra — [Drive] Erro ao fazer upload da planilha para o Drive: <HttpError 403 when requesting https://www.googleapis.com/upload/drive/v3/files?fields=id&alt=json&uploadType=resumable returned "The user's Drive storage quota has been exceeded.". Details: "[{'message': "The user's Drive storage quota has been exceeded.", 'domain': 'usageLimits', 'reason': 'storageQuotaExceeded'}]">
+2026-08-03 17:19:18 [INFO] simulacao_organizacao — Recriando dossiê idêntico de João Silva na pasta OK...
+2026-08-03 17:19:18 [INFO] main_organizacao — Integração com Google Drive ATIVADA. Inicializando conexão...
+2026-08-03 17:19:18 [INFO] googleapiclient.discovery_cache — file_cache is only supported with oauth2client<4.0.0
+2026-08-03 17:19:20 [INFO] main_organizacao — Estrutura do Google Drive inicializada com sucesso!
+2026-08-03 17:19:22 [INFO] organizacao.planilha_mestra — [Drive] Criando nova planilha Mestra no Drive...
+2026-08-03 17:19:24 [WARNING] googleapiclient.http — Encountered 403 Forbidden with reason "storageQuotaExceeded"
+2026-08-03 17:19:24 [ERROR] organizacao.planilha_mestra — [Drive] Erro ao fazer upload da planilha para o Drive: <HttpError 403 when requesting https://www.googleapis.com/upload/drive/v3/files?fields=id&alt=json&uploadType=resumable returned "The user's Drive storage quota has been exceeded.". Details: "[{'message': "The user's Drive storage quota has been exceeded.", 'domain': 'usageLimits', 'reason': 'storageQuotaExceeded'}]">
+2026-08-03 17:19:41 [INFO] simulacao_organizacao — Estrutura do ERP limpa e resetada para a simulação.
+2026-08-03 17:19:41 [INFO] simulacao_organizacao — Criando dossiê de teste VÁLIDO (João Silva)...
+2026-08-03 17:19:41 [INFO] simulacao_organizacao — Criando dossiê de teste INVÁLIDO (Maria Souza)...
+2026-08-03 17:19:41 [INFO] organizacao.planilha_mestra — Planilha Mestra inicializada localmente em: /mnt/projetos/romulus/HyperAutomation/ERP_Portal_Fake/Sistema_Integrador_Portal_Fake/Planilha_Mestra.xlsx
+2026-08-03 17:19:41 [INFO] main_organizacao — Total de dossiês locais encontrados para processar: 2
+2026-08-03 17:19:41 [INFO] main_organizacao — Processando pasta local: 20260728_100000_joao.silva@exemplo.com
+2026-08-03 17:19:41 [INFO] main_organizacao — Extraindo dados da ficha: ficha_cadastro_preenchida.pdf
+2026-08-03 17:19:41 [INFO] organizacao.extracao_dados — Iniciando extração do arquivo: ficha_cadastro_preenchida.pdf
+2026-08-03 17:19:41 [WARNING] pypdf._reader — invalid pdf header: b'FICHA'
+2026-08-03 17:19:41 [WARNING] pypdf._reader — EOF marker not found
+2026-08-03 17:19:41 [WARNING] organizacao.extracao_dados — Falha ao ler 'ficha_cadastro_preenchida.pdf' como PDF nativo (Stream has ended unexpectedly). Tentando ler como texto plano (simulado)...
+2026-08-03 17:19:41 [INFO] main_organizacao — Validando dados cadastrais...
+2026-08-03 17:19:41 [INFO] organizacao.planilha_mestra — Registro do cliente 'João Silva' adicionado com status ERRO.
+2026-08-03 17:19:41 [INFO] organizacao.arquivamento — Pasta '20260728_100000_joao.silva@exemplo.com' arquivada localmente em '20260728_100000_joao.silva@exemplo.com'
+2026-08-03 17:19:41 [INFO] main_organizacao — Processando pasta local: 20260728_100001_maria.souza@exemplo.com
+2026-08-03 17:19:41 [INFO] main_organizacao — Extraindo dados da ficha: ficha_cadastro.pdf
+2026-08-03 17:19:41 [INFO] organizacao.extracao_dados — Iniciando extração do arquivo: ficha_cadastro.pdf
+2026-08-03 17:19:41 [WARNING] pypdf._reader — invalid pdf header: b'FICHA'
+2026-08-03 17:19:41 [WARNING] pypdf._reader — EOF marker not found
+2026-08-03 17:19:41 [WARNING] organizacao.extracao_dados — Falha ao ler 'ficha_cadastro.pdf' como PDF nativo (Stream has ended unexpectedly). Tentando ler como texto plano (simulado)...
+2026-08-03 17:19:41 [INFO] main_organizacao — Validando dados cadastrais...
+2026-08-03 17:19:41 [INFO] organizacao.planilha_mestra — Registro do cliente 'Maria Souza' adicionado com status ERRO.
+2026-08-03 17:19:41 [INFO] organizacao.arquivamento — Pasta '20260728_100001_maria.souza@exemplo.com' arquivada localmente em '20260728_100001_maria.souza@exemplo.com'
+2026-08-03 17:19:41 [INFO] simulacao_organizacao — Recriando dossiê idêntico de João Silva na pasta OK...
+2026-08-03 17:19:41 [INFO] main_organizacao — Total de dossiês locais encontrados para processar: 1
+2026-08-03 17:19:41 [INFO] main_organizacao — Processando pasta local: 20260728_100000_joao.silva@exemplo.com
+2026-08-03 17:19:41 [WARNING] main_organizacao — Documento duplicado detectado (Hash: cfdb1b7364557474c0c82ad4c97390b91321fab13e70109d44bd67b3b8be6f1d). Arquivando sem processar.
+2026-08-03 17:19:41 [INFO] organizacao.arquivamento — Pasta '20260728_100000_joao.silva@exemplo.com' arquivada localmente em '20260728_100000_joao.silva@exemplo.com_dup1'
+2026-08-03 17:20:27 [INFO] simulacao_organizacao — Estrutura do ERP limpa e resetada para a simulação.
+2026-08-03 17:20:27 [INFO] simulacao_organizacao — Criando dossiê de teste VÁLIDO (João Silva)...
+2026-08-03 17:20:27 [INFO] simulacao_organizacao — Criando dossiê de teste INVÁLIDO (Maria Souza)...
+2026-08-03 17:20:27 [INFO] organizacao.planilha_mestra — Planilha Mestra inicializada localmente em: /mnt/projetos/romulus/HyperAutomation/ERP_Portal_Fake/Sistema_Integrador_Portal_Fake/Planilha_Mestra.xlsx
+2026-08-03 17:20:27 [INFO] main_organizacao — Total de dossiês locais encontrados para processar: 2
+2026-08-03 17:20:27 [INFO] main_organizacao — Processando pasta local: 20260728_100000_joao.silva@exemplo.com
+2026-08-03 17:20:27 [INFO] main_organizacao — Extraindo dados da ficha: ficha_cadastro_preenchida.pdf
+2026-08-03 17:20:27 [INFO] organizacao.extracao_dados — Iniciando extração do arquivo: ficha_cadastro_preenchida.pdf
+2026-08-03 17:20:27 [WARNING] pypdf._reader — invalid pdf header: b'FICHA'
+2026-08-03 17:20:27 [WARNING] pypdf._reader — EOF marker not found
+2026-08-03 17:20:27 [WARNING] organizacao.extracao_dados — Falha ao ler 'ficha_cadastro_preenchida.pdf' como PDF nativo (Stream has ended unexpectedly). Tentando ler como texto plano (simulado)...
+2026-08-03 17:20:27 [INFO] main_organizacao — Validando dados cadastrais...
+2026-08-03 17:20:27 [INFO] organizacao.planilha_mestra — Registro do cliente 'João Silva' adicionado com status VALIDADO.
+2026-08-03 17:20:27 [INFO] organizacao.arquivamento — Pasta '20260728_100000_joao.silva@exemplo.com' arquivada localmente em '20260728_100000_joao.silva@exemplo.com'
+2026-08-03 17:20:27 [INFO] main_organizacao — Processando pasta local: 20260728_100001_maria.souza@exemplo.com
+2026-08-03 17:20:27 [INFO] main_organizacao — Extraindo dados da ficha: ficha_cadastro.pdf
+2026-08-03 17:20:27 [INFO] organizacao.extracao_dados — Iniciando extração do arquivo: ficha_cadastro.pdf
+2026-08-03 17:20:27 [WARNING] pypdf._reader — invalid pdf header: b'FICHA'
+2026-08-03 17:20:27 [WARNING] pypdf._reader — EOF marker not found
+2026-08-03 17:20:27 [WARNING] organizacao.extracao_dados — Falha ao ler 'ficha_cadastro.pdf' como PDF nativo (Stream has ended unexpectedly). Tentando ler como texto plano (simulado)...
+2026-08-03 17:20:27 [INFO] main_organizacao — Validando dados cadastrais...
+2026-08-03 17:20:27 [INFO] organizacao.planilha_mestra — Registro do cliente 'Maria Souza' adicionado com status ERRO.
+2026-08-03 17:20:27 [INFO] organizacao.arquivamento — Pasta '20260728_100001_maria.souza@exemplo.com' arquivada localmente em '20260728_100001_maria.souza@exemplo.com'
+2026-08-03 17:20:27 [INFO] simulacao_organizacao — Recriando dossiê idêntico de João Silva na pasta OK...
+2026-08-03 17:20:27 [INFO] main_organizacao — Total de dossiês locais encontrados para processar: 1
+2026-08-03 17:20:27 [INFO] main_organizacao — Processando pasta local: 20260728_100000_joao.silva@exemplo.com
+2026-08-03 17:20:27 [WARNING] main_organizacao — Documento duplicado detectado (Hash: 5653c480dcd25577f9819606c2ca05b445e034eb6b15edb87727360315bcd129). Arquivando sem processar.
+2026-08-03 17:20:27 [INFO] organizacao.arquivamento — Pasta '20260728_100000_joao.silva@exemplo.com' arquivada localmente em '20260728_100000_joao.silva@exemplo.com_dup1'
+2026-08-03 17:25:36 [INFO] simulacao_organizacao — Estrutura do ERP limpa e resetada para a simulação.
+2026-08-03 17:25:36 [INFO] simulacao_organizacao — Criando dossiê de teste VÁLIDO (João Silva)...
+2026-08-03 17:25:36 [INFO] simulacao_organizacao — Criando dossiê de teste INVÁLIDO (Maria Souza)...
+2026-08-03 17:25:36 [INFO] organizacao.planilha_mestra — Planilha Mestra inicializada localmente em: /mnt/projetos/romulus/HyperAutomation/ERP_Portal_Fake/Sistema_Integrador_Portal_Fake/Planilha_Mestra.xlsx
+2026-08-03 17:25:36 [INFO] main_organizacao — Total de dossiês locais encontrados para processar: 2
+2026-08-03 17:25:36 [INFO] main_organizacao — Processando pasta local: 20260728_100000_joao.silva@exemplo.com
+2026-08-03 17:25:36 [INFO] main_organizacao — Extraindo dados da ficha: ficha_cadastro_preenchida.pdf
+2026-08-03 17:25:36 [INFO] organizacao.extracao_dados — Iniciando extração do arquivo: ficha_cadastro_preenchida.pdf
+2026-08-03 17:25:36 [WARNING] pypdf._reader — invalid pdf header: b'FICHA'
+2026-08-03 17:25:36 [WARNING] pypdf._reader — EOF marker not found
+2026-08-03 17:25:36 [WARNING] organizacao.extracao_dados — Falha ao ler 'ficha_cadastro_preenchida.pdf' como PDF nativo (Stream has ended unexpectedly). Tentando ler como texto plano (simulado)...
+2026-08-03 17:25:36 [INFO] main_organizacao — Validando dados cadastrais...
+2026-08-03 17:25:36 [INFO] organizacao.planilha_mestra — Registro do cliente 'João Silva' adicionado com status VALIDADO.
+2026-08-03 17:25:36 [INFO] organizacao.arquivamento — Pasta '20260728_100000_joao.silva@exemplo.com' arquivada localmente em '20260728_100000_joao.silva@exemplo.com'
+2026-08-03 17:25:36 [INFO] main_organizacao — Processando pasta local: 20260728_100001_maria.souza@exemplo.com
+2026-08-03 17:25:36 [INFO] main_organizacao — Extraindo dados da ficha: ficha_cadastro.pdf
+2026-08-03 17:25:36 [INFO] organizacao.extracao_dados — Iniciando extração do arquivo: ficha_cadastro.pdf
+2026-08-03 17:25:36 [WARNING] pypdf._reader — invalid pdf header: b'FICHA'
+2026-08-03 17:25:36 [WARNING] pypdf._reader — EOF marker not found
+2026-08-03 17:25:36 [WARNING] organizacao.extracao_dados — Falha ao ler 'ficha_cadastro.pdf' como PDF nativo (Stream has ended unexpectedly). Tentando ler como texto plano (simulado)...
+2026-08-03 17:25:36 [INFO] main_organizacao — Validando dados cadastrais...
+2026-08-03 17:25:36 [INFO] organizacao.planilha_mestra — Registro do cliente 'Maria Souza' adicionado com status ERRO.
+2026-08-03 17:25:36 [INFO] organizacao.arquivamento — Pasta '20260728_100001_maria.souza@exemplo.com' arquivada localmente em '20260728_100001_maria.souza@exemplo.com'
+2026-08-03 17:25:36 [INFO] simulacao_organizacao — Recriando dossiê idêntico de João Silva na pasta OK...
+2026-08-03 17:25:36 [INFO] main_organizacao — Total de dossiês locais encontrados para processar: 1
+2026-08-03 17:25:36 [INFO] main_organizacao — Processando pasta local: 20260728_100000_joao.silva@exemplo.com
+2026-08-03 17:25:36 [WARNING] main_organizacao — Documento duplicado detectado (Hash: 5653c480dcd25577f9819606c2ca05b445e034eb6b15edb87727360315bcd129). Arquivando sem processar.
+2026-08-03 17:25:36 [INFO] organizacao.arquivamento — Pasta '20260728_100000_joao.silva@exemplo.com' arquivada localmente em '20260728_100000_joao.silva@exemplo.com_dup1'

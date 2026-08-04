@@ -31363,3 +31363,164 @@
 2026-07-28 14:12:48 [INFO] atendimento.leitura_email — 30 mensagem(ns) encontrada(s) — processando todas.
 2026-07-28 14:13:02 [INFO] atendimento.leitura_email — 30 e-mail(s) ignorado(s) por não ter anexo ou não passar no filtro de assunto.
 2026-07-28 14:13:02 [INFO] main_atendimento — Nenhuma nova solicitação encontrada. Processo finalizado.
+2026-07-28 15:13:28 [INFO] main_atendimento — Integração com Google Drive ATIVADA. Inicializando...
+2026-07-28 15:13:28 [INFO] atendimento.google_drive — Atualizando token de acesso do Google Drive expirado...
+2026-07-28 15:13:28 [INFO] googleapiclient.discovery_cache — file_cache is only supported with oauth2client<4.0.0
+2026-07-28 15:13:30 [INFO] main_atendimento — Estrutura do Google Drive inicializada com sucesso!
+2026-07-28 15:13:30 [INFO] main_atendimento — Iniciando leitura de e-mails via IMAP...
+2026-07-28 15:13:30 [INFO] atendimento.leitura_email — Conectando ao servidor IMAP (imap.gmail.com:993)...
+2026-07-28 15:13:30 [INFO] atendimento.leitura_email — Filtro de assunto (servidor): 'Atendimento'
+2026-07-28 15:13:30 [INFO] atendimento.leitura_email — Limite de e-mails por execução: 50
+2026-07-28 15:13:30 [INFO] atendimento.leitura_email — Endereço IPv4 resolvido: 142.250.0.109
+2026-07-28 15:13:33 [INFO] atendimento.leitura_email — 31 mensagem(ns) encontrada(s) — processando todas.
+2026-07-28 15:13:53 [INFO] atendimento.leitura_email —   ✓ Anexo baixado: ficha_cadastro.pdf
+2026-07-28 15:13:53 [INFO] atendimento.leitura_email —   ✓ Anexo baixado: comprovante_residencia.pdf
+2026-07-28 15:13:53 [INFO] atendimento.leitura_email —   ✓ Anexo baixado: rg_frente.pdf
+2026-07-28 15:13:55 [INFO] atendimento.leitura_email — ✓ Solicitação aceita de romulus.lira1@gmail.com com 3 anexo(s). Assunto: 'Atendimento — Teste Documentação Completa'
+2026-07-28 15:13:55 [INFO] atendimento.leitura_email — 30 e-mail(s) ignorado(s) por não ter anexo ou não passar no filtro de assunto.
+2026-07-28 15:13:55 [INFO] main_atendimento — Total de solicitações recebidas: 1
+2026-07-28 15:13:55 [INFO] main_atendimento — ──────────────────────────────────────────────────
+2026-07-28 15:13:55 [INFO] main_atendimento — Processando solicitação: 20260728_151353_romulus.lira1_gmail.com
+2026-07-28 15:13:55 [INFO] main_atendimento — Remetente: romulus.lira1@gmail.com | Assunto: Atendimento — Teste Documentação Completa
+2026-07-28 15:13:55 [INFO] main_atendimento — Anexos recebidos (3): ['ficha_cadastro.pdf', 'comprovante_residencia.pdf', 'rg_frente.pdf']
+2026-07-28 15:13:55 [INFO] main_atendimento — [3/6] Validando documentação...
+2026-07-28 15:13:55 [INFO] atendimento.validacao —   ✓ [documento_identidade] → rg_frente.pdf
+2026-07-28 15:13:55 [INFO] atendimento.validacao —   ✓ [comprovante_residencia] → comprovante_residencia.pdf
+2026-07-28 15:13:55 [INFO] atendimento.validacao —   ✓ [ficha_cadastro] → ficha_cadastro.pdf
+2026-07-28 15:13:55 [INFO] atendimento.validacao — Documentação COMPLETA — todos os 3 documentos encontrados.
+2026-07-28 15:13:55 [INFO] main_atendimento — [4/6] Classificando arquivos...
+2026-07-28 15:13:55 [INFO] atendimento.classificacao — [Drive] Iniciando upload e classificação da solicitação: 20260728_151353_romulus.lira1_gmail.com
+2026-07-28 15:13:56 [INFO] atendimento.google_drive — Pasta criada no Google Drive: 20260728_151353_romulus.lira1_gmail.com (ID: 1wwKTopVI-opmZSwNh8HpnaBP57dRP8a0)
+2026-07-28 15:14:00 [INFO] atendimento.google_drive — Upload concluído: rg_frente.pdf -> ID: 1CYE08EI70n_AuMQiviW918P8Na3svECs
+2026-07-28 15:14:03 [INFO] atendimento.google_drive — Upload concluído: ficha_cadastro.pdf -> ID: 1YqBqRZf_Vxak4WP0UfXzBrpyLNFFoKSK
+2026-07-28 15:14:05 [INFO] atendimento.google_drive — Upload concluído: comprovante_residencia.pdf -> ID: 18WTkf9iDJDQ5SFrzKxGfYNn2wS1subtA
+2026-07-28 15:14:06 [INFO] atendimento.google_drive — Pasta de ID 1wwKTopVI-opmZSwNh8HpnaBP57dRP8a0 movida no Google Drive.
+2026-07-28 15:14:06 [INFO] atendimento.classificacao — [Drive] Pasta temporária local limpa: /mnt/projetos/romulus/HyperAutomation/ERP_Portal_Fake/Downloads/20260728_151353_romulus.lira1_gmail.com
+2026-07-28 15:14:06 [INFO] main_atendimento — [5/6] Respondendo ao cliente...
+2026-07-28 15:14:06 [INFO] atendimento.resposta_cliente — Enviando resposta de DOCUMENTAÇÃO COMPLETA para romulus.lira1@gmail.com
+2026-07-28 15:14:12 [INFO] atendimento.resposta_cliente — ✓ Resposta enviada para romulus.lira1@gmail.com.
+2026-07-28 15:14:12 [INFO] main_atendimento — [6/6] Encaminhando ao próximo setor...
+2026-07-28 15:14:12 [INFO] atendimento.classificacao — [Drive] Encaminhando pasta ID 1wwKTopVI-opmZSwNh8HpnaBP57dRP8a0 para a pasta Encaminhados...
+2026-07-28 15:14:13 [INFO] atendimento.google_drive — Pasta de ID 1wwKTopVI-opmZSwNh8HpnaBP57dRP8a0 movida no Google Drive.
+2026-07-28 16:26:32 [INFO] main_atendimento — Integração com Google Drive ATIVADA. Inicializando...
+2026-07-28 16:26:32 [INFO] atendimento.google_drive — Atualizando token de acesso do Google Drive expirado...
+2026-07-28 16:26:33 [INFO] googleapiclient.discovery_cache — file_cache is only supported with oauth2client<4.0.0
+2026-07-28 16:26:35 [INFO] main_atendimento — Estrutura do Google Drive inicializada com sucesso!
+2026-07-28 16:26:35 [INFO] main_atendimento — Iniciando leitura de e-mails via IMAP...
+2026-07-28 16:26:36 [INFO] atendimento.leitura_email — Conectando ao servidor IMAP (imap.gmail.com:993)...
+2026-07-28 16:26:36 [INFO] atendimento.leitura_email — Filtro de assunto (servidor): 'Atendimento'
+2026-07-28 16:26:36 [INFO] atendimento.leitura_email — Limite de e-mails por execução: 50
+2026-07-28 16:26:36 [INFO] atendimento.leitura_email — Endereço IPv4 resolvido: 64.233.190.109
+2026-07-28 16:26:40 [INFO] atendimento.leitura_email — 31 mensagem(ns) encontrada(s) — processando todas.
+2026-07-28 16:27:00 [INFO] atendimento.leitura_email —   ✓ Anexo baixado: rg_frente.pdf
+2026-07-28 16:27:00 [INFO] atendimento.leitura_email —   ✓ Anexo baixado: comprovante_residencia.pdf
+2026-07-28 16:27:00 [INFO] atendimento.leitura_email —   ✓ Anexo baixado: ficha_cadastro.pdf
+2026-07-28 16:27:01 [INFO] atendimento.leitura_email — ✓ Solicitação aceita de romulus.lira1@gmail.com com 3 anexo(s). Assunto: 'Atendimento — Teste Documentação Completa'
+2026-07-28 16:27:01 [INFO] atendimento.leitura_email — 30 e-mail(s) ignorado(s) por não ter anexo ou não passar no filtro de assunto.
+2026-07-28 16:27:01 [INFO] main_atendimento — Total de solicitações recebidas: 1
+2026-07-28 16:27:01 [INFO] main_atendimento — ──────────────────────────────────────────────────
+2026-07-28 16:27:01 [INFO] main_atendimento — Processando solicitação: 20260728_162700_romulus.lira1_gmail.com
+2026-07-28 16:27:01 [INFO] main_atendimento — Remetente: romulus.lira1@gmail.com | Assunto: Atendimento — Teste Documentação Completa
+2026-07-28 16:27:01 [INFO] main_atendimento — Anexos recebidos (3): ['rg_frente.pdf', 'comprovante_residencia.pdf', 'ficha_cadastro.pdf']
+2026-07-28 16:27:01 [INFO] main_atendimento — [3/6] Validando documentação...
+2026-07-28 16:27:01 [INFO] atendimento.validacao —   ✓ [documento_identidade] → rg_frente.pdf
+2026-07-28 16:27:01 [INFO] atendimento.validacao —   ✓ [comprovante_residencia] → comprovante_residencia.pdf
+2026-07-28 16:27:01 [INFO] atendimento.validacao —   ✓ [ficha_cadastro] → ficha_cadastro.pdf
+2026-07-28 16:27:01 [INFO] atendimento.validacao — Documentação COMPLETA — todos os 3 documentos encontrados.
+2026-07-28 16:27:01 [INFO] main_atendimento — [4/6] Classificando arquivos...
+2026-07-28 16:27:01 [INFO] atendimento.classificacao — [Drive] Iniciando upload e classificação da solicitação: 20260728_162700_romulus.lira1_gmail.com
+2026-07-28 16:27:02 [INFO] atendimento.google_drive — Pasta criada no Google Drive: 20260728_162700_romulus.lira1_gmail.com (ID: 1jFYrDYqI-Jt-UON6RYT3waYNf3zSCbKZ)
+2026-07-28 16:27:06 [INFO] atendimento.google_drive — Upload concluído: rg_frente.pdf -> ID: 1MAaw3vEAkflUopueo8QwjTlmJ5ghhRVP
+2026-07-28 16:27:08 [INFO] atendimento.google_drive — Upload concluído: ficha_cadastro.pdf -> ID: 1n_p1IvUV2mPxmTb6g0UXZB42JpJUlQKH
+2026-07-28 16:27:11 [INFO] atendimento.google_drive — Upload concluído: comprovante_residencia.pdf -> ID: 1QvIH6gxADgpI8cGL9sP8ApkxwGpbh0Pk
+2026-07-28 16:27:12 [INFO] atendimento.google_drive — Pasta de ID 1jFYrDYqI-Jt-UON6RYT3waYNf3zSCbKZ movida no Google Drive.
+2026-07-28 16:27:12 [INFO] atendimento.classificacao — [Drive] Pasta temporária local limpa: /mnt/projetos/romulus/HyperAutomation/ERP_Portal_Fake/Downloads/20260728_162700_romulus.lira1_gmail.com
+2026-07-28 16:27:12 [INFO] main_atendimento — [5/6] Respondendo ao cliente...
+2026-07-28 16:27:12 [INFO] atendimento.resposta_cliente — Enviando resposta de DOCUMENTAÇÃO COMPLETA para romulus.lira1@gmail.com
+2026-07-28 16:27:18 [INFO] atendimento.resposta_cliente — ✓ Resposta enviada para romulus.lira1@gmail.com.
+2026-07-28 16:27:18 [INFO] main_atendimento — [6/6] Encaminhando ao próximo setor...
+2026-07-28 16:27:18 [INFO] atendimento.classificacao — [Drive] Encaminhando pasta ID 1jFYrDYqI-Jt-UON6RYT3waYNf3zSCbKZ para a pasta Encaminhados...
+2026-07-28 16:27:18 [INFO] atendimento.google_drive — Pasta de ID 1jFYrDYqI-Jt-UON6RYT3waYNf3zSCbKZ movida no Google Drive.
+2026-07-30 16:30:23 [INFO] main_atendimento — Integração com Google Drive ATIVADA. Inicializando...
+2026-07-30 16:30:23 [INFO] atendimento.google_drive — Atualizando token de acesso do Google Drive expirado...
+2026-07-30 16:30:23 [INFO] googleapiclient.discovery_cache — file_cache is only supported with oauth2client<4.0.0
+2026-07-30 16:30:25 [INFO] main_atendimento — Estrutura do Google Drive inicializada com sucesso!
+2026-07-30 16:30:25 [INFO] main_atendimento — Iniciando leitura de e-mails via IMAP...
+2026-07-30 16:30:25 [INFO] atendimento.leitura_email — Conectando ao servidor IMAP (imap.gmail.com:993)...
+2026-07-30 16:30:25 [INFO] atendimento.leitura_email — Filtro de assunto (servidor): 'Atendimento'
+2026-07-30 16:30:25 [INFO] atendimento.leitura_email — Limite de e-mails por execução: 50
+2026-07-30 16:30:25 [INFO] atendimento.leitura_email — Endereço IPv4 resolvido: 108.177.123.108
+2026-07-30 16:30:27 [INFO] atendimento.leitura_email — 30 mensagem(ns) encontrada(s) — processando todas.
+2026-07-30 16:30:46 [INFO] atendimento.leitura_email — 30 e-mail(s) ignorado(s) por não ter anexo ou não passar no filtro de assunto.
+2026-07-30 16:30:46 [INFO] main_atendimento — Nenhuma nova solicitação encontrada. Processo finalizado.
+2026-07-30 16:40:53 [INFO] main_atendimento — Integração com Google Drive ATIVADA. Inicializando...
+2026-07-30 16:40:53 [INFO] googleapiclient.discovery_cache — file_cache is only supported with oauth2client<4.0.0
+2026-07-30 16:40:55 [INFO] main_atendimento — Estrutura do Google Drive inicializada com sucesso!
+2026-07-30 16:40:55 [INFO] main_atendimento — Iniciando leitura de e-mails via IMAP...
+2026-07-30 16:40:55 [INFO] atendimento.leitura_email — Conectando ao servidor IMAP (imap.gmail.com:993)...
+2026-07-30 16:40:55 [INFO] atendimento.leitura_email — Filtro de assunto (servidor): 'Atendimento'
+2026-07-30 16:40:55 [INFO] atendimento.leitura_email — Limite de e-mails por execução: 50
+2026-07-30 16:40:55 [INFO] atendimento.leitura_email — Endereço IPv4 resolvido: 142.251.0.108
+2026-07-30 16:41:17 [INFO] atendimento.leitura_email — 30 mensagem(ns) encontrada(s) — processando todas.
+2026-07-30 16:43:46 [INFO] atendimento.leitura_email — 30 e-mail(s) ignorado(s) por não ter anexo ou não passar no filtro de assunto.
+2026-07-30 16:43:46 [INFO] main_atendimento — Nenhuma nova solicitação encontrada. Processo finalizado.
+2026-07-30 16:43:52 [INFO] main_atendimento — Integração com Google Drive ATIVADA. Inicializando...
+2026-07-30 16:43:52 [INFO] googleapiclient.discovery_cache — file_cache is only supported with oauth2client<4.0.0
+2026-07-30 16:43:54 [INFO] main_atendimento — Estrutura do Google Drive inicializada com sucesso!
+2026-07-30 16:43:54 [INFO] main_atendimento — Iniciando leitura de e-mails via IMAP...
+2026-07-30 16:43:54 [INFO] atendimento.leitura_email — Conectando ao servidor IMAP (imap.gmail.com:993)...
+2026-07-30 16:43:54 [INFO] atendimento.leitura_email — Filtro de assunto (servidor): 'Atendimento'
+2026-07-30 16:43:54 [INFO] atendimento.leitura_email — Limite de e-mails por execução: 50
+2026-07-30 16:43:54 [INFO] atendimento.leitura_email — Endereço IPv4 resolvido: 142.251.0.108
+2026-07-30 16:43:57 [INFO] atendimento.leitura_email — 30 mensagem(ns) encontrada(s) — processando todas.
+2026-07-30 16:44:12 [INFO] atendimento.leitura_email — 30 e-mail(s) ignorado(s) por não ter anexo ou não passar no filtro de assunto.
+2026-07-30 16:44:12 [INFO] main_atendimento — Nenhuma nova solicitação encontrada. Processo finalizado.
+2026-07-30 16:44:30 [INFO] main_atendimento — Integração com Google Drive ATIVADA. Inicializando...
+2026-07-30 16:44:30 [INFO] googleapiclient.discovery_cache — file_cache is only supported with oauth2client<4.0.0
+2026-07-30 16:44:32 [INFO] main_atendimento — Estrutura do Google Drive inicializada com sucesso!
+2026-07-30 16:44:32 [INFO] main_atendimento — Iniciando leitura de e-mails via IMAP...
+2026-07-30 16:44:32 [INFO] atendimento.leitura_email — Conectando ao servidor IMAP (imap.gmail.com:993)...
+2026-07-30 16:44:32 [INFO] atendimento.leitura_email — Filtro de assunto (servidor): 'Atendimento'
+2026-07-30 16:44:32 [INFO] atendimento.leitura_email — Limite de e-mails por execução: 50
+2026-07-30 16:44:32 [INFO] atendimento.leitura_email — Endereço IPv4 resolvido: 142.251.0.109
+2026-07-30 16:44:34 [INFO] atendimento.leitura_email — 30 mensagem(ns) encontrada(s) — processando todas.
+2026-07-30 16:44:45 [INFO] atendimento.leitura_email — 30 e-mail(s) ignorado(s) por não ter anexo ou não passar no filtro de assunto.
+2026-07-30 16:44:45 [INFO] main_atendimento — Nenhuma nova solicitação encontrada. Processo finalizado.
+2026-07-30 16:47:20 [INFO] main_atendimento — Integração com Google Drive ATIVADA. Inicializando...
+2026-07-30 16:47:20 [INFO] googleapiclient.discovery_cache — file_cache is only supported with oauth2client<4.0.0
+2026-07-30 16:47:22 [INFO] main_atendimento — Estrutura do Google Drive inicializada com sucesso!
+2026-07-30 16:47:22 [INFO] main_atendimento — Iniciando leitura de e-mails via IMAP...
+2026-07-30 16:47:22 [INFO] atendimento.leitura_email — Conectando ao servidor IMAP (imap.gmail.com:993)...
+2026-07-30 16:47:22 [INFO] atendimento.leitura_email — Filtro de assunto (servidor): 'Atendimento'
+2026-07-30 16:47:22 [INFO] atendimento.leitura_email — Limite de e-mails por execução: 50
+2026-07-30 16:47:22 [INFO] atendimento.leitura_email — Endereço IPv4 resolvido: 142.251.0.108
+2026-07-30 16:47:24 [INFO] atendimento.leitura_email — 31 mensagem(ns) encontrada(s) — processando todas.
+2026-07-30 16:47:35 [INFO] atendimento.leitura_email —   ✓ Anexo baixado: comprovante_residencia.pdf
+2026-07-30 16:47:35 [INFO] atendimento.leitura_email —   ✓ Anexo baixado: ficha_cadastro.pdf
+2026-07-30 16:47:35 [INFO] atendimento.leitura_email —   ✓ Anexo baixado: rg_frente.pdf
+2026-07-30 16:47:35 [INFO] atendimento.leitura_email — ✓ Solicitação aceita de romulus.lira1@gmail.com com 3 anexo(s). Assunto: 'Atendimento — Teste Documentação Completa Rômulo Lira <romulus.lira1@gmail.com>'
+2026-07-30 16:47:35 [INFO] atendimento.leitura_email — 30 e-mail(s) ignorado(s) por não ter anexo ou não passar no filtro de assunto.
+2026-07-30 16:47:35 [INFO] main_atendimento — Total de solicitações recebidas: 1
+2026-07-30 16:47:35 [INFO] main_atendimento — ──────────────────────────────────────────────────
+2026-07-30 16:47:35 [INFO] main_atendimento — Processando solicitação: 20260730_164735_romulus.lira1_gmail.com
+2026-07-30 16:47:35 [INFO] main_atendimento — Remetente: romulus.lira1@gmail.com | Assunto: Atendimento — Teste Documentação Completa Rômulo Lira <romulus.lira1@gmail.com>
+2026-07-30 16:47:35 [INFO] main_atendimento — Anexos recebidos (3): ['comprovante_residencia.pdf', 'ficha_cadastro.pdf', 'rg_frente.pdf']
+2026-07-30 16:47:35 [INFO] main_atendimento — [3/6] Validando documentação...
+2026-07-30 16:47:35 [INFO] atendimento.validacao —   ✓ [documento_identidade] → rg_frente.pdf
+2026-07-30 16:47:35 [INFO] atendimento.validacao —   ✓ [comprovante_residencia] → comprovante_residencia.pdf
+2026-07-30 16:47:35 [INFO] atendimento.validacao —   ✓ [ficha_cadastro] → ficha_cadastro.pdf
+2026-07-30 16:47:35 [INFO] atendimento.validacao — Documentação COMPLETA — todos os 3 documentos encontrados.
+2026-07-30 16:47:35 [INFO] main_atendimento — [4/6] Classificando arquivos...
+2026-07-30 16:47:35 [INFO] atendimento.classificacao — [Drive] Iniciando upload e classificação da solicitação: 20260730_164735_romulus.lira1_gmail.com
+2026-07-30 16:47:36 [INFO] atendimento.google_drive — Pasta criada no Google Drive: 20260730_164735_romulus.lira1_gmail.com (ID: 1C8seauWILtfQrbo4ZPv1wawVEg-_Mu21)
+2026-07-30 16:47:40 [INFO] atendimento.google_drive — Upload concluído: rg_frente.pdf -> ID: 1oF9EB6hF4E_LMNJeavEvzZuiUUhwSPbh
+2026-07-30 16:47:42 [INFO] atendimento.google_drive — Upload concluído: ficha_cadastro.pdf -> ID: 1S9KiCez3ae2m7Yed7tEyuwwIMvmbRpwX
+2026-07-30 16:47:45 [INFO] atendimento.google_drive — Upload concluído: comprovante_residencia.pdf -> ID: 1WeD-gE7mrme66lC_NqGYw5vqLqO9Rktq
+2026-07-30 16:47:46 [INFO] atendimento.google_drive — Pasta de ID 1C8seauWILtfQrbo4ZPv1wawVEg-_Mu21 movida no Google Drive.
+2026-07-30 16:47:46 [INFO] atendimento.classificacao — [Drive] Pasta temporária local limpa: /mnt/projetos/romulus/HyperAutomation/ERP_Portal_Fake/Downloads/20260730_164735_romulus.lira1_gmail.com
+2026-07-30 16:47:46 [INFO] main_atendimento — [5/6] Respondendo ao cliente...
+2026-07-30 16:47:46 [INFO] atendimento.resposta_cliente — Enviando resposta de DOCUMENTAÇÃO COMPLETA para romulus.lira1@gmail.com
+2026-07-30 16:47:49 [INFO] atendimento.resposta_cliente — ✓ Resposta enviada para romulus.lira1@gmail.com.
+2026-07-30 16:47:49 [INFO] main_atendimento — [6/6] Encaminhando ao próximo setor...
+2026-07-30 16:47:49 [INFO] atendimento.classificacao — [Drive] Encaminhando pasta ID 1C8seauWILtfQrbo4ZPv1wawVEg-_Mu21 para a pasta Encaminhados...
+2026-07-30 16:47:50 [INFO] atendimento.google_drive — Pasta de ID 1C8seauWILtfQrbo4ZPv1wawVEg-_Mu21 movida no Google Drive.
