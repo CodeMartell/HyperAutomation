@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal Fake - Soluções Digitais</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 16px;
+            padding: 40px;
+            width: 100%;
+            max-width: 600px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            color: #0f3460;
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+        }
+
+        .header p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 6px;
+            color: #333;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 10px 14px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+            background-color: #fafafa;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #0f3460;
+            background-color: #fff;
+        }
+
+        .btn-container {
+            text-align: center;
+            margin-top: 25px;
+        }
+
+        .btn {
+            padding: 12px 32px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin: 5px;
+        }
+
+        #btnNovo {
+            background: linear-gradient(135deg, #0f3460, #16213e);
+            color: white;
+        }
+
+        #btnNovo:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(15, 52, 96, 0.4);
+        }
+
+        #btnLimpar {
+            background: #e74c3c;
+            color: white;
+        }
+
+        #btnLimpar:hover {
+            background: #c0392b;
+            transform: translateY(-2px);
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            color: #999;
+            font-size: 0.8rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Portal Fake Soluções Digitais</h1>
+            <p>Sistema de Cadastro de Clientes</p>
+        </div>
+
+        <form id="formCadastro" onsubmit="return false;">
+            <div class="form-group">
+                <label for="f_nome">Nome</label>
+                <input type="text" id="f_nome" name="nome" readonly>
+            </div>
+
+            <div class="form-group">
+                <label for="f_sobrenome">Sobrenome</label>
+                <input type="text" id="f_sobrenome" name="sobrenome" readonly>
+            </div>
+
+            <div class="form-group">
+                <label for="f_cpf">CPF</label>
+                <input type="text" id="f_cpf" name="cpf" readonly>
+            </div>
+
+            <div class="form-group">
+                <label for="f_email">E-mail</label>
+                <input type="email" id="f_email" name="email" readonly>
+            </div>
+
+            <div class="form-group">
+                <label for="f_telefone">Telefone</label>
+                <input type="text" id="f_telefone" name="telefone" readonly>
+            </div>
+
+            <div class="form-group">
+                <label for="f_nascimento">Data de Nascimento</label>
+                <input type="text" id="f_nascimento" name="nascimento" readonly>
+            </div>
+
+            <div class="form-group">
+                <label for="f_endereco">Endereço</label>
+                <input type="text" id="f_endereco" name="endereco" readonly>
+            </div>
+
+            <div class="btn-container">
+                <button type="button" id="btnNovo" onclick="gerarNovoCadastro()">
+                    Novo Cadastro
+                </button>
+                <button type="button" id="btnLimpar" onclick="limparFormulario()">
+                    Limpar
+                </button>
+            </div>
+        </form>
+
+        <div class="footer">
+            <p>Portal Fake Soluções Digitais &copy; 2026 — Projeto Acadêmico</p>
+        </div>
+    </div>
+
+    <script>
+        const nomes = [
+            "Ana", "Carlos", "Maria", "João", "Fernanda",
+            "Pedro", "Juliana", "Lucas", "Camila", "Rafael",
+            "Beatriz", "Gabriel", "Larissa", "Mateus", "Amanda",
+            "Bruno", "Isabela", "Thiago", "Letícia", "Diego"
+        ];
+
+        const sobrenomes = [
+            "Silva", "Santos", "Oliveira", "Souza", "Pereira",
+            "Costa", "Ferreira", "Rodrigues", "Almeida", "Nascimento",
+            "Lima", "Araújo", "Melo", "Barbosa", "Ribeiro",
+            "Martins", "Carvalho", "Gomes", "Rocha", "Moreira"
+        ];
+
+        const cidades = [
+            "Manaus - AM", "São Paulo - SP", "Rio de Janeiro - RJ",
+            "Belém - PA", "Fortaleza - CE", "Salvador - BA",
+            "Curitiba - PR", "Recife - PE", "Porto Alegre - RS",
+            "Belo Horizonte - MG", "Brasília - DF", "Goiânia - GO"
+        ];
+
+        const ruas = [
+            "Rua das Flores", "Av. Brasil", "Rua São Jorge",
+            "Av. Djalma Batista", "Rua Ramos Ferreira",
+            "Av. Eduardo Ribeiro", "Rua Barroso",
+            "Av. Constantino Nery", "Rua Monsenhor Coutinho",
+            "Av. Joaquim Nabuco", "Rua 10 de Julho",
+            "Av. Getúlio Vargas"
+        ];
+
+        function escolher(arr) {
+            return arr[Math.floor(Math.random() * arr.length)];
+        }
+
+        function gerarCPF() {
+            const n = () => Math.floor(Math.random() * 10);
+            return `${n()}${n()}${n()}.${n()}${n()}${n()}.${n()}${n()}${n()}-${n()}${n()}`;
+        }
+
+        function gerarTelefone() {
+            const ddd = Math.floor(Math.random() * 90) + 10;
+            const p1 = Math.floor(Math.random() * 90000) + 10000;
+            const p2 = Math.floor(Math.random() * 9000) + 1000;
+            return `(${ddd}) 9${p1}-${p2}`;
+        }
+
+        function gerarDataNascimento() {
+            const dia = String(Math.floor(Math.random() * 28) + 1).padStart(2, '0');
+            const mes = String(Math.floor(Math.random() * 12) + 1).padStart(2, '0');
+            const ano = Math.floor(Math.random() * 40) + 1970;
+            return `${dia}/${mes}/${ano}`;
+        }
+
+        function gerarNovoCadastro() {
+            const nome = escolher(nomes);
+            const sobrenome = escolher(sobrenomes);
+            const emailNome = nome.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+            const emailSobrenome = sobrenome.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+            const numero = Math.floor(Math.random() * 9000) + 1000;
+            const rua = escolher(ruas);
+            const cidade = escolher(cidades);
+
+            document.getElementById("f_nome").value = nome;
+            document.getElementById("f_sobrenome").value = sobrenome;
+            document.getElementById("f_cpf").value = gerarCPF();
+            document.getElementById("f_email").value = `${emailNome}.${emailSobrenome}@email.com`;
+            document.getElementById("f_telefone").value = gerarTelefone();
+            document.getElementById("f_nascimento").value = gerarDataNascimento();
+            document.getElementById("f_endereco").value = `${rua}, ${numero}, ${cidade}`;
+        }
+
+        function limparFormulario() {
+            document.getElementById("formCadastro").reset();
+        }
+    </script>
+</body>
+</html>

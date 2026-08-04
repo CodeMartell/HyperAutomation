@@ -1,0 +1,138 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Processo01_Atendimento" id="proc01_atendimento">
+    <mxGraphModel dx="2400" dy="1600" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- Pool principal -->
+        <mxCell id="pool1" value="Processo 1 — Setor de Atendimento | Portal Fake Soluções Digitais" style="shape=pool;startSize=30;horizontal=1;childLayout=stackLayout;resizeParent=1;resizeParentMax=0;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="40" y="40" width="1560" height="340" as="geometry" />
+        </mxCell>
+
+        <!-- Lane: Robô HyperAutomation -->
+        <mxCell id="lane1" value="Robô HyperAutomation" style="swimlane;startSize=30;horizontal=0;fillColor=#fff2cc;strokeColor=#d6b656;fontStyle=1;" vertex="1" parent="pool1">
+          <mxGeometry y="30" width="1560" height="310" as="geometry" />
+        </mxCell>
+
+        <!-- 1. Evento inicial -->
+        <mxCell id="start" value="&lt;b&gt;Início&lt;/b&gt;&lt;br&gt;Nova Solicitação&lt;br&gt;por E-mail" style="points=[[0.145,0.145,0],[0.5,0,0],[0.855,0.145,0],[1,0.5,0],[0.855,0.855,0],[0.5,1,0],[0.145,0.855,0],[0,0.5,0]];shape=mxgraph.bpmn.event;html=1;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;align=center;perimeter=ellipsePerimeter;outlineConnect=0;aspect=fixed;outline=start;symbol=message;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="lane1">
+          <mxGeometry x="50" y="115" width="70" height="70" as="geometry" />
+        </mxCell>
+
+        <!-- 2. Receber Solicitação -->
+        <mxCell id="task1" value="Receber&lt;br&gt;Solicitação" style="points=[[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0.25,0],[1,0.5,0],[1,0.75,0],[0.75,1,0],[0.5,1,0],[0.25,1,0],[0,0.75,0],[0,0.5,0],[0,0.25,0]];shape=mxgraph.bpmn.task2;whiteSpace=wrap;rectStyle=rounded;size=10;html=1;taskMarker=abstract;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="lane1">
+          <mxGeometry x="170" y="115" width="120" height="70" as="geometry" />
+        </mxCell>
+
+        <!-- 3. Baixar Documentos -->
+        <mxCell id="task2" value="Baixar&lt;br&gt;Documentos" style="points=[[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0.25,0],[1,0.5,0],[1,0.75,0],[0.75,1,0],[0.5,1,0],[0.25,1,0],[0,0.75,0],[0,0.5,0],[0,0.25,0]];shape=mxgraph.bpmn.task2;whiteSpace=wrap;rectStyle=rounded;size=10;html=1;taskMarker=abstract;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="lane1">
+          <mxGeometry x="340" y="115" width="120" height="70" as="geometry" />
+        </mxCell>
+
+        <!-- 4. Validar Documentação -->
+        <mxCell id="task3" value="Validar&lt;br&gt;Documentação" style="points=[[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0.25,0],[1,0.5,0],[1,0.75,0],[0.75,1,0],[0.5,1,0],[0.25,1,0],[0,0.75,0],[0,0.5,0],[0,0.25,0]];shape=mxgraph.bpmn.task2;whiteSpace=wrap;rectStyle=rounded;size=10;html=1;taskMarker=abstract;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="lane1">
+          <mxGeometry x="510" y="115" width="120" height="70" as="geometry" />
+        </mxCell>
+
+        <!-- 5. Gateway: Documentação Completa? -->
+        <mxCell id="gw1" value="Documentação&lt;br&gt;Completa?" style="rhombus;shape=mxgraph.bpmn.gateway2;html=1;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;align=center;perimeter=rhombusPerimeter;outlineConnect=0;symbol=exclusiveGw;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="lane1">
+          <mxGeometry x="690" y="110" width="80" height="80" as="geometry" />
+        </mxCell>
+
+        <!-- 6a. Classificar em Documentos_OK -->
+        <mxCell id="task4a" value="Classificar em&lt;br&gt;Documentos_OK" style="points=[[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0.25,0],[1,0.5,0],[1,0.75,0],[0.75,1,0],[0.5,1,0],[0.25,1,0],[0,0.75,0],[0,0.5,0],[0,0.25,0]];shape=mxgraph.bpmn.task2;whiteSpace=wrap;rectStyle=rounded;size=10;html=1;taskMarker=abstract;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="lane1">
+          <mxGeometry x="840" y="45" width="140" height="70" as="geometry" />
+        </mxCell>
+
+        <!-- 6b. Classificar em Documentos_Pendentes -->
+        <mxCell id="task4b" value="Classificar em&lt;br&gt;Documentos_Pendentes" style="points=[[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0.25,0],[1,0.5,0],[1,0.75,0],[0.75,1,0],[0.5,1,0],[0.25,1,0],[0,0.75,0],[0,0.5,0],[0,0.25,0]];shape=mxgraph.bpmn.task2;whiteSpace=wrap;rectStyle=rounded;size=10;html=1;taskMarker=abstract;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="lane1">
+          <mxGeometry x="840" y="185" width="140" height="70" as="geometry" />
+        </mxCell>
+
+        <!-- 7a. Responder: Confirmação -->
+        <mxCell id="task5a" value="Responder Cliente&lt;br&gt;(Confirmação)" style="points=[[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0.25,0],[1,0.5,0],[1,0.75,0],[0.75,1,0],[0.5,1,0],[0.25,1,0],[0,0.75,0],[0,0.5,0],[0,0.25,0]];shape=mxgraph.bpmn.task2;whiteSpace=wrap;rectStyle=rounded;size=10;html=1;taskMarker=send;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="lane1">
+          <mxGeometry x="1040" y="45" width="140" height="70" as="geometry" />
+        </mxCell>
+
+        <!-- 7b. Responder: Pendência -->
+        <mxCell id="task5b" value="Responder Cliente&lt;br&gt;(Pendência)" style="points=[[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0.25,0],[1,0.5,0],[1,0.75,0],[0.75,1,0],[0.5,1,0],[0.25,1,0],[0,0.75,0],[0,0.5,0],[0,0.25,0]];shape=mxgraph.bpmn.task2;whiteSpace=wrap;rectStyle=rounded;size=10;html=1;taskMarker=send;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="lane1">
+          <mxGeometry x="1040" y="185" width="140" height="70" as="geometry" />
+        </mxCell>
+
+        <!-- 8. Encaminhar ao Próximo Setor -->
+        <mxCell id="task6" value="Encaminhar ao&lt;br&gt;Próximo Setor&lt;br&gt;(Encaminhados/)" style="points=[[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0.25,0],[1,0.5,0],[1,0.75,0],[0.75,1,0],[0.5,1,0],[0.25,1,0],[0,0.75,0],[0,0.5,0],[0,0.25,0]];shape=mxgraph.bpmn.task2;whiteSpace=wrap;rectStyle=rounded;size=10;html=1;taskMarker=abstract;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="lane1">
+          <mxGeometry x="1250" y="45" width="140" height="70" as="geometry" />
+        </mxCell>
+
+        <!-- Evento final OK -->
+        <mxCell id="end1" value="&lt;b&gt;Fim&lt;/b&gt;&lt;br&gt;Encaminhado" style="points=[[0.145,0.145,0],[0.5,0,0],[0.855,0.145,0],[1,0.5,0],[0.855,0.855,0],[0.5,1,0],[0.145,0.855,0],[0,0.5,0]];shape=mxgraph.bpmn.event;html=1;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;align=center;perimeter=ellipsePerimeter;outlineConnect=0;aspect=fixed;outline=end;symbol=terminate2;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="lane1">
+          <mxGeometry x="1460" y="50" width="60" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- Evento final Pendente -->
+        <mxCell id="end2" value="&lt;b&gt;Fim&lt;/b&gt;&lt;br&gt;Aguardando" style="points=[[0.145,0.145,0],[0.5,0,0],[0.855,0.145,0],[1,0.5,0],[0.855,0.855,0],[0.5,1,0],[0.145,0.855,0],[0,0.5,0]];shape=mxgraph.bpmn.event;html=1;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;align=center;perimeter=ellipsePerimeter;outlineConnect=0;aspect=fixed;outline=end;symbol=terminate2;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="lane1">
+          <mxGeometry x="1460" y="190" width="60" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- ─── EDGES ─────────────────────────────────────────────────────────── -->
+
+        <!-- start → task1 -->
+        <mxCell id="e1" edge="1" source="start" target="task1" style="edgeStyle=orthogonalEdgeStyle;" parent="lane1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- task1 → task2 -->
+        <mxCell id="e2" edge="1" source="task1" target="task2" style="edgeStyle=orthogonalEdgeStyle;" parent="lane1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- task2 → task3 -->
+        <mxCell id="e3" edge="1" source="task2" target="task3" style="edgeStyle=orthogonalEdgeStyle;" parent="lane1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- task3 → gw1 -->
+        <mxCell id="e4" edge="1" source="task3" target="gw1" style="edgeStyle=orthogonalEdgeStyle;" parent="lane1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- gw1 → task4a (Sim) -->
+        <mxCell id="e5" edge="1" source="gw1" target="task4a" style="edgeStyle=orthogonalEdgeStyle;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" value="Sim" parent="lane1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- gw1 → task4b (Não) -->
+        <mxCell id="e6" edge="1" source="gw1" target="task4b" style="edgeStyle=orthogonalEdgeStyle;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" value="Não" parent="lane1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- task4a → task5a -->
+        <mxCell id="e7" edge="1" source="task4a" target="task5a" style="edgeStyle=orthogonalEdgeStyle;" parent="lane1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- task4b → task5b -->
+        <mxCell id="e8" edge="1" source="task4b" target="task5b" style="edgeStyle=orthogonalEdgeStyle;" parent="lane1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- task5a → task6 -->
+        <mxCell id="e9" edge="1" source="task5a" target="task6" style="edgeStyle=orthogonalEdgeStyle;" parent="lane1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- task6 → end1 -->
+        <mxCell id="e10" edge="1" source="task6" target="end1" style="edgeStyle=orthogonalEdgeStyle;" parent="lane1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- task5b → end2 -->
+        <mxCell id="e11" edge="1" source="task5b" target="end2" style="edgeStyle=orthogonalEdgeStyle;" parent="lane1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
