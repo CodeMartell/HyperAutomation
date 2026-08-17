@@ -24,17 +24,17 @@ _RAIZ_PROJETO = Path(__file__).resolve().parent.parent.parent
 sys.path.insert(0, str(_RAIZ_PROJETO / "source"))
 sys.path.insert(0, str(_RAIZ_PROJETO / "source" / "organizacao"))
 
-from organizacao.config import (
+from processo01.source.organizacao.config import (
     PASTA_ERP, PASTA_OK, PASTA_ENCAMINHADOS, PASTA_ARQUIVADOS,
     CAMINHO_PLANILHA, PASTA_SISTEMA_INTEGRADOR, USAR_DRIVE, garantir_pastas_locais
 )
-from organizacao.extracao_dados import extrair_dados_ficha
-from organizacao.validacao_dados import validar_dados_cliente
-from organizacao.planilha_mestra import (
+from processo01.source.organizacao.extracao_dados import extrair_dados_ficha
+from processo01.source.organizacao.validacao_dados import validar_dados_cliente
+from processo01.source.organizacao.planilha_mestra import (
     inicializar_planilha, checar_duplicado_hash, adicionar_registro,
     baixar_planilha_drive, subir_planilha_drive
 )
-from organizacao.arquivamento import calcular_hash_arquivo, arquivar_pasta_local, arquivar_pasta_drive
+from processo01.source.organizacao.arquivamento import calcular_hash_arquivo, arquivar_pasta_local, arquivar_pasta_drive
 
 # Configuração de Logging
 logging.basicConfig(
@@ -72,7 +72,7 @@ def obter_ficha_pdf(pasta: Path) -> Path | None:
 
 def inicializar_estrutura_drive_processo2(servico) -> dict[str, str]:
     """Garante a estrutura de pastas ERP no Google Drive para o Processo 2."""
-    from atendimento.google_drive import obter_ou_criar_pasta
+    from source.atendimento.google_drive import obter_ou_criar_pasta
     id_raiz = obter_ou_criar_pasta(servico, "ERP_Portal_Fake")
     
     pastas = {}
@@ -237,7 +237,7 @@ def main() -> None:
 
     if usar_drive:
         logger.info("Integração com Google Drive ATIVADA. Inicializando conexão...")
-        from atendimento.google_drive import obter_servico_drive
+        from source.atendimento.google_drive import obter_servico_drive
         try:
             drive_servico = obter_servico_drive()
             ids_pastas = inicializar_estrutura_drive_processo2(drive_servico)

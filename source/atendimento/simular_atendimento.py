@@ -24,11 +24,11 @@ _RAIZ_PROJETO = Path(__file__).resolve().parent.parent.parent
 sys.path.insert(0, str(_RAIZ_PROJETO / "source"))
 sys.path.insert(0, str(_RAIZ_PROJETO / "source" / "atendimento"))
 
-from atendimento.classificacao import (  # noqa: E402
+from source.atendimento.classificacao import (  # noqa: E402
     classificar_solicitacao,
     encaminhar_solicitacao,
 )
-from atendimento.validacao import validar_documentacao  # noqa: E402
+from source.atendimento.validacao import validar_documentacao  # noqa: E402
 
 logging.basicConfig(
     level=logging.INFO,

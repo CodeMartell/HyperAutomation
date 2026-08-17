@@ -12,9 +12,9 @@ import sys
 
 from dotenv import load_dotenv
 
-from documento_email import gerar_ficha_cadastro
-from envio_email import enviar_email
-from extracao import extrair_dados
+from source.documento_email import gerar_ficha_cadastro
+from source.envio_email import enviar_email
+from source.extracao import extrair_dados
 
 
 def main():

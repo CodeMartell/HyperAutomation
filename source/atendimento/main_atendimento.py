@@ -25,10 +25,10 @@ sys.path.insert(0, str(_RAIZ_PROJETO / "source"))
 sys.path.insert(0, str(_RAIZ_PROJETO / "source" / "atendimento"))
 
 import os
-from atendimento.classificacao import classificar_solicitacao, encaminhar_solicitacao  # noqa: E402
-from atendimento.leitura_email import receber_solicitacoes  # noqa: E402
-from atendimento.resposta_cliente import responder_cliente  # noqa: E402
-from atendimento.validacao import validar_documentacao  # noqa: E402
+from source.atendimento.classificacao import classificar_solicitacao, encaminhar_solicitacao  # noqa: E402
+from source.atendimento.leitura_email import receber_solicitacoes  # noqa: E402
+from source.atendimento.resposta_cliente import responder_cliente  # noqa: E402
+from source.atendimento.validacao import validar_documentacao  # noqa: E402
 
 # ── Configuração de Logging ────────────────────────────────────────────────────
 logging.basicConfig(
@@ -153,7 +153,7 @@ def main(enviar_email_resposta: bool = True) -> None:
 
     if usar_drive:
         logger.info("Integração com Google Drive ATIVADA. Inicializando...")
-        from atendimento.google_drive import obter_servico_drive, inicializar_estrutura_erp
+        from source.atendimento.google_drive import obter_servico_drive, inicializar_estrutura_erp
         try:
             drive_servico = obter_servico_drive()
             ids_pastas_drive = inicializar_estrutura_erp(drive_servico)

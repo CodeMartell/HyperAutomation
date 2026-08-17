@@ -15,7 +15,7 @@ from pathlib import Path
 # Compatibilidade com execução direta e como módulo do pacote
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
-from envio_email import enviar_email  # noqa: E402
+from source.envio_email import enviar_email  # noqa: E402
 
 logger = logging.getLogger(__name__)
 

@@ -26,8 +26,8 @@ _RAIZ_PROJETO = Path(__file__).resolve().parent.parent.parent
 sys.path.insert(0, str(_RAIZ_PROJETO / "source"))
 sys.path.insert(0, str(_RAIZ_PROJETO / "source" / "organizacao"))
 
-from organizacao.config import PASTA_ERP, PASTA_OK, PASTA_ARQUIVADOS, CAMINHO_PLANILHA, garantir_pastas_locais
-import organizacao.main_organizacao as main_org
+from processo01.source.organizacao.config import PASTA_ERP, PASTA_OK, PASTA_ARQUIVADOS, CAMINHO_PLANILHA, garantir_pastas_locais
+import processo01.source.organizacao.main_organizacao as main_org
 
 logging.basicConfig(
     level=logging.INFO,

@@ -18,7 +18,7 @@ Justificativa:
 import logging
 import shutil
 from pathlib import Path
-from atendimento.google_drive import obter_ou_criar_pasta, upload_arquivo, mover_pasta_drive
+from source.atendimento.google_drive import obter_ou_criar_pasta, upload_arquivo, mover_pasta_drive
 
 logger = logging.getLogger(__name__)
 

@@ -54,7 +54,7 @@ def arquivar_pasta_drive(servico, folder_id: str, id_pasta_origem: str, id_pasta
     Move uma pasta no Google Drive da pasta de entrada para a pasta de Arquivados.
     Reutiliza a lógica do módulo de atendimento para atualizar parents.
     """
-    from atendimento.google_drive import mover_pasta_drive
+    from source.atendimento.google_drive import mover_pasta_drive
     
     logger.info("[Drive] Movendo pasta ID %s para a pasta Arquivados...", folder_id)
     mover_pasta_drive(
