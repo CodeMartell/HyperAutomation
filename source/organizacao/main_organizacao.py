@@ -24,17 +24,17 @@ _RAIZ_PROJETO = Path(__file__).resolve().parent.parent.parent
 sys.path.insert(0, str(_RAIZ_PROJETO / "source"))
 sys.path.insert(0, str(_RAIZ_PROJETO / "source" / "organizacao"))
 
-from processo01.source.organizacao.config import (
+from source.organizacao.config import (
     PASTA_ERP, PASTA_OK, PASTA_ENCAMINHADOS, PASTA_ARQUIVADOS,
     CAMINHO_PLANILHA, PASTA_SISTEMA_INTEGRADOR, USAR_DRIVE, garantir_pastas_locais
 )
-from processo01.source.organizacao.extracao_dados import extrair_dados_ficha
-from processo01.source.organizacao.validacao_dados import validar_dados_cliente
-from processo01.source.organizacao.planilha_mestra import (
+from source.organizacao.extracao_dados import extrair_dados_ficha
+from source.organizacao.validacao_dados import validar_dados_cliente
+from source.organizacao.planilha_mestra import (
     inicializar_planilha, checar_duplicado_hash, adicionar_registro,
     baixar_planilha_drive, subir_planilha_drive
 )
-from processo01.source.organizacao.arquivamento import calcular_hash_arquivo, arquivar_pasta_local, arquivar_pasta_drive
+from source.organizacao.arquivamento import calcular_hash_arquivo, arquivar_pasta_local, arquivar_pasta_drive
 
 # Configuração de Logging
 logging.basicConfig(

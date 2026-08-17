@@ -237,3 +237,151 @@
 2026-08-04 16:57:56 [INFO] main_organizacao — Validando dados cadastrais...
 2026-08-04 16:57:56 [INFO] organizacao.planilha_mestra — Registro do cliente 'João Silva' adicionado com status VALIDADO.
 2026-08-04 16:57:56 [INFO] organizacao.arquivamento — Pasta '20260728_100000_joao.silva@exemplo.com' arquivada localmente em '20260728_100000_joao.silva@exemplo.com_dup1'
+2026-08-17 17:26:41 [INFO] teste_integracao_definitiva — Resetando ambiente de testes em ERP_Portal_Fake/...
+2026-08-17 17:26:41 [INFO] teste_integracao_definitiva — Estrutura ERP resetada com sucesso.
+2026-08-17 17:26:41 [INFO] teste_integracao_definitiva — [P1] Validando documentação de Lucas Gabriel...
+2026-08-17 17:26:41 [INFO] source.atendimento.validacao —   ✓ [documento_identidade] → rg_lucas_gabriel.pdf
+2026-08-17 17:26:41 [INFO] source.atendimento.validacao —   ✓ [comprovante_residencia] → comprovante_residencia_lucas.pdf
+2026-08-17 17:26:41 [INFO] source.atendimento.validacao —   ✓ [ficha_cadastro] → ficha_cadastro_lucas.pdf
+2026-08-17 17:26:41 [INFO] source.atendimento.validacao — Documentação COMPLETA — todos os 3 documentos encontrados.
+2026-08-17 17:26:41 [INFO] teste_integracao_definitiva — [P1] Documentação completa! Classificando e encaminhando...
+2026-08-17 17:26:41 [INFO] source.atendimento.classificacao — Solicitação '20260817_100000_lucas.gabriel@email.com' classificada como OK → /mnt/projetos/romulus/HyperAutomation/ERP_Portal_Fake/Documentos_OK/20260817_100000_lucas.gabriel@email.com
+2026-08-17 17:26:41 [INFO] source.atendimento.classificacao — Solicitação '20260817_100000_lucas.gabriel@email.com' encaminhada ao próximo setor → /mnt/projetos/romulus/HyperAutomation/ERP_Portal_Fake/Encaminhados/20260817_100000_lucas.gabriel@email.com
+2026-08-17 17:26:41 [INFO] teste_integracao_definitiva — [P1 CONCLUÍDO] Dossiê encaminhado para: ERP_Portal_Fake/Encaminhados/20260817_100000_lucas.gabriel@email.com
+2026-08-17 17:26:41 [INFO] teste_integracao_definitiva — [P2] Extraindo dados da ficha e gerando Planilha Mestra...
+2026-08-17 17:26:41 [INFO] main_organizacao — Processando pasta local: 20260817_100000_lucas.gabriel@email.com
+2026-08-17 17:26:41 [INFO] main_organizacao — Extraindo dados da ficha: ficha_cadastro_lucas.pdf
+2026-08-17 17:26:41 [INFO] source.organizacao.extracao_dados — Iniciando extração do arquivo: ficha_cadastro_lucas.pdf
+2026-08-17 17:26:41 [INFO] main_organizacao — Validando dados cadastrais...
+2026-08-17 17:26:41 [INFO] source.organizacao.planilha_mestra — Planilha Mestra inicializada localmente em: /mnt/projetos/romulus/HyperAutomation/ERP_Portal_Fake/Sistema_Integrador_Portal_Fake/Planilha_Mestra.xlsx
+2026-08-17 17:26:41 [INFO] source.organizacao.planilha_mestra — Registro do cliente 'Lucas Gabriel' adicionado com status ERRO.
+2026-08-17 17:26:41 [INFO] source.organizacao.arquivamento — Pasta '20260817_100000_lucas.gabriel@email.com' arquivada localmente em '20260817_100000_lucas.gabriel@email.com'
+2026-08-17 17:26:56 [INFO] teste_integracao_definitiva — Resetando ambiente de testes em ERP_Portal_Fake/...
+2026-08-17 17:26:56 [INFO] teste_integracao_definitiva — Estrutura ERP resetada com sucesso.
+2026-08-17 17:26:56 [INFO] teste_integracao_definitiva — [P1] Validando documentação de Lucas Gabriel...
+2026-08-17 17:26:56 [INFO] source.atendimento.validacao —   ✓ [documento_identidade] → rg_lucas_gabriel.pdf
+2026-08-17 17:26:56 [INFO] source.atendimento.validacao —   ✓ [comprovante_residencia] → comprovante_residencia_lucas.pdf
+2026-08-17 17:26:56 [INFO] source.atendimento.validacao —   ✓ [ficha_cadastro] → ficha_cadastro_lucas.pdf
+2026-08-17 17:26:56 [INFO] source.atendimento.validacao — Documentação COMPLETA — todos os 3 documentos encontrados.
+2026-08-17 17:26:56 [INFO] teste_integracao_definitiva — [P1] Documentação completa! Classificando e encaminhando...
+2026-08-17 17:26:56 [INFO] source.atendimento.classificacao — Solicitação '20260817_100000_lucas.gabriel@email.com' classificada como OK → /mnt/projetos/romulus/HyperAutomation/ERP_Portal_Fake/Documentos_OK/20260817_100000_lucas.gabriel@email.com
+2026-08-17 17:26:56 [INFO] source.atendimento.classificacao — Solicitação '20260817_100000_lucas.gabriel@email.com' encaminhada ao próximo setor → /mnt/projetos/romulus/HyperAutomation/ERP_Portal_Fake/Encaminhados/20260817_100000_lucas.gabriel@email.com
+2026-08-17 17:26:56 [INFO] teste_integracao_definitiva — [P1 CONCLUÍDO] Dossiê encaminhado para: ERP_Portal_Fake/Encaminhados/20260817_100000_lucas.gabriel@email.com
+2026-08-17 17:26:56 [INFO] teste_integracao_definitiva — [P2] Extraindo dados da ficha e gerando Planilha Mestra...
+2026-08-17 17:26:56 [INFO] main_organizacao — Processando pasta local: 20260817_100000_lucas.gabriel@email.com
+2026-08-17 17:26:56 [INFO] main_organizacao — Extraindo dados da ficha: ficha_cadastro_lucas.pdf
+2026-08-17 17:26:56 [INFO] source.organizacao.extracao_dados — Iniciando extração do arquivo: ficha_cadastro_lucas.pdf
+2026-08-17 17:26:56 [INFO] main_organizacao — Validando dados cadastrais...
+2026-08-17 17:26:56 [INFO] source.organizacao.planilha_mestra — Planilha Mestra inicializada localmente em: /mnt/projetos/romulus/HyperAutomation/ERP_Portal_Fake/Sistema_Integrador_Portal_Fake/Planilha_Mestra.xlsx
+2026-08-17 17:26:56 [INFO] source.organizacao.planilha_mestra — Registro do cliente 'Lucas Gabriel' adicionado com status VALIDADO.
+2026-08-17 17:26:56 [INFO] source.organizacao.arquivamento — Pasta '20260817_100000_lucas.gabriel@email.com' arquivada localmente em '20260817_100000_lucas.gabriel@email.com'
+2026-08-17 17:26:56 [INFO] teste_integracao_definitiva — [P2 CONCLUÍDO] Dados validados para: Lucas Gabriel (Hash: 40775b68)
+2026-08-17 17:26:56 [INFO] teste_integracao_definitiva — [P3] Solicitando cadastro via API externa...
+2026-08-17 17:26:56 [INFO] processo3.cadastro — ===== PROCESSO 3 - CADASTRO =====
+2026-08-17 17:26:56 [INFO] processo3.cadastro — Iniciando validação dos dados do cliente.
+2026-08-17 17:26:56 [INFO] processo3.cadastro — Dados do cliente validados com sucesso.
+2026-08-17 17:26:56 [INFO] processo3.cadastro — Verificando se o cliente já está cadastrado.
+2026-08-17 17:26:56 [INFO] processo3.cadastro — Cliente não encontrado. Cadastro permitido.
+2026-08-17 17:26:56 [INFO] processo3.cadastro — Iniciando cadastro do cliente: Lucas Gabriel
+2026-08-17 17:26:56 [INFO] processo3.cadastro — Enviando dados do cliente para API de cadastro.
+2026-08-17 17:26:56 [INFO] processo3.cadastro — API confirmou o cadastro. ID gerado: CLI-001
+2026-08-17 17:26:56 [INFO] processo3.cadastro — Cliente Lucas Gabriel cadastrado com sucesso.
+2026-08-17 17:26:56 [INFO] processo3.cadastro — Processo 3 concluído com sucesso.
+2026-08-17 17:26:56 [INFO] teste_integracao_definitiva — [P3 CONCLUÍDO] Cliente cadastrado com ID: CLI-001
+2026-08-17 17:26:56 [INFO] teste_integracao_definitiva — [P4] Executando atendimento SAC, gerando protocolo e enviando comunicação...
+2026-08-17 17:26:56 [INFO] Processo4_SAC — ==========================================
+2026-08-17 17:26:56 [INFO] Processo4_SAC —    INICIANDO PROCESSO 4 — SAC (ATENDIMENTO)
+2026-08-17 17:26:56 [INFO] Processo4_SAC — ==========================================
+2026-08-17 17:26:56 [INFO] Processo4_SAC — Etapa 1/5: Verificando status recebido do Processo 3...
+2026-08-17 17:26:56 [INFO] Processo4_SAC — Processo 3 finalizado com SUCESSO (Cadastro aprovado).
+2026-08-17 17:26:56 [INFO] Processo4_SAC — Etapa 2/5: Tratando o resultado e formatando mensagem do SAC...
+2026-08-17 17:26:56 [INFO] Processo4_SAC — Atendimento SAC-20260817-6747 preparado para 'lucas.gabriel@email.com' com status [CONCLUIDO].
+2026-08-17 17:26:56 [INFO] Processo4_SAC — Etapa 3/5: Comunicando cliente (lucas.gabriel@email.com)...
+2026-08-17 17:26:56 [INFO] Processo4_SAC — [SIMULAÇÃO SAC] E-mail transmitido com sucesso para 'lucas.gabriel@email.com'.
+2026-08-17 17:26:56 [INFO] Processo4_SAC — Etapa 4/5: Registrando atendimento no histórico SAC...
+2026-08-17 17:26:56 [INFO] Processo4_SAC — Arquivo de registros inicializado em: /mnt/projetos/romulus/HyperAutomation/ERP_Portal_Fake/atendimentos/registro_atendimentos_sac.json
+2026-08-17 17:26:56 [INFO] Processo4_SAC — Atendimento protocolo SAC-20260817-6747 registrado em 'registro_atendimentos_sac.json'.
+2026-08-17 17:26:56 [INFO] Processo4_SAC — Etapa 5/5: Consolidando monitoramento e métricas de execução...
+2026-08-17 17:26:56 [INFO] Processo4_SAC — Processo 4 finalizado em 0.37ms com status [SUCESSO].
+2026-08-17 17:26:56 [INFO] teste_integracao_definitiva — [P4 CONCLUÍDO] Protocolo SAC: SAC-20260817-6747 | Tempo: 0.37 ms
+2026-08-17 17:26:56 [INFO] teste_integracao_definitiva — [P5] Consolidando métricas e gerando relatório gerencial...
+2026-08-17 17:26:56 [INFO] Processo5_Relatorios — ======================================
+2026-08-17 17:26:56 [INFO] Processo5_Relatorios —  INICIANDO PROCESSO 5 - RELATÓRIOS
+2026-08-17 17:26:56 [INFO] Processo5_Relatorios — ======================================
+2026-08-17 17:26:56 [INFO] Processo5_Relatorios — Validando dados recebidos do Processo 4.
+2026-08-17 17:26:56 [INFO] Processo5_Relatorios — Estrutura de relatórios inicializada.
+2026-08-17 17:26:56 [INFO] Processo5_Relatorios — Gerando métricas e indicadores.
+2026-08-17 17:26:56 [INFO] Processo5_Relatorios — Gerando relatório gerencial.
+2026-08-17 17:26:56 [INFO] Processo5_Relatorios — Salvando e versionando relatório.
+2026-08-17 17:26:56 [INFO] Processo5_Relatorios — Estrutura de relatórios inicializada.
+2026-08-17 17:26:56 [INFO] Processo5_Relatorios — Estrutura de relatórios inicializada.
+2026-08-17 17:26:56 [INFO] Processo5_Relatorios — Relatório salvo com sucesso: relatorio_gerencial_20260817_172656.json
+2026-08-17 17:26:56 [INFO] Processo5_Relatorios — Processo 5 concluído com sucesso.
+2026-08-17 17:26:56 [INFO] teste_integracao_definitiva — [P5 CONCLUÍDO] Relatório gerado em: relatorio_gerencial_20260817_172656.json
+2026-08-17 17:26:56 [INFO] processo3.cadastro — ===== PROCESSO 3 - CADASTRO =====
+2026-08-17 17:26:56 [INFO] processo3.cadastro — Iniciando validação dos dados do cliente.
+2026-08-17 17:26:56 [INFO] processo3.cadastro — Dados do cliente validados com sucesso.
+2026-08-17 17:26:56 [INFO] processo3.cadastro — Verificando se o cliente já está cadastrado.
+2026-08-17 17:26:56 [WARNING] processo3.cadastro — Cliente já cadastrado: CPF 52998224725
+2026-08-17 17:26:56 [INFO] Processo4_SAC — ==========================================
+2026-08-17 17:26:56 [INFO] Processo4_SAC —    INICIANDO PROCESSO 4 — SAC (ATENDIMENTO)
+2026-08-17 17:26:56 [INFO] Processo4_SAC — ==========================================
+2026-08-17 17:26:56 [INFO] Processo4_SAC — Etapa 1/5: Verificando status recebido do Processo 3...
+2026-08-17 17:26:56 [WARNING] Processo4_SAC — Processo 3 reportou DUPLICIDADE: Cliente já cadastrado
+2026-08-17 17:26:56 [INFO] Processo4_SAC — Etapa 2/5: Tratando o resultado e formatando mensagem do SAC...
+2026-08-17 17:26:56 [INFO] Processo4_SAC — Atendimento SAC-20260817-6748 preparado para 'lucas.gabriel@email.com' com status [ALERTA_DUPLICIDADE].
+2026-08-17 17:26:56 [INFO] Processo4_SAC — Etapa 3/5: Comunicando cliente (lucas.gabriel@email.com)...
+2026-08-17 17:26:56 [INFO] Processo4_SAC — [SIMULAÇÃO SAC] E-mail transmitido com sucesso para 'lucas.gabriel@email.com'.
+2026-08-17 17:26:56 [INFO] Processo4_SAC — Etapa 4/5: Registrando atendimento no histórico SAC...
+2026-08-17 17:26:56 [INFO] Processo4_SAC — Atendimento protocolo SAC-20260817-6748 registrado em 'registro_atendimentos_sac.json'.
+2026-08-17 17:26:56 [INFO] Processo4_SAC — Etapa 5/5: Consolidando monitoramento e métricas de execução...
+2026-08-17 17:26:56 [INFO] Processo4_SAC — Processo 4 finalizado em 0.93ms com status [SUCESSO].
+2026-08-17 17:26:56 [INFO] Processo5_Relatorios — ======================================
+2026-08-17 17:26:56 [INFO] Processo5_Relatorios —  INICIANDO PROCESSO 5 - RELATÓRIOS
+2026-08-17 17:26:56 [INFO] Processo5_Relatorios — ======================================
+2026-08-17 17:26:56 [INFO] Processo5_Relatorios — Validando dados recebidos do Processo 4.
+2026-08-17 17:26:56 [INFO] Processo5_Relatorios — Estrutura de relatórios inicializada.
+2026-08-17 17:26:56 [INFO] Processo5_Relatorios — Gerando métricas e indicadores.
+2026-08-17 17:26:56 [INFO] Processo5_Relatorios — Gerando relatório gerencial.
+2026-08-17 17:26:56 [INFO] Processo5_Relatorios — Salvando e versionando relatório.
+2026-08-17 17:26:56 [INFO] Processo5_Relatorios — Estrutura de relatórios inicializada.
+2026-08-17 17:26:56 [INFO] Processo5_Relatorios — Estrutura de relatórios inicializada.
+2026-08-17 17:26:56 [INFO] Processo5_Relatorios — Relatório salvo com sucesso: relatorio_gerencial_20260817_172656.json
+2026-08-17 17:26:56 [INFO] Processo5_Relatorios — Processo 5 concluído com sucesso.
+2026-08-17 17:26:56 [INFO] teste_integracao_definitiva — [P5 INDICADORES] Métricas atualizadas — Total: 2, Duplicidades: 1
+2026-08-17 17:26:56 [INFO] processo3.cadastro — ===== PROCESSO 3 - CADASTRO =====
+2026-08-17 17:26:56 [INFO] processo3.cadastro — Iniciando validação dos dados do cliente.
+2026-08-17 17:26:56 [INFO] processo3.cadastro — Dados do cliente validados com sucesso.
+2026-08-17 17:26:56 [INFO] processo3.cadastro — Verificando se o cliente já está cadastrado.
+2026-08-17 17:26:56 [INFO] processo3.cadastro — Cliente não encontrado. Cadastro permitido.
+2026-08-17 17:26:56 [INFO] processo3.cadastro — Iniciando cadastro do cliente: Mariana Costa
+2026-08-17 17:26:56 [INFO] processo3.cadastro — Enviando dados do cliente para API de cadastro.
+2026-08-17 17:26:56 [ERROR] processo3.cadastro — Erro na integração com API: API de cadastro indisponível.
+2026-08-17 17:26:56 [ERROR] processo3.cadastro — Erro durante o cadastro: Falha na comunicação com a API.
+2026-08-17 17:26:56 [WARNING] processo3.cadastro — Fallback acionado para o cliente: Mariana Costa
+2026-08-17 17:26:56 [INFO] Processo4_SAC — ==========================================
+2026-08-17 17:26:56 [INFO] Processo4_SAC —    INICIANDO PROCESSO 4 — SAC (ATENDIMENTO)
+2026-08-17 17:26:56 [INFO] Processo4_SAC — ==========================================
+2026-08-17 17:26:56 [INFO] Processo4_SAC — Etapa 1/5: Verificando status recebido do Processo 3...
+2026-08-17 17:26:56 [ERROR] Processo4_SAC — Processo 3 reportou FALHA: Cadastro não realizado. Fallback acionado.
+2026-08-17 17:26:56 [INFO] Processo4_SAC — Etapa 2/5: Tratando o resultado e formatando mensagem do SAC...
+2026-08-17 17:26:56 [INFO] Processo4_SAC — Atendimento SAC-20260817-6750 preparado para 'mariana.costa@email.com' com status [PENDENCIA_TECNICA].
+2026-08-17 17:26:56 [INFO] Processo4_SAC — Etapa 3/5: Comunicando cliente (mariana.costa@email.com)...
+2026-08-17 17:26:56 [INFO] Processo4_SAC — [SIMULAÇÃO SAC] E-mail transmitido com sucesso para 'mariana.costa@email.com'.
+2026-08-17 17:26:56 [INFO] Processo4_SAC — Etapa 4/5: Registrando atendimento no histórico SAC...
+2026-08-17 17:26:56 [INFO] Processo4_SAC — Atendimento protocolo SAC-20260817-6750 registrado em 'registro_atendimentos_sac.json'.
+2026-08-17 17:26:56 [INFO] Processo4_SAC — Etapa 5/5: Consolidando monitoramento e métricas de execução...
+2026-08-17 17:26:56 [INFO] Processo4_SAC — Processo 4 finalizado em 0.3ms com status [SUCESSO].
+2026-08-17 17:26:56 [INFO] Processo5_Relatorios — ======================================
+2026-08-17 17:26:56 [INFO] Processo5_Relatorios —  INICIANDO PROCESSO 5 - RELATÓRIOS
+2026-08-17 17:26:56 [INFO] Processo5_Relatorios — ======================================
+2026-08-17 17:26:56 [INFO] Processo5_Relatorios — Validando dados recebidos do Processo 4.
+2026-08-17 17:26:56 [INFO] Processo5_Relatorios — Estrutura de relatórios inicializada.
+2026-08-17 17:26:56 [INFO] Processo5_Relatorios — Gerando métricas e indicadores.
+2026-08-17 17:26:56 [INFO] Processo5_Relatorios — Gerando relatório gerencial.
+2026-08-17 17:26:56 [INFO] Processo5_Relatorios — Salvando e versionando relatório.
+2026-08-17 17:26:56 [INFO] Processo5_Relatorios — Estrutura de relatórios inicializada.
+2026-08-17 17:26:56 [INFO] Processo5_Relatorios — Estrutura de relatórios inicializada.
+2026-08-17 17:26:56 [INFO] Processo5_Relatorios — Relatório salvo com sucesso: relatorio_gerencial_20260817_172656.json
+2026-08-17 17:26:56 [INFO] Processo5_Relatorios — Processo 5 concluído com sucesso.
+2026-08-17 17:26:56 [INFO] teste_integracao_definitiva — [P5 INDICADORES] Métricas atualizadas — Pendências Técnicas: 1
