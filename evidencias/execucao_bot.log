@@ -1,0 +1,177 @@
+12:35:25 [INFO] bot_principal — Iniciando orquestração autônoma do bot.py...
+12:35:25 [INFO] bot_principal — >>> [PROCESSO 1] Leitura, Validação e Encaminhamento de Dossiês
+12:35:25 [INFO] source.atendimento.validacao —   ✓ [documento_identidade] → rg_lucas.pdf
+12:35:25 [INFO] source.atendimento.validacao —   ✓ [comprovante_residencia] → comprovante_residencia_lucas.pdf
+12:35:25 [INFO] source.atendimento.validacao —   ✓ [ficha_cadastro] → ficha_cadastro_lucas.pdf
+12:35:25 [INFO] source.atendimento.validacao — Documentação COMPLETA — todos os 3 documentos encontrados.
+12:35:25 [INFO] bot_principal — [P1] Documentação completa: True
+12:35:25 [INFO] source.atendimento.classificacao — Solicitação '20260818_120000_lucas.gabriel@email.com' classificada como OK → /mnt/projetos/romulus/HyperAutomation/ERP_Portal_Fake/Documentos_OK/20260818_120000_lucas.gabriel@email.com
+12:35:25 [INFO] source.atendimento.classificacao — Solicitação '20260818_120000_lucas.gabriel@email.com' encaminhada ao próximo setor → /mnt/projetos/romulus/HyperAutomation/ERP_Portal_Fake/Encaminhados/20260818_120000_lucas.gabriel@email.com
+12:35:25 [INFO] bot_principal — [P1 CONCLUÍDO] Dossiê encaminhado para: 20260818_120000_lucas.gabriel@email.com
+12:35:25 [INFO] bot_principal — >>> [PROCESSO 2] Extração de Ficha e Atualização da Planilha Mestra
+12:35:25 [INFO] main_organizacao — Processando pasta local: 20260818_120000_lucas.gabriel@email.com
+12:35:25 [INFO] main_organizacao — Extraindo dados da ficha: ficha_cadastro_lucas.pdf
+12:35:25 [INFO] source.organizacao.extracao_dados — Iniciando extração do arquivo: ficha_cadastro_lucas.pdf
+12:35:25 [INFO] main_organizacao — Validando dados cadastrais...
+12:35:25 [INFO] source.organizacao.planilha_mestra — Registro do cliente 'Lucas Gabriel' adicionado com status VALIDADO.
+12:35:25 [INFO] source.organizacao.arquivamento — Pasta '20260818_120000_lucas.gabriel@email.com' arquivada localmente em '20260818_120000_lucas.gabriel@email.com'
+12:35:25 [INFO] bot_principal — [P2 CONCLUÍDO] Dossiês processados: 1
+12:35:25 [INFO] bot_principal — >>> [PROCESSO 3] Validação & Cadastro na API Externa
+12:35:25 [INFO] processo3.cadastro — ===== PROCESSO 3 - CADASTRO =====
+12:35:25 [INFO] processo3.cadastro — Iniciando validação dos dados do cliente.
+12:35:25 [INFO] processo3.cadastro — Dados do cliente validados com sucesso.
+12:35:25 [INFO] processo3.cadastro — Verificando se o cliente já está cadastrado.
+12:35:25 [INFO] processo3.cadastro — Cliente não encontrado. Cadastro permitido.
+12:35:25 [INFO] processo3.cadastro — Iniciando cadastro do cliente: Lucas Gabriel
+12:35:25 [INFO] processo3.cadastro — Enviando dados do cliente para API de cadastro.
+12:35:25 [INFO] processo3.cadastro — API confirmou o cadastro. ID gerado: CLI-001
+12:35:25 [INFO] processo3.cadastro — Cliente Lucas Gabriel cadastrado com sucesso.
+12:35:25 [INFO] processo3.cadastro — Processo 3 concluído com sucesso.
+12:35:25 [INFO] bot_principal — [P3 CONCLUÍDO] Status Sucesso: True | ID: CLI-001
+12:35:25 [INFO] bot_principal — >>> [PROCESSO 4] Atendimento SAC, Emissão de Protocolo & Notificação
+12:35:25 [INFO] Processo4_SAC — ==========================================
+12:35:25 [INFO] Processo4_SAC —    INICIANDO PROCESSO 4 — SAC (ATENDIMENTO)
+12:35:25 [INFO] Processo4_SAC — ==========================================
+12:35:25 [INFO] Processo4_SAC — Etapa 1/5: Verificando status recebido do Processo 3...
+12:35:25 [INFO] Processo4_SAC — Processo 3 finalizado com SUCESSO (Cadastro aprovado).
+12:35:25 [INFO] Processo4_SAC — Etapa 2/5: Tratando o resultado e formatando mensagem do SAC...
+12:35:25 [INFO] Processo4_SAC — Atendimento SAC-20260818-5209 preparado para 'lucas.gabriel@email.com' com status [CONCLUIDO].
+12:35:25 [INFO] Processo4_SAC — Etapa 3/5: Comunicando cliente (lucas.gabriel@email.com)...
+12:35:25 [INFO] Processo4_SAC — [SIMULAÇÃO SAC] E-mail transmitido com sucesso para 'lucas.gabriel@email.com'.
+12:35:25 [INFO] Processo4_SAC — Etapa 4/5: Registrando atendimento no histórico SAC...
+12:35:25 [INFO] Processo4_SAC — Atendimento protocolo SAC-20260818-5209 registrado em 'registro_atendimentos_sac.json'.
+12:35:25 [INFO] Processo4_SAC — Etapa 5/5: Consolidando monitoramento e métricas de execução...
+12:35:25 [INFO] Processo4_SAC — Processo 4 finalizado em 0.56ms com status [SUCESSO].
+12:35:25 [INFO] bot_principal — [P4 CONCLUÍDO] Protocolo: SAC-20260818-5209 | Status: CONCLUIDO
+12:35:25 [INFO] bot_principal — >>> [PROCESSO 5] Consolidação de KPIs & Emissão de Relatório Versionado
+12:35:25 [INFO] Processo5_Relatorios — ======================================
+12:35:25 [INFO] Processo5_Relatorios —  INICIANDO PROCESSO 5 - RELATÓRIOS
+12:35:25 [INFO] Processo5_Relatorios — ======================================
+12:35:25 [INFO] Processo5_Relatorios — Validando dados recebidos do Processo 4.
+12:35:25 [INFO] Processo5_Relatorios — Estrutura de relatórios inicializada.
+12:35:25 [INFO] Processo5_Relatorios — Gerando métricas e indicadores.
+12:35:25 [INFO] Processo5_Relatorios — Gerando relatório gerencial.
+12:35:25 [INFO] Processo5_Relatorios — Salvando e versionando relatório.
+12:35:25 [INFO] Processo5_Relatorios — Estrutura de relatórios inicializada.
+12:35:25 [INFO] Processo5_Relatorios — Estrutura de relatórios inicializada.
+12:35:25 [INFO] Processo5_Relatorios — Relatório salvo com sucesso: relatorio_gerencial_20260818_123525.json
+12:35:25 [INFO] Processo5_Relatorios — Processo 5 concluído com sucesso.
+12:35:25 [INFO] bot_principal — [P5 CONCLUÍDO] Status: PROCESSO_CONCLUIDO | Relatório: relatorio_gerencial_20260818_123525.json
+12:35:30 [INFO] bot_principal — Iniciando orquestração autônoma do bot.py...
+12:35:30 [INFO] bot_principal — >>> [PROCESSO 1] Leitura, Validação e Encaminhamento de Dossiês
+12:35:30 [INFO] source.atendimento.validacao —   ✓ [documento_identidade] → rg_lucas.pdf
+12:35:30 [INFO] source.atendimento.validacao —   ✓ [comprovante_residencia] → comprovante_residencia_lucas.pdf
+12:35:30 [INFO] source.atendimento.validacao —   ✓ [ficha_cadastro] → ficha_cadastro_lucas.pdf
+12:35:30 [INFO] source.atendimento.validacao — Documentação COMPLETA — todos os 3 documentos encontrados.
+12:35:30 [INFO] bot_principal — [P1] Documentação completa: True
+12:35:30 [INFO] source.atendimento.classificacao — Solicitação '20260818_120000_lucas.gabriel@email.com' classificada como OK → /mnt/projetos/romulus/HyperAutomation/ERP_Portal_Fake/Documentos_OK/20260818_120000_lucas.gabriel@email.com
+12:35:30 [INFO] source.atendimento.classificacao — Solicitação '20260818_120000_lucas.gabriel@email.com' encaminhada ao próximo setor → /mnt/projetos/romulus/HyperAutomation/ERP_Portal_Fake/Encaminhados/20260818_120000_lucas.gabriel@email.com
+12:35:30 [INFO] bot_principal — [P1 CONCLUÍDO] Dossiê encaminhado para: 20260818_120000_lucas.gabriel@email.com
+12:35:30 [INFO] bot_principal — >>> [PROCESSO 2] Extração de Ficha e Atualização da Planilha Mestra
+12:35:30 [INFO] main_organizacao — Processando pasta local: 20260818_120000_lucas.gabriel@email.com
+12:35:30 [INFO] main_organizacao — Extraindo dados da ficha: ficha_cadastro_lucas.pdf
+12:35:30 [INFO] source.organizacao.extracao_dados — Iniciando extração do arquivo: ficha_cadastro_lucas.pdf
+12:35:30 [INFO] main_organizacao — Validando dados cadastrais...
+12:35:30 [INFO] source.organizacao.planilha_mestra — Registro do cliente 'Lucas Gabriel' adicionado com status VALIDADO.
+12:35:30 [INFO] source.organizacao.arquivamento — Pasta '20260818_120000_lucas.gabriel@email.com' arquivada localmente em '20260818_120000_lucas.gabriel@email.com_dup1'
+12:35:30 [INFO] bot_principal — [P2 CONCLUÍDO] Dossiês processados: 1
+12:35:30 [INFO] bot_principal — >>> [PROCESSO 3] Validação & Cadastro na API Externa
+12:35:30 [INFO] processo3.cadastro — ===== PROCESSO 3 - CADASTRO =====
+12:35:30 [INFO] processo3.cadastro — Iniciando validação dos dados do cliente.
+12:35:30 [INFO] processo3.cadastro — Dados do cliente validados com sucesso.
+12:35:30 [INFO] processo3.cadastro — Verificando se o cliente já está cadastrado.
+12:35:30 [INFO] processo3.cadastro — Cliente não encontrado. Cadastro permitido.
+12:35:30 [INFO] processo3.cadastro — Iniciando cadastro do cliente: Lucas Gabriel
+12:35:30 [INFO] processo3.cadastro — Enviando dados do cliente para API de cadastro.
+12:35:30 [INFO] processo3.cadastro — API confirmou o cadastro. ID gerado: CLI-001
+12:35:30 [INFO] processo3.cadastro — Cliente Lucas Gabriel cadastrado com sucesso.
+12:35:30 [INFO] processo3.cadastro — Processo 3 concluído com sucesso.
+12:35:30 [INFO] bot_principal — [P3 CONCLUÍDO] Status Sucesso: True | ID: CLI-001
+12:35:30 [INFO] bot_principal — >>> [PROCESSO 4] Atendimento SAC, Emissão de Protocolo & Notificação
+12:35:30 [INFO] Processo4_SAC — ==========================================
+12:35:30 [INFO] Processo4_SAC —    INICIANDO PROCESSO 4 — SAC (ATENDIMENTO)
+12:35:30 [INFO] Processo4_SAC — ==========================================
+12:35:30 [INFO] Processo4_SAC — Etapa 1/5: Verificando status recebido do Processo 3...
+12:35:30 [INFO] Processo4_SAC — Processo 3 finalizado com SUCESSO (Cadastro aprovado).
+12:35:30 [INFO] Processo4_SAC — Etapa 2/5: Tratando o resultado e formatando mensagem do SAC...
+12:35:30 [INFO] Processo4_SAC — Atendimento SAC-20260818-0115 preparado para 'lucas.gabriel@email.com' com status [CONCLUIDO].
+12:35:30 [INFO] Processo4_SAC — Etapa 3/5: Comunicando cliente (lucas.gabriel@email.com)...
+12:35:30 [INFO] Processo4_SAC — [SIMULAÇÃO SAC] E-mail transmitido com sucesso para 'lucas.gabriel@email.com'.
+12:35:30 [INFO] Processo4_SAC — Etapa 4/5: Registrando atendimento no histórico SAC...
+12:35:30 [INFO] Processo4_SAC — Atendimento protocolo SAC-20260818-0115 registrado em 'registro_atendimentos_sac.json'.
+12:35:30 [INFO] Processo4_SAC — Etapa 5/5: Consolidando monitoramento e métricas de execução...
+12:35:30 [INFO] Processo4_SAC — Processo 4 finalizado em 0.3ms com status [SUCESSO].
+12:35:30 [INFO] bot_principal — [P4 CONCLUÍDO] Protocolo: SAC-20260818-0115 | Status: CONCLUIDO
+12:35:30 [INFO] bot_principal — >>> [PROCESSO 5] Consolidação de KPIs & Emissão de Relatório Versionado
+12:35:30 [INFO] Processo5_Relatorios — ======================================
+12:35:30 [INFO] Processo5_Relatorios —  INICIANDO PROCESSO 5 - RELATÓRIOS
+12:35:30 [INFO] Processo5_Relatorios — ======================================
+12:35:30 [INFO] Processo5_Relatorios — Validando dados recebidos do Processo 4.
+12:35:30 [INFO] Processo5_Relatorios — Estrutura de relatórios inicializada.
+12:35:30 [INFO] Processo5_Relatorios — Gerando métricas e indicadores.
+12:35:30 [INFO] Processo5_Relatorios — Gerando relatório gerencial.
+12:35:30 [INFO] Processo5_Relatorios — Salvando e versionando relatório.
+12:35:30 [INFO] Processo5_Relatorios — Estrutura de relatórios inicializada.
+12:35:30 [INFO] Processo5_Relatorios — Estrutura de relatórios inicializada.
+12:35:30 [INFO] Processo5_Relatorios — Relatório salvo com sucesso: relatorio_gerencial_20260818_123530.json
+12:35:30 [INFO] Processo5_Relatorios — Processo 5 concluído com sucesso.
+12:35:30 [INFO] bot_principal — [P5 CONCLUÍDO] Status: PROCESSO_CONCLUIDO | Relatório: relatorio_gerencial_20260818_123530.json
+13:01:36 [INFO] bot_principal — Iniciando orquestração autônoma do bot.py...
+13:01:36 [INFO] bot_principal — >>> [PROCESSO 1] Leitura, Validação e Encaminhamento de Dossiês
+13:01:36 [INFO] source.atendimento.validacao —   ✓ [documento_identidade] → rg_lucas.pdf
+13:01:36 [INFO] source.atendimento.validacao —   ✓ [comprovante_residencia] → comprovante_residencia_lucas.pdf
+13:01:36 [INFO] source.atendimento.validacao —   ✓ [ficha_cadastro] → ficha_cadastro_lucas.pdf
+13:01:36 [INFO] source.atendimento.validacao — Documentação COMPLETA — todos os 3 documentos encontrados.
+13:01:36 [INFO] bot_principal — [P1] Documentação completa: True
+13:01:36 [INFO] source.atendimento.classificacao — Solicitação '20260818_120000_lucas.gabriel@email.com' classificada como OK → /mnt/projetos/romulus/HyperAutomation/ERP_Portal_Fake/Documentos_OK/20260818_120000_lucas.gabriel@email.com
+13:01:36 [INFO] source.atendimento.classificacao — Solicitação '20260818_120000_lucas.gabriel@email.com' encaminhada ao próximo setor → /mnt/projetos/romulus/HyperAutomation/ERP_Portal_Fake/Encaminhados/20260818_120000_lucas.gabriel@email.com
+13:01:36 [INFO] bot_principal — [P1 CONCLUÍDO] Dossiê encaminhado para: 20260818_120000_lucas.gabriel@email.com
+13:01:36 [INFO] bot_principal — >>> [PROCESSO 2] Extração de Ficha e Atualização da Planilha Mestra
+13:01:36 [INFO] main_organizacao — Processando pasta local: 20260818_120000_lucas.gabriel@email.com
+13:01:36 [INFO] main_organizacao — Extraindo dados da ficha: ficha_cadastro_lucas.pdf
+13:01:36 [INFO] source.organizacao.extracao_dados — Iniciando extração do arquivo: ficha_cadastro_lucas.pdf
+13:01:36 [INFO] main_organizacao — Validando dados cadastrais...
+13:01:36 [INFO] source.organizacao.planilha_mestra — Registro do cliente 'Lucas Gabriel' adicionado com status VALIDADO.
+13:01:36 [INFO] source.organizacao.arquivamento — Pasta '20260818_120000_lucas.gabriel@email.com' arquivada localmente em '20260818_120000_lucas.gabriel@email.com_dup5'
+13:01:36 [INFO] bot_principal — [P2 CONCLUÍDO] Dossiês processados: 1
+13:01:36 [INFO] bot_principal — >>> [PROCESSO 3] Validação & Cadastro na API Externa
+13:01:36 [INFO] processo3.cadastro — ===== PROCESSO 3 - CADASTRO =====
+13:01:36 [INFO] processo3.cadastro — Iniciando validação dos dados do cliente.
+13:01:36 [INFO] processo3.cadastro — Dados do cliente validados com sucesso.
+13:01:36 [INFO] processo3.cadastro — Verificando se o cliente já está cadastrado.
+13:01:36 [INFO] processo3.cadastro — Cliente não encontrado. Cadastro permitido.
+13:01:36 [INFO] processo3.cadastro — Iniciando cadastro do cliente: Lucas Gabriel
+13:01:36 [INFO] processo3.cadastro — Enviando dados do cliente para API de cadastro.
+13:01:36 [INFO] processo3.cadastro — API confirmou o cadastro. ID gerado: CLI-001
+13:01:36 [INFO] processo3.cadastro — Cliente Lucas Gabriel cadastrado com sucesso.
+13:01:36 [INFO] processo3.cadastro — Processo 3 concluído com sucesso.
+13:01:36 [INFO] bot_principal — [P3 CONCLUÍDO] Status Sucesso: True | ID: CLI-001
+13:01:36 [INFO] bot_principal — >>> [PROCESSO 4] Atendimento SAC, Emissão de Protocolo & Notificação
+13:01:36 [INFO] Processo4_SAC — ==========================================
+13:01:36 [INFO] Processo4_SAC —    INICIANDO PROCESSO 4 — SAC (ATENDIMENTO)
+13:01:36 [INFO] Processo4_SAC — ==========================================
+13:01:36 [INFO] Processo4_SAC — Etapa 1/5: Verificando status recebido do Processo 3...
+13:01:36 [INFO] Processo4_SAC — Processo 3 finalizado com SUCESSO (Cadastro aprovado).
+13:01:36 [INFO] Processo4_SAC — Etapa 2/5: Tratando o resultado e formatando mensagem do SAC...
+13:01:36 [INFO] Processo4_SAC — Atendimento SAC-20260818-6347 preparado para 'lucas.gabriel@email.com' com status [CONCLUIDO].
+13:01:36 [INFO] Processo4_SAC — Etapa 3/5: Comunicando cliente (lucas.gabriel@email.com)...
+13:01:36 [INFO] Processo4_SAC — [SIMULAÇÃO SAC] E-mail transmitido com sucesso para 'lucas.gabriel@email.com'.
+13:01:36 [INFO] Processo4_SAC — Etapa 4/5: Registrando atendimento no histórico SAC...
+13:01:36 [INFO] Processo4_SAC — Atendimento protocolo SAC-20260818-6347 registrado em 'registro_atendimentos_sac.json'.
+13:01:36 [INFO] Processo4_SAC — Etapa 5/5: Consolidando monitoramento e métricas de execução...
+13:01:36 [INFO] Processo4_SAC — Processo 4 finalizado em 0.52ms com status [SUCESSO].
+13:01:36 [INFO] bot_principal — [P4 CONCLUÍDO] Protocolo: SAC-20260818-6347 | Status: CONCLUIDO
+13:01:36 [INFO] bot_principal — >>> [PROCESSO 5] Consolidação de KPIs & Emissão de Relatório Versionado
+13:01:36 [INFO] Processo5_Relatorios — ======================================
+13:01:36 [INFO] Processo5_Relatorios —  INICIANDO PROCESSO 5 - RELATÓRIOS
+13:01:36 [INFO] Processo5_Relatorios — ======================================
+13:01:36 [INFO] Processo5_Relatorios — Validando dados recebidos do Processo 4.
+13:01:36 [INFO] Processo5_Relatorios — Estrutura de relatórios inicializada.
+13:01:36 [INFO] Processo5_Relatorios — Gerando métricas e indicadores.
+13:01:36 [INFO] Processo5_Relatorios — Gerando relatório gerencial.
+13:01:36 [INFO] Processo5_Relatorios — Salvando e versionando relatório.
+13:01:36 [INFO] Processo5_Relatorios — Estrutura de relatórios inicializada.
+13:01:36 [INFO] Processo5_Relatorios — Estrutura de relatórios inicializada.
+13:01:36 [INFO] Processo5_Relatorios — Relatório salvo com sucesso: relatorio_gerencial_20260818_130136.json
+13:01:36 [INFO] Processo5_Relatorios — Processo 5 concluído com sucesso.
+13:01:36 [INFO] bot_principal — [P5 CONCLUÍDO] Status: PROCESSO_CONCLUIDO | Relatório: relatorio_gerencial_20260818_130136.json

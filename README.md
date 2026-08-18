@@ -1,92 +1,96 @@
 # HyperAutomation — Portal Fake Soluções Digitais
+## Roteiro 13: Integração dos 5 Processos, CI/CD, Containerização & GHCR
 
-Projeto de automação desenvolvido como atividade da disciplina de
-**Técnicas de Hyperautomation** (AX Academy / IFAM).
+![HyperAutomation Pipeline](images/Processo01_Atendimento.png)
 
-O sistema automatiza processos do Portal Fake Soluções Digitais por meio
-de robôs Python + Playwright, integrando leitura/envio de e-mails,
-geração de documentos e classificação de arquivos.
+Projeto de automação corporativa desenvolvido como atividade da disciplina de **Técnicas de Hyperautomation** (AX Academy / IFAM).
 
----
-
-## Módulos Implementados
-
-| Módulo | Descrição | Branch/Release |
-|---|---|---|
-| **Cadastro** (original) | Extrai dados do Portal Fake, gera ficha Word e envia por e-mail | `release/1.0` |
-| **Processo 1 — Atendimento** | Recebe solicitações por e-mail, valida documentação, classifica e responde | `release/2.0` |
+O sistema integra **5 Processos Operacionais** autônomos em uma pipeline encadeada end-to-end, com testes automatizados, logging estruturado, resiliência com fallback, containerização via Docker e pipeline de CI/CD para publicação automática no **GitHub Container Registry (GHCR)**.
 
 ---
 
-## Processo 1 — Setor de Atendimento
-
-### BPMN — Modelagem do Processo
-
-![Processo 1 BPMN](images/Processo01_Atendimento.png)
-
-### Fluxo do Processo
+## 1. Arquitetura Geral do Ecossistema (5 Processos Encadeados)
 
 ```
-Receber Solicitação (IMAP)
-   ↓
-Baixar Documentos (anexos → ERP_Portal_Fake/Downloads/)
-   ↓
-Validar Documentação
-   ↓ Completa?
-  Sim → Documentos_OK/ → Responder (confirmação) → Encaminhados/
-  Não → Documentos_Pendentes/ → Responder (pendência)
+┌─────────────────────────────────────────────────────────────────────────┐
+│                           FLUXO DE INTEGRAÇÃO                           │
+└─────────────────────────────────────────────────────────────────────────┘
+                                   │
+                                   ▼
+┌─────────────────────────────────────────────────────────────────────────┐
+│ PROCESSO 1 — Setor de Atendimento                                      │
+│ • Leitura de solicitações/anexos via IMAP (ou fallback local)          │
+│ • Validação de checklist (Identidade, Comprovante, Ficha)               │
+│ • Classificação em Documentos_OK/ ou Documentos_Pendentes/              │
+│ • Encaminhamento das solicitações completas para Encaminhados/          │
+└─────────────────────────────────────────────────────────────────────────┘
+                                   │
+                                   ▼
+┌─────────────────────────────────────────────────────────────────────────┐
+│ PROCESSO 2 — Setor de Organização de Dados                              │
+│ • Varredura de pastas de dossiês em Encaminhados/                       │
+│ • Extração de dados da Ficha de Cadastro (PDF/OCR)                      │
+│ • Validação cadastral (CPF, e-mail, idade mínima 18 anos)               │
+│ • Gravação na Planilha Mestra (Planilha_Mestra.xlsx)                    │
+│ • Arquivamento da pasta processada em Arquivados/ (idempotência HASH)   │
+└─────────────────────────────────────────────────────────────────────────┘
+                                   │
+                                   ▼
+┌─────────────────────────────────────────────────────────────────────────┐
+│ PROCESSO 3 — Setor de Cadastro (API Externa)                           │
+│ • Recebimento dos dados estruturados do cliente                         │
+│ • Validação de campos obrigatórios                                      │
+│ • Checagem de duplicidade na base por CPF                               │
+│ • Integração com API externa de cadastro (gerando CLI-ID)               │
+│ • Mecanismo de Fallback em caso de indisponibilidade da API             │
+└─────────────────────────────────────────────────────────────────────────┘
+                                   │
+                                   ▼
+┌─────────────────────────────────────────────────────────────────────────┐
+│ PROCESSO 4 — Setor de SAC (Atendimento ao Cliente)                      │
+│ • Análise do status retornado pelo Processo 3                           │
+│ • Geração de protocolo único de atendimento (SAC-YYYYMMDD-XXXX)         │
+│ • Classificação: CONCLUIDO, ALERTA_DUPLICIDADE, PENDENCIA_TECNICA       │
+│ • Comunicação por e-mail com o cliente (SMTP real ou simulação segura)   │
+│ • Persistência auditável em registro_atendimentos_sac.json              │
+│ • Medição de latência (tempo de execução em milissegundos)              │
+└─────────────────────────────────────────────────────────────────────────┘
+                                   │
+                                   ▼
+┌─────────────────────────────────────────────────────────────────────────┐
+│ PROCESSO 5 — Setor de Relatórios & Gerência                             │
+│ • Consolidação dos resultados da execução                               │
+│ • Cálculo de KPIs (Total, Sucessos, Duplicidades, Falhas, Taxa % SUC)   │
+│ • Emissão de relatório gerencial versionado JSON (timestamped)          │
+│ • Atualização do histórico acumulado em historico_relatorios.json       │
+└─────────────────────────────────────────────────────────────────────────┘
+                                   │
+                                   ▼
+┌─────────────────────────────────────────────────────────────────────────┐
+│                            RESULTADO FINAL                              │
+└─────────────────────────────────────────────────────────────────────────┘
 ```
-
-### Critério de Documentação Completa
-
-A solicitação é considerada **completa** quando contém anexos para as 3 categorias:
-
-| Categoria | Exemplos de arquivo aceito |
-|---|---|
-| `documento_identidade` | `rg_frente.pdf`, `cnh.jpg`, `passaporte.pdf` |
-| `comprovante_residencia` | `comprovante_residencia.pdf`, `conta_luz.jpg` |
-| `ficha_cadastro` | `ficha_cadastro.pdf`, `formulario.pdf` |
-
-A detecção é feita por **palavras-chave no nome do arquivo** (case-insensitive), consistente com as instruções da ficha de cadastro Word gerada no Processo de Cadastro.
-
-### Estrutura ERP_Portal_Fake
-
-```
-ERP_Portal_Fake/
-├── Downloads/             ← anexos baixados do e-mail (processamento)
-├── Documentos_OK/         ← solicitações com documentação completa
-├── Documentos_Pendentes/  ← solicitações aguardando documentos
-└── Encaminhados/          ← prontos para o próximo setor
-```
-
-### Justificativa das Bibliotecas
-
-| Biblioteca | Uso | Justificativa |
-|---|---|---|
-| `imaplib` | Leitura de e-mails | stdlib Python — sem dependência extra; consistente com `smtplib` já usado |
-| `smtplib` | Envio de respostas | já usado no projeto (reutilizado via `envio_email.py`) |
-| `shutil` | Movimentação de pastas | stdlib Python — operação de arquivos simples e auditável |
-| `logging` | Registro de execução | stdlib Python — padrão de logging estruturado |
-| `pathlib` | Manipulação de caminhos | já adotado no projeto |
-| `Pillow` | Geração do PNG do BPMN | única dependência nova; geração programática de imagem |
-| `google-api-python-client` | Integração com Google Drive | SDK oficial do Google — permite manipular pastas e arquivos na nuvem |
-| `google-auth-oauthlib` | Autenticação no Google Cloud | biblioteca oficial do Google para gerenciar o fluxo OAuth2 com credentials.json |
-
 
 ---
 
-## BPMN — Processo de Cadastro (original)
+## 2. Detalhamento dos Processos
 
-![Portal Fake BPMN](images/ficha_portal_fake_sd_bpmn.png)
+| Processo | Módulo Principal | Responsabilidade | Resiliência & Fallback |
+|---|---|---|---|
+| **Processo 1 — Atendimento** | `source/atendimento/main_atendimento.py` | Receber solicitações, validar documentação obrigatória e encaminhar dossiês completos. | Fallback para simulação local se serviço de e-mail/Drive estiver inacessível. |
+| **Processo 2 — Organização** | `source/organizacao/main_organizacao.py` | Extrair dados da ficha PDF, validar CPF/Email/Idade, atualizar a Planilha Mestra Excel e arquivar. | Idempotência via Hash SHA-256 previne reprocessamento duplicado. |
+| **Processo 3 — Cadastro** | `processo3/cadastro.py` | Validar dados, checar duplicidade de CPF e cadastrar cliente na API externa simulada. | `fallback_cadastro()` garante continuidade sem derrubar a pipeline. |
+| **Processo 4 — SAC** | `processo4/sac.py` | Gerar protocolo `SAC-YYYYMMDD-XXXX`, enviar notificação ao cliente e gravar histórico JSON. | `fallback_sac()` e canal de contingência retêm comunicação com flag `COMUNICACAO_RETIDA`. |
+| **Processo 5 — Relatórios** | `processo5/relatorios.py` | Consolidar métricas operacionais, calcular taxa % de sucesso e salvar relatórios versionados. | `fallback_relatorio()` gera registro auditável de falha caso a carga venha corrompida. |
 
 ---
 
-## Pré-requisitos
+## 3. Pré-requisitos & Instalação
 
-- Python 3.10 ou superior
-- Google Chrome / Chromium instalado
+- **Python**: 3.10 ou superior (Recomendado Python 3.14)
+- **Docker**: 20.10+ (opcional para execução containerizada)
 
-## Instalação
+### Passo a Passo de Instalação
 
 ```bash
 # 1. Clone o repositório
@@ -98,134 +102,132 @@ python -m venv .venv
 source .venv/bin/activate   # Linux/macOS
 # .venv\Scripts\activate    # Windows
 
-# 3. Instale as dependências
+# 3. Instale todas as dependências
 pip install -r requirements.txt
 
-# 4. Instale os navegadores do Playwright
+# 4. Instale o navegador Chromium do Playwright
 playwright install chromium
 ```
 
-## Configuração
-
-Copie o arquivo de exemplo e preencha com suas credenciais:
-
-```bash
-cp .env.example .env
-```
-
-### Variáveis de ambiente
-
-| Variável | Descrição | Processo |
-|---|---|---|
-| `EMAIL_REMETENTE` | E-mail do remetente (ex: `romulolira1@gmail.com`) | Cadastro + Atendimento |
-| `EMAIL_SENHA` | Senha de app (não a senha principal) | Cadastro + Atendimento |
-| `EMAIL_DESTINATARIO` | Destinatário da ficha de cadastro | Cadastro |
-| `SMTP_HOST` | Servidor SMTP (padrão: `smtp.gmail.com`) | Cadastro + Atendimento |
-| `SMTP_PORT` | Porta SMTP (padrão: `587`) | Cadastro + Atendimento |
-| `IMAP_HOST` | Servidor IMAP (padrão: `imap.gmail.com`) | Atendimento |
-| `IMAP_PORT` | Porta IMAP (padrão: `993`) | Atendimento |
-| `IMAP_USER` | Usuário IMAP (fallback: `EMAIL_REMETENTE`) | Atendimento |
-| `IMAP_PASSWORD` | Senha IMAP (fallback: `EMAIL_SENHA`) | Atendimento |
-| `PORTAL_FAKE_URL` | _(opcional)_ URL personalizada do portal | Cadastro |
-| `USAR_GOOGLE_DRIVE` | `True` para salvar e classificar arquivos no Google Drive, `False` para local | Atendimento |
-
-> **Nota:** Para Gmail, gere uma [Senha de App](https://myaccount.google.com/apppasswords).
-> A mesma senha de app pode ser usada para SMTP e IMAP.
-
-### Configuração do Google Drive (ERP)
-Para usar o Google Drive como ERP da empresa:
-1. Ative a **Google Drive API** no Google Cloud Console e baixe o arquivo de credenciais OAuth (tipo "Aplicativo para Computador").
-2. Renomeie o arquivo baixado para `credentials.json` e coloque-o na raiz do projeto.
-3. Defina `USAR_GOOGLE_DRIVE=True` no arquivo `.env`.
-4. Crie uma pasta raiz chamada `ERP_Portal_Fake` no seu Google Drive com as subpastas `Downloads`, `Documentos_OK`, `Documentos_Pendentes` e `Encaminhados`.
-5. Na primeira execução do script, o navegador abrirá automaticamente para você autorizar o acesso à sua conta do Google Drive (gerando o arquivo local `token.json` para as próximas conexões).
-
-
-## Execução
-
-### Processo de Cadastro (original)
-
-```bash
-python source/main.py
-```
-
-### Processo 1 — Atendimento (com e-mail real)
-
-```bash
-python source/atendimento/main_atendimento.py
-```
-
-### Simulação end-to-end (sem e-mail real)
-
-```bash
-python source/atendimento/simular_atendimento.py
-```
-
-A simulação demonstra o fluxo completo com arquivos de teste criados localmente.
-Nenhuma conta de e-mail é necessária.
-
 ---
 
-## Estrutura do Projeto
+## 4. Execução Local
 
+### Ponto de Entrada Único (`bot.py` ou `pai.bot.py`)
+
+O projeto possui o orquestrador principal `bot.py` e a entrada de compatibilidade `pai.bot.py`. Ambos executam os 5 processos em sequência:
+
+```bash
+# Execução via bot.py (Recomendado)
+python bot.py
+
+# Execução via pai.bot.py (Compatibilidade)
+python pai.bot.py
 ```
-HyperAutomation/
-├── .env.example                   # Template de variáveis de ambiente
-├── .gitignore
-├── README.md
-├── requirements.txt               # Dependências Python
-├── images/
-│   ├── ficha_portal_fake_sd_bpmn.drawio     # BPMN Cadastro (editável)
-│   ├── ficha_portal_fake_sd_bpmn.png        # BPMN Cadastro (exportado)
-│   ├── Processo01_Atendimento.drawio        # BPMN Atendimento (editável)
-│   └── Processo01_Atendimento.png           # BPMN Atendimento (exportado)
-├── ERP_Portal_Fake/
-│   ├── Downloads/                 # Anexos baixados (processamento)
-│   ├── Documentos_OK/             # Documentação completa
-│   ├── Documentos_Pendentes/      # Documentação incompleta
-│   └── Encaminhados/              # Próximo setor
-├── portal_fake/
-│   └── index.html                 # Mock do Portal Fake
-├── resources/
-│   └── ficha_cadastro_*.docx      # Fichas geradas
-├── evidencias/
-│   ├── 01_portal_fake_extracao.png
-│   └── atendimento.log            # Log do Processo 1
-└── source/
-    ├── main.py                    # Orquestrador — Processo Cadastro
-    ├── extracao.py                # Extração de dados (Playwright)
-    ├── documento_email.py         # Geração da ficha Word
-    ├── envio_email.py             # Envio de e-mail (smtplib)
-    └── atendimento/               # Módulo — Processo 1
-        ├── __init__.py
-        ├── leitura_email.py       # Leitura de e-mails (imaplib)
-        ├── validacao.py           # Validação de documentação
-        ├── classificacao.py       # Classificação de arquivos
-        ├── resposta_cliente.py    # Resposta automática ao cliente
-        ├── main_atendimento.py    # Orquestrador do Processo 1
-        └── simular_atendimento.py # Simulação end-to-end
+
+### Execução de Testes Individuais dos Módulos
+
+```bash
+# Simulação end-to-end do Processo 1 & 2
+python teste_integracao_definitiva.py
+
+# Teste do Processo 3
+python processo3/teste_cadastro.py
+
+# Teste do Processo 4
+python processo4/teste_sac.py
+
+# Teste do Processo 5
+python processo5/teste_relatorios.py
 ```
 
 ---
 
-## GitFlow
+## 5. Testes Automatizados & Cobertura
 
+O projeto utiliza `pytest` e `pytest-cov` para execução de testes unitários e de integração de todos os componentes:
+
+### Execução de Testes com Verificação de Sintaxe
+
+```bash
+# 1. Validação de Sintaxe de todos os arquivos do projeto
+python -m compileall .
+
+# 2. Execução dos testes automatizados (Modo Verboso)
+python -m pytest -v
+
+# 3. Execução dos testes com relatório de cobertura de código
+python -m pytest -v --cov=. --cov-report=term-missing
 ```
-main ← release/1.0 (Processo Cadastro)
-main ← release/2.0 (Processo 1 — Atendimento)
 
-develop
-  └─ feature/extracao          (merged)
-  └─ feature/documento-email   (merged)
-  └─ feature/processo-atendimento → release/2.0 → main
+---
+
+## 6. Containerização com Docker
+
+O projeto possui `Dockerfile` otimizado em imagem Linux slim com Chromium para Playwright.
+
+### Build da Imagem Docker Local
+
+```bash
+docker build -t hyperautomation:1.0 .
 ```
 
-## Equipe
+### Execução do Container Docker Local
+
+```bash
+docker run --rm hyperautomation:1.0
+```
+
+---
+
+## 7. CI/CD no GitHub Actions & Publicação no GHCR
+
+O workflow `.github/workflows/ci-cd.yml` realiza o ciclo completo de Integração e Entrega Contínua:
+
+1. **Pipeline de CI (Testes)**:
+   - Dispara em cada `push` ou `pull_request` nas branches `main`, `master` e `develop`.
+   - Prepara o ambiente Python, instala dependências e valida sintaxe (`compileall`).
+   - Executa a suíte de testes automatizados via `pytest`.
+   - **Garantia de Qualidade**: Se qualquer teste falhar, o build Docker e a publicação são abortados imediatamente.
+
+2. **Pipeline de CD (Deploy / GHCR)**:
+   - Executa **somente após aprovação dos testes na etapa de CI**.
+   - Realiza login no **GitHub Container Registry (GHCR)** via `secrets.GITHUB_TOKEN`.
+   - Constrói a imagem Docker e publica em `ghcr.io/${{ github.repository }}:latest`.
+
+### Executando a Imagem Publicada no GHCR
+
+```bash
+# 1. Baixar a imagem publicada do repositório no GHCR
+docker pull ghcr.io/codemartell/hyperautomation:latest
+
+# 2. Executar o container a partir da imagem do GHCR
+docker run --rm ghcr.io/codemartell/hyperautomation:latest
+```
+
+---
+
+## 8. Apresentação Técnica & Evidências
+
+A pasta `apresentacao/` contém a **Apresentação Técnica Interativa Web** e o arquivo **PowerPoint**:
+
+- **Apresentação Web Interativa**: Abra `apresentacao/index.html` em qualquer navegador para navegar pelos **18 slides**, interagir com a modelagem BPMN, visualizador de código e simulador de terminal em tempo real.
+- **Apresentação PowerPoint**: `apresentacao/Roteiro13_Apresentacao.pptx` contendo o conteúdo corporativo completo.
+- **Evidências**: Pasta `evidencias/` contendo screenshots e logs auditáveis (`execucao_bot.log`, `atendimento.log`, `organizacao.log`).
+
+---
+
+## 9. Equipe
 
 | Integrante | Responsabilidade |
 |---|---|
-| _(preencher)_ | _(preencher)_ |
+| **Romulo Lira** | Orquestração Geral, Integração 1→5, Docker, CI/CD & GHCR |
+| **Huan Cruz** | Modelagem BPMN & Visuais de Processo |
+| **Gilvan Daniel** | Geração de Documentos Word & Planilha Mestra |
+| **Jannas** | Extração Web RPA (Playwright) |
 
-## Licença
+---
 
-Projeto acadêmico — AX Academy / IFAM.
+## 10. Licença
+
+Projeto acadêmico — **AX Academy / IFAM**.

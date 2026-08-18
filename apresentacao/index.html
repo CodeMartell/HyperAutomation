@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>HyperAutomation — Apresentação Técnica Interativa</title>
+  <title>Roteiro 13 — Integração, CI/CD, Containerização & GHCR</title>
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,7 +14,7 @@
 </head>
 <body>
 
-  <!-- Particle Glow Canvas -->
+  <!-- Canvas de partículas de fundo -->
   <canvas id="bg-canvas"></canvas>
 
   <div class="app-container">
@@ -24,13 +24,13 @@
       <div class="brand-logo">
         <i class="fa-solid fa-robot" style="color: var(--neon-red);"></i>
         <span>HyperAutomation</span>
-        <span class="brand-badge">IFAM / AX Academy</span>
+        <span class="brand-badge">Roteiro 13 — CI/CD & GHCR</span>
       </div>
 
       <div class="progress-container">
         <div class="progress-info">
           <span id="slide-title-indicator">1. Capa & Identificação</span>
-          <span id="slide-count-indicator">Slide 1 de 9</span>
+          <span id="slide-count-indicator">Slide 1 de 18</span>
         </div>
         <div class="progress-bar-bg">
           <div class="progress-bar-fill" id="progress-fill"></div>
@@ -45,26 +45,26 @@
       </div>
     </header>
 
-    <!-- Viewport for Slides -->
+    <!-- Viewport para os Slides -->
     <main class="slides-viewport">
 
-      <!-- SLIDE 1: HERO COVER -->
+      <!-- SLIDE 1: CAPA & IDENTIFICAÇÃO -->
       <section class="slide active" id="slide-1">
         <div class="hero-wrapper">
           <div class="hero-main-card">
             <div class="slide-tag">
-              <i class="fa-solid fa-fire"></i> Relatório Técnico Final
+              <i class="fa-solid fa-layer-group"></i> Roteiro 13 — Integração, CI/CD, Containerização e GHCR
             </div>
-            <h1 class="hero-title">Portal Fake Soluções Digitais</h1>
+            <h1 class="hero-title">HyperAutomation Soluções Digitais</h1>
             <p class="hero-desc">
-              Automação RPA end-to-end integrando captura inteligente de formulário web via <strong>Playwright</strong>, geração estruturada de documentos em Word (<strong>python-docx</strong>) e disparo seguro por e-mail <strong>SMTP TLS</strong>.
+              Integração end-to-end de <strong>5 Processos Operacionais</strong> com ponto de entrada único (<code>bot.py</code> / <code>pai.bot.py</code>), testes automatizados (<strong>pytest</strong>), logs auditáveis, resiliência com <strong>fallback</strong>, containerização com <strong>Docker</strong> e esteira de <strong>CI/CD via GitHub Actions</strong> com publicação no <strong>GitHub Container Registry (GHCR)</strong>.
             </p>
 
             <div class="hero-meta-badges">
               <div class="meta-chip"><i class="fa-solid fa-graduation-cap"></i> AX Academy / IFAM</div>
               <div class="meta-chip"><i class="fa-solid fa-book-open"></i> Técnicas de Hyperautomation</div>
               <div class="meta-chip"><i class="fa-solid fa-chalkboard-user"></i> Prof. Moisés Levy</div>
-              <div class="meta-chip"><i class="fa-solid fa-calendar"></i> 23/07/2026</div>
+              <div class="meta-chip"><i class="fa-solid fa-calendar"></i> 18/08/2026</div>
             </div>
           </div>
 
@@ -75,21 +75,21 @@
                 <div class="avatar">RL</div>
                 <div class="team-info">
                   <h4>Romulo Lira</h4>
-                  <p>Líder, Orquestração, GitFlow</p>
+                  <p>Orquestração, Docker, CI/CD & GHCR</p>
                 </div>
               </div>
               <div class="team-card">
                 <div class="avatar">HC</div>
                 <div class="team-info">
                   <h4>Huan Cruz</h4>
-                  <p>Modelagem BPMN & Visuais</p>
+                  <p>Modelagem BPMN & Arquitetura</p>
                 </div>
               </div>
               <div class="team-card">
                 <div class="avatar">GD</div>
                 <div class="team-info">
                   <h4>Gilvan Daniel</h4>
-                  <p>Geração de Ficha Word (.docx)</p>
+                  <p>Geração de Documentos & Planilha</p>
                 </div>
               </div>
               <div class="team-card">
@@ -104,394 +104,472 @@
         </div>
       </section>
 
-      <!-- SLIDE 2: PIPELINE & OVERVIEW -->
+      <!-- SLIDE 2: OBJETIVO DA SOLUÇÃO -->
       <section class="slide" id="slide-2">
         <div class="slide-header">
-          <div class="slide-tag"><i class="fa-solid fa-diagram-project"></i> Visão Geral da Arquitetura</div>
-          <h2 class="slide-title">Pipeline de Hyperautomation em 3 Etapas</h2>
-          <p class="slide-subtitle">Conexão contínua entre raspagem de dados web, orquestração de documentos e mensageria automatizada.</p>
+          <div class="slide-tag"><i class="fa-solid fa-bullseye"></i> Propósito do Projeto</div>
+          <h2 class="slide-title">Objetivo da Solução Integrada</h2>
+          <p class="slide-subtitle">Unificar e automatizar a esteira completa dos 5 processos organizacionais sem intervenção manual.</p>
         </div>
 
         <div class="pipeline-container">
-          <!-- Step 1 -->
           <div class="pipeline-card">
             <span class="stage-number">01</span>
-            <div class="stage-icon"><i class="fa-solid fa-globe"></i></div>
-            <h3 class="stage-title">Extração Web RPA</h3>
-            <p class="stage-desc">Playwright abre o Portal Fake em modo headless, dispara a geração de novo cadastro e extrai dados do formulário.</p>
-            <ul class="stage-details">
-              <li><i class="fa-solid fa-check" style="color:var(--neon-red)"></i> Chromium Headless Sync</li>
-              <li><i class="fa-solid fa-check" style="color:var(--neon-red)"></i> 7 Campos de formulário</li>
-              <li><i class="fa-solid fa-check" style="color:var(--neon-red)"></i> Evidência em Screenshot</li>
-            </ul>
+            <div class="stage-icon"><i class="fa-solid fa-diagram-next"></i></div>
+            <h3 class="stage-title">Integração Real 1 → 5</h3>
+            <p class="stage-desc">Encadear os 5 processos de forma que o resultado de cada etapa alimente o processo seguinte em tempo real.</p>
           </div>
-
-          <!-- Step 2 -->
           <div class="pipeline-card">
             <span class="stage-number">02</span>
-            <div class="stage-icon"><i class="fa-solid fa-file-word"></i></div>
-            <h3 class="stage-title">Documentação Word</h3>
-            <p class="stage-desc">Geração dinâmica da ficha oficial de cadastro em formato .docx com formatação corporativa e tabela estilizada.</p>
-            <ul class="stage-details">
-              <li><i class="fa-solid fa-check" style="color:var(--neon-red)"></i> Modelo python-docx</li>
-              <li><i class="fa-solid fa-check" style="color:var(--neon-red)"></i> Tabela Grid com negrito</li>
-              <li><i class="fa-solid fa-check" style="color:var(--neon-red)"></i> Checklist & Assinatura</li>
-            </ul>
+            <div class="stage-icon"><i class="fa-solid fa-vial-circle-check"></i></div>
+            <h3 class="stage-title">Qualidade & Testes</h3>
+            <p class="stage-desc">Garantir 100% de aprovação na suíte automatizada de testes (pytest) antes de qualquer deploy.</p>
           </div>
-
-          <!-- Step 3 -->
           <div class="pipeline-card">
             <span class="stage-number">03</span>
-            <div class="stage-icon"><i class="fa-solid fa-paper-plane"></i></div>
-            <h3 class="stage-title">Disparo por E-mail</h3>
-            <p class="stage-desc">Envio automático do documento como anexo binário codificado via protocolo SMTP com criptografia TLS.</p>
-            <ul class="stage-details">
-              <li><i class="fa-solid fa-check" style="color:var(--neon-red)"></i> MIMEMultipart Base64</li>
-              <li><i class="fa-solid fa-check" style="color:var(--neon-red)"></i> Autenticação por .env</li>
-              <li><i class="fa-solid fa-check" style="color:var(--neon-red)"></i> Notificação de entrega</li>
-            </ul>
+            <div class="stage-icon"><i class="fa-solid fa-box-archive"></i></div>
+            <h3 class="stage-title">Containerização & GHCR</h3>
+            <p class="stage-desc">Empacotar a solução em container Docker otimizado e publicar automaticamente no GHCR via GitHub Actions.</p>
           </div>
         </div>
 
-        <!-- Metrics Stats -->
         <div class="stats-grid">
           <div class="stat-card">
-            <div class="stat-value" id="stat-auto">100%</div>
-            <div class="stat-label">Automação End-to-End</div>
+            <div class="stat-value">5 / 5</div>
+            <div class="stat-label">Processos Integrados</div>
           </div>
           <div class="stat-card">
-            <div class="stat-value" id="stat-fields">7/7</div>
-            <div class="stat-label">Campos Capturados</div>
+            <div class="stat-value">100%</div>
+            <div class="stat-label">Testes Aprovados</div>
           </div>
           <div class="stat-card">
-            <div class="stat-value" id="stat-time">&lt; 3s</div>
-            <div class="stat-label">Tempo de Execução</div>
+            <div class="stat-value">GHCR</div>
+            <div class="stat-label">Publicação Automática</div>
           </div>
           <div class="stat-card">
-            <div class="stat-value" id="stat-errors">0</div>
-            <div class="stat-label">Intervenções Manuais</div>
+            <div class="stat-value">Sub-sec</div>
+            <div class="stat-label">Tempo de Processamento</div>
           </div>
         </div>
       </section>
 
-      <!-- SLIDE 3: BPMN INTERACTIVE FLOW -->
+      <!-- SLIDE 3: ARQUITETURA GERAL -->
       <section class="slide" id="slide-3">
         <div class="slide-header">
-          <div class="slide-tag"><i class="fa-solid fa-sitemap"></i> BPMN 2.0</div>
-          <h2 class="slide-title">Modelagem Interativa do Processo</h2>
-          <p class="slide-subtitle">Clique nas etapas abaixo ou use as setas para simular visualmente a execução do fluxo BPMN.</p>
+          <div class="slide-tag"><i class="fa-solid fa-network-wired"></i> Arquitetura de Software</div>
+          <h2 class="slide-title">Arquitetura Geral dos 5 Processos</h2>
+          <p class="slide-subtitle">Fluxo contínuo de dados transmitidos entre os setores da organização.</p>
         </div>
 
-        <div class="bpmn-view-wrapper">
-          <div class="bpmn-image-card">
-            <img src="../images/ficha_portal_fake_sd_bpmn.png" alt="BPMN Diagram" class="bpmn-img" id="bpmn-display-img">
-            <div class="bpmn-controls">
-              <button class="btn-icon" id="bpmn-prev-btn"><i class="fa-solid fa-chevron-left"></i> Etapa Anterior</button>
-              <button class="btn-primary" id="bpmn-next-btn">Próxima Etapa <i class="fa-solid fa-chevron-right"></i></button>
+        <div class="code-viewer-container" style="height: initial; padding: 1.5rem;">
+          <div class="timeline">
+            <div class="commit-node">
+              <span class="commit-hash" style="background:var(--bright-rose); color:#fff">P1</span>
+              <div class="commit-msg"><strong>Processo 1 — Atendimento:</strong> Leitura de solicitações, validação de documentação (Checklist) e classificação das pastas.</div>
             </div>
-          </div>
-
-          <div class="step-card">
-            <div>
-              <div class="step-indicator">
-                <span class="step-badge" id="bpmn-step-badge">Etapa 1 / 5</span>
-                <i class="fa-solid fa-microchip" style="color:var(--neon-red)"></i>
-              </div>
-              <h3 class="step-title" id="bpmn-step-title">Início & Inicialização</h3>
-              <p class="step-body" id="bpmn-step-body">
-                O evento de início é disparado quando o orquestrador <code>main.py</code> carrega as variáveis de ambiente do arquivo <code>.env</code> e prepara os módulos de execução.
-              </p>
+            <div class="commit-node">
+              <span class="commit-hash" style="background:var(--bright-rose); color:#fff">P2</span>
+              <div class="commit-msg"><strong>Processo 2 — Organização:</strong> Extração de dados da Ficha (PDF/OCR), validação cadastral, atualização da Planilha Mestra Excel e arquivamento por Hash SHA-256.</div>
             </div>
-
-            <div class="bpmn-nodes-list" id="bpmn-nodes-container">
-              <div class="bpmn-node-item active" data-step="0">1. Disparo do Evento de Início</div>
-              <div class="bpmn-node-item" data-step="1">2. Navegação ao Portal Fake (Playwright)</div>
-              <div class="bpmn-node-item" data-step="2">3. Extração dos Campos do Formulário</div>
-              <div class="bpmn-node-item" data-step="3">4. Geração do Artefato Ficha.docx</div>
-              <div class="bpmn-node-item" data-step="4">5. Disparo de E-mail SMTP e Encerramento</div>
+            <div class="commit-node">
+              <span class="commit-hash" style="background:var(--bright-rose); color:#fff">P3</span>
+              <div class="commit-msg"><strong>Processo 3 — Cadastro:</strong> Validação de entrada, checagem prévia de duplicidades (CPF) e integração com API Externa de Cadastro (retornando CLI-ID e fallback).</div>
+            </div>
+            <div class="commit-node">
+              <span class="commit-hash" style="background:var(--bright-rose); color:#fff">P4</span>
+              <div class="commit-msg"><strong>Processo 4 — SAC:</strong> Emissão do protocolo SAC (SAC-YYYYMMDD-XXXX), notificação por e-mail/simulado, medição de latência ms e persistência em JSON.</div>
+            </div>
+            <div class="commit-node">
+              <span class="commit-hash" style="background:var(--bright-rose); color:#fff">P5</span>
+              <div class="commit-msg"><strong>Processo 5 — Relatórios:</strong> Consolidação de métricas globais, cálculo da taxa % de sucesso e emissão de relatório gerencial versionado.</div>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- SLIDE 4: TECH STACK & CODE VIEWER -->
+      <!-- SLIDE 4: PROCESSOS 1 E 2 REUTILIZADOS -->
       <section class="slide" id="slide-4">
         <div class="slide-header">
-          <div class="slide-tag"><i class="fa-solid fa-code"></i> Engenharia & Código</div>
-          <h2 class="slide-title">Stack Tecnológica & Implementação</h2>
-          <p class="slide-subtitle">Inspecione os módulos em Python 3.14 desenvolvidos com suporte a typings e tratamento resiliente de erros.</p>
-        </div>
-
-        <div class="tech-bar">
-          <div class="tech-chip"><i class="fa-brands fa-python" style="color:#ff4d6d;"></i> Python <span>3.14</span></div>
-          <div class="tech-chip"><i class="fa-solid fa-masks-theater" style="color:#ff4d6d;"></i> Playwright <span>1.61.0</span></div>
-          <div class="tech-chip"><i class="fa-solid fa-file-word" style="color:#ff4d6d;"></i> python-docx <span>1.2.0</span></div>
-          <div class="tech-chip"><i class="fa-solid fa-envelope" style="color:#ff4d6d;"></i> smtplib <span>(stdlib)</span></div>
-          <div class="tech-chip"><i class="fa-solid fa-key" style="color:#ff4d6d;"></i> python-dotenv <span>1.2.2</span></div>
-        </div>
-
-        <div class="code-viewer-container">
-          <div class="code-tabs">
-            <button class="code-tab active" data-file="main">main.py (Orquestrador)</button>
-            <button class="code-tab" data-file="extracao">extracao.py (Playwright)</button>
-            <button class="code-tab" data-file="documento">documento_email.py (Word)</button>
-            <button class="code-tab" data-file="envio">envio_email.py (SMTP)</button>
-            <button class="code-tab" data-file="env_example">.env.example</button>
-          </div>
-          <div class="code-body">
-            <pre><code id="code-content-block">loading code...</code></pre>
-          </div>
-        </div>
-      </section>
-
-      <!-- SLIDE 5: RPA TERMINAL SIMULATOR -->
-      <section class="slide" id="slide-5">
-        <div class="slide-header">
-          <div class="slide-tag"><i class="fa-solid fa-terminal"></i> Live Demonstration</div>
-          <h2 class="slide-title">Simulador de Execução do Robô RPA</h2>
-          <p class="slide-subtitle">Clique no botão abaixo para assistir à simulação interativa da execução em tempo real do script <code>source/main.py</code>.</p>
-        </div>
-
-        <div class="terminal-wrapper">
-          <div class="terminal-header">
-            <div class="terminal-dots">
-              <span class="dot red"></span>
-              <span class="dot yellow"></span>
-              <span class="dot green"></span>
-            </div>
-            <div class="terminal-title">bash — python source/main.py</div>
-            <div></div>
-          </div>
-
-          <div class="terminal-body" id="terminal-screen">
-            <div class="terminal-output" id="terminal-log">Clique em "Executar Robô RPA" para iniciar o fluxo completo de automação...</div>
-            <span class="terminal-cursor"></span>
-          </div>
-
-          <div class="terminal-actions">
-            <span style="font-size:0.85rem; color:var(--text-muted);">Status: <strong id="terminal-status-text" style="color:var(--bright-rose)">Aguardando Início</strong></span>
-            <button class="btn-primary" id="run-rpa-btn">
-              <i class="fa-solid fa-play"></i> Executar Robô RPA
-            </button>
-          </div>
-        </div>
-      </section>
-
-      <!-- SLIDE 6: GITFLOW & VERSIONING -->
-      <section class="slide" id="slide-6">
-        <div class="slide-header">
-          <div class="slide-tag"><i class="fa-solid fa-code-branch"></i> GitFlow & Governança</div>
-          <h2 class="slide-title">Estratégia de Branches & Versionamento</h2>
-          <p class="slide-subtitle">Controle rigoroso de alterações com fluxo de Pull Requests e Releases etiquetadas no GitHub.</p>
-        </div>
-
-        <div class="gitflow-container">
-          <div class="branches-card">
-            <h3><i class="fa-solid fa-code-merge" style="color:var(--neon-red)"></i> Estrutura de Branches</h3>
-
-            <div class="branch-item">
-              <div class="branch-name"><i class="fa-solid fa-shield-halved"></i> main</div>
-              <span class="branch-tag">Tag v1.0 (Release Final)</span>
-            </div>
-            <div class="branch-item">
-              <div class="branch-name"><i class="fa-solid fa-boxes-packing"></i> release/1.0</div>
-              <span class="branch-tag">Validação e Ajustes</span>
-            </div>
-            <div class="branch-item">
-              <div class="branch-name"><i class="fa-solid fa-code-pull-request"></i> develop</div>
-              <span class="branch-tag">Integração Contínua</span>
-            </div>
-            <div class="branch-item">
-              <div class="branch-name"><i class="fa-solid fa-cube"></i> feature/extracao</div>
-              <span class="branch-tag">Dev: Playwright Scraping</span>
-            </div>
-            <div class="branch-item">
-              <div class="branch-name"><i class="fa-solid fa-cube"></i> feature/documento-email</div>
-              <span class="branch-tag">Dev: Word Doc & SMTP</span>
-            </div>
-          </div>
-
-          <div class="commits-card">
-            <h3><i class="fa-solid fa-clock-rotate-left" style="color:var(--neon-red)"></i> Linha do Tempo de Commits</h3>
-            <br>
-            <div class="timeline">
-              <div class="commit-node">
-                <span class="commit-hash">fae5c29</span>
-                <div class="commit-msg">chore: merge release/1.0 para entrega final</div>
-                <div class="commit-author">Romulo Lira • 23/07/2026</div>
-              </div>
-              <div class="commit-node">
-                <span class="commit-hash">fcc0d02</span>
-                <div class="commit-msg">feat: resolve pendências da auditoria Semana06</div>
-                <div class="commit-author">Romulo Lira • 23/07/2026</div>
-              </div>
-              <div class="commit-node">
-                <span class="commit-hash">181f152</span>
-                <div class="commit-msg">feat: implementa template e layout da ficha .docx</div>
-                <div class="commit-author">Gilvan Daniel • 21/07/2026</div>
-              </div>
-              <div class="commit-node">
-                <span class="commit-hash">9cb2e2a</span>
-                <div class="commit-msg">feat: adiciona script de extração web via Playwright</div>
-                <div class="commit-author">Jannas • 21/07/2026</div>
-              </div>
-              <div class="commit-node">
-                <span class="commit-hash">4d532de</span>
-                <div class="commit-msg">docs: inclusão dos diagramas e especificações BPMN</div>
-                <div class="commit-author">Huan Cruz • 21/07/2026</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- SLIDE 7: EVIDENCE GALLERY -->
-      <section class="slide" id="slide-7">
-        <div class="slide-header">
-          <div class="slide-tag"><i class="fa-solid fa-images"></i> Evidências & Testes</div>
-          <h2 class="slide-title">Galeria de Resultados & Validação</h2>
-          <p class="slide-subtitle">Clique em qualquer imagem para ampliação em alta resolução com detalhes de execução.</p>
-        </div>
-
-        <div class="gallery-grid">
-          <!-- Card 1 -->
-          <div class="gallery-card" data-img="../evidencias/01_portal_fake_extracao.png" data-title="01. Extração no Portal Fake" data-desc="Navegação via Playwright, clique no botão Novo Cadastro e captura automática dos 7 campos de teste.">
-            <div class="gallery-thumb">
-              <img src="../evidencias/01_portal_fake_extracao.png" alt="Portal Fake">
-            </div>
-            <div class="gallery-meta">
-              <h4 class="gallery-title">01. Portal Fake & Extração</h4>
-              <p class="gallery-caption">Campos de entrada preenchidos com dados randômicos e extraídos.</p>
-            </div>
-          </div>
-
-          <!-- Card 2 -->
-          <div class="gallery-card" data-img="../evidencias/02_execucao_terminal.png" data-title="02. Terminal de Execução" data-desc="Log detalhado de saída do script main.py comprovando a conclusão das 3 etapas sem erros.">
-            <div class="gallery-thumb">
-              <img src="../evidencias/02_execucao_terminal.png" alt="Execução Terminal">
-            </div>
-            <div class="gallery-meta">
-              <h4 class="gallery-title">02. Execução no Terminal</h4>
-              <p class="gallery-caption">Terminal exibindo orquestração dos 3 módulos com sucesso.</p>
-            </div>
-          </div>
-
-          <!-- Card 3 -->
-          <div class="gallery-card" data-img="../evidencias/03_ficha_cadastro_docx.png" data-title="03. Ficha Gerada em Word" data-desc="Documento Word (.docx) criado na pasta resources/ contendo tabela formatada e checklist.">
-            <div class="gallery-thumb">
-              <img src="../evidencias/03_ficha_cadastro_docx.png" alt="Ficha Word">
-            </div>
-            <div class="gallery-meta">
-              <h4 class="gallery-title">03. Documento .docx Gerado</h4>
-              <p class="gallery-caption">Ficha de cadastro formatada com layout corporativo.</p>
-            </div>
-          </div>
-
-          <!-- Card 4 -->
-          <div class="gallery-card" data-img="../evidencias/04_email_enviado.png" data-title="04. E-mail Recebido com Anexo" data-desc="Confirmação de recebimento da mensagem no destinatário com a ficha em anexo via Gmail SMTP.">
-            <div class="gallery-thumb">
-              <img src="../evidencias/04_email_enviado.png" alt="E-mail enviado">
-            </div>
-            <div class="gallery-meta">
-              <h4 class="gallery-title">04. Disparo por E-mail</h4>
-              <p class="gallery-caption">Caixa de entrada com a ficha anexada e corpo MIME.</p>
-            </div>
-          </div>
-
-          <!-- Card 5 -->
-          <div class="gallery-card" data-img="../evidencias/05_github_repositorio.png" data-title="05. Repositório no GitHub" data-desc="Estrutura de repositório público com branches e tag v1.0 configuradas.">
-            <div class="gallery-thumb">
-              <img src="../evidencias/05_github_repositorio.png" alt="GitHub Repo">
-            </div>
-            <div class="gallery-meta">
-              <h4 class="gallery-title">05. Repositório GitHub</h4>
-              <p class="gallery-caption">Publicação em CodeMartell/HyperAutomation com tag v1.0.</p>
-            </div>
-          </div>
-
-          <!-- Card 6 -->
-          <div class="gallery-card" data-img="../images/ficha_portal_fake_sd_bpmn.png" data-title="06. Diagrama BPMN 2.0 Oficial" data-desc="Modelagem gráfica de processo exportada do aplicativo Draw.io.">
-            <div class="gallery-thumb">
-              <img src="../images/ficha_portal_fake_sd_bpmn.png" alt="BPMN Diagram">
-            </div>
-            <div class="gallery-meta">
-              <h4 class="gallery-title">06. BPMN Diagram Flow</h4>
-              <p class="gallery-caption">Fluxo de processo padronizado em notação BPMN.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- SLIDE 8: CHALLENGES & ROADMAP -->
-      <section class="slide" id="slide-8">
-        <div class="slide-header">
-          <div class="slide-tag"><i class="fa-solid fa-lightbulb"></i> Lições & Futuro</div>
-          <h2 class="slide-title">Desafios Superados & Roadmap</h2>
-          <p class="slide-subtitle">Soluções engenhosas aplicadas e oportunidades de evolução tecnológica.</p>
+          <div class="slide-tag"><i class="fa-solid fa-recycle"></i> Reutilização de Código</div>
+          <h2 class="slide-title">Processos 1 e 2 Reutilizados</h2>
+          <p class="slide-subtitle">Manutenção das regras de negócio legadas das Releases 1.0 e 2.0.</p>
         </div>
 
         <div class="roadmap-wrapper">
           <div class="challenge-card">
-            <h3><i class="fa-solid fa-triangle-exclamation" style="color:var(--neon-red)"></i> Desafios & Soluções</h3>
-            <br>
+            <h3><i class="fa-solid fa-inbox" style="color:var(--neon-red)"></i> Processo 1 — Setor de Atendimento</h3>
             <div class="challenge-item">
-              <div class="challenge-title"><i class="fa-solid fa-link"></i> Caminho Relativo do Portal HTML</div>
+              <div class="challenge-title">source/atendimento/main_atendimento.py</div>
               <div class="solution-box">
-                O arquivo original referenciava caminhos absolutos do Windows. Solucionado com fallback usando <code>Path(__file__).resolve().parent</code> e protocolo <code>file://</code> multiplataforma.
-              </div>
-            </div>
-
-            <div class="challenge-item">
-              <div class="challenge-title"><i class="fa-solid fa-lock"></i> Autenticação SMTP no Gmail</div>
-              <div class="solution-box">
-                Restrição de acesso por senha convencional. Resolvido configurando <em>Senhas de App</em> com 2FA ativado e suporte a TLS na porta 587.
-              </div>
-            </div>
-
-            <div class="challenge-item">
-              <div class="challenge-title"><i class="fa-solid fa-arrows-split-up-and-left"></i> Modularização e GitFlow</div>
-              <div class="solution-box">
-                Scripts funcionavam de forma isolada. Desenvolvido o orquestrador <code>main.py</code> e padronizadas as mesclagens via Pull Requests.
+                • Recebimento via IMAP ou leitura de diretório local fallback.<br>
+                • Validação de 3 anexos obrigatórios (Identidade, Comprovante, Ficha).<br>
+                • Movimentação automática para <code>Documentos_OK/</code> ou <code>Documentos_Pendentes/</code>.
               </div>
             </div>
           </div>
 
-          <div class="future-card">
-            <h3><i class="fa-solid fa-rocket" style="color:var(--neon-red)"></i> Melhorias Futuras</h3>
-            <div class="future-grid">
-              <div class="future-item">
-                <i class="fa-solid fa-desktop"></i>
-                <h4>Interface Gráfica (GUI)</h4>
-                <p>Desenvolver painel web/desktop para disparo por operadores.</p>
-              </div>
-              <div class="future-item">
-                <i class="fa-solid fa-file-pdf"></i>
-                <h4>Conversão para PDF</h4>
-                <p>Exportação direta do arquivo Word para formato PDF compilado.</p>
-              </div>
-              <div class="future-item">
-                <i class="fa-solid fa-clock"></i>
-                <h4>Agendamento Cron</h4>
-                <p>Processamento automático em lote em horários programados.</p>
-              </div>
-              <div class="future-item">
-                <i class="fa-solid fa-bug"></i>
-                <h4>Logging Estruturado</h4>
-                <p>Gravação de logs em arquivos .log e monitoramento de falhas.</p>
+          <div class="challenge-card">
+            <h3><i class="fa-solid fa-file-excel" style="color:var(--neon-red)"></i> Processo 2 — Setor de Organização</h3>
+            <div class="challenge-item">
+              <div class="challenge-title">source/organizacao/main_organizacao.py</div>
+              <div class="solution-box">
+                • Varredura da pasta <code>Encaminhados/</code>.<br>
+                • Extração via <code>pypdf</code> / OCR e validação de CPF, e-mail e maioridade (18+).<br>
+                • Gravação em <code>Planilha_Mestra.xlsx</code> e arquivamento com Hash SHA-256 idempotente.
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- SLIDE 9: CONCLUSION -->
+      <!-- SLIDE 5: PROCESSO 3 – CADASTRO -->
+      <section class="slide" id="slide-5">
+        <div class="slide-header">
+          <div class="slide-tag"><i class="fa-solid fa-user-plus"></i> Setor de Cadastro</div>
+          <h2 class="slide-title">Processo 3 — Validação & Integração API</h2>
+          <p class="slide-subtitle">Validação de entrada, checagem prévia de duplicidade e resiliência via fallback.</p>
+        </div>
+
+        <div class="pipeline-container">
+          <div class="pipeline-card">
+            <h3 class="stage-title">1. Validação de Dados</h3>
+            <p class="stage-desc">Função <code>validar_cliente()</code> checa a presença dos campos obrigatórios (nome, email, cpf).</p>
+          </div>
+          <div class="pipeline-card">
+            <h3 class="stage-title">2. Duplicidade (CPF)</h3>
+            <p class="stage-desc">Função <code>verificar_duplicidade()</code> evita cadastros redundantes na base.</p>
+          </div>
+          <div class="pipeline-card">
+            <h3 class="stage-title">3. API & Fallback</h3>
+            <p class="stage-desc"><code>integrar_api_cadastro()</code> consome a API gerando <code>CLI-ID</code>. Se indisponível, aciona <code>fallback_cadastro()</code>.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 6: PROCESSO 4 – SAC -->
+      <section class="slide" id="slide-6">
+        <div class="slide-header">
+          <div class="slide-tag"><i class="fa-solid fa-headset"></i> Serviço de Atendimento ao Cliente</div>
+          <h2 class="slide-title">Processo 4 — SAC (Atendimento & Protocolo)</h2>
+          <p class="slide-subtitle">Formatação de mensagens, protocolo auditável e notificação por e-mail.</p>
+        </div>
+
+        <div class="gitflow-container">
+          <div class="branches-card">
+            <h3><i class="fa-solid fa-list-check" style="color:var(--neon-red)"></i> Categorias de Status SAC</h3>
+            <div class="branch-item">
+              <div class="branch-name">CONCLUIDO</div>
+              <span class="branch-tag">Cadastro Aprovado na API</span>
+            </div>
+            <div class="branch-item">
+              <div class="branch-name">ALERTA_DUPLICIDADE</div>
+              <span class="branch-tag">Cliente Já Cadastrado</span>
+            </div>
+            <div class="branch-item">
+              <div class="branch-name">PENDENCIA_TECNICA</div>
+              <span class="branch-tag">Falha Técnica na API</span>
+            </div>
+            <div class="branch-item">
+              <div class="branch-name">COMUNICACAO_RETIDA</div>
+              <span class="branch-tag">Falha no Envio de E-mail</span>
+            </div>
+          </div>
+
+          <div class="commits-card">
+            <h3><i class="fa-solid fa-shield" style="color:var(--neon-red)"></i> Garantias do Processo 4</h3>
+            <br>
+            <p>• <strong>Protocolo Único:</strong> Formato <code>SAC-YYYYMMDD-XXXX</code> gerado a cada atendimento.</p>
+            <p>• <strong>Registro JSON Auditável:</strong> Salvo em <code>ERP_Portal_Fake/atendimentos/registro_atendimentos_sac.json</code>.</p>
+            <p>• <strong>Monitoramento:</strong> Medição do tempo de execução em milissegundos (ms).</p>
+            <p>• <strong>Resiliência:</strong> <code>fallback_sac()</code> retém a carga sem interromper o pipeline.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 7: PROCESSO 5 – RELATÓRIOS -->
+      <section class="slide" id="slide-7">
+        <div class="slide-header">
+          <div class="slide-tag"><i class="fa-solid fa-chart-line"></i> Gestão & KPIs</div>
+          <h2 class="slide-title">Processo 5 — Relatórios Gerenciais</h2>
+          <p class="slide-subtitle">Consolidação de indicadores, taxa de sucesso e versionamento em tempo real.</p>
+        </div>
+
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-value">Total</div>
+            <div class="stat-label">Atendimentos Processados</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value">% Sucesso</div>
+            <div class="stat-label">Taxa Operacional</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value">Contagem</div>
+            <div class="stat-label">Duplicidades & Pendências</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value">JSON</div>
+            <div class="stat-label">Versionamento Timestamped</div>
+          </div>
+        </div>
+
+        <div class="code-body" style="margin-top: 1rem;">
+          <pre><code>// Exemplo de Relatório Gerencial Versionado (relatorio_gerencial_YYYYMMDD_HHMMSS.json)
+{
+    "versao": "20260818_123525",
+    "protocolo_sac": "SAC-20260818-5209",
+    "status_sac": "CONCLUIDO",
+    "metricas": {
+        "total_atendimentos": 5,
+        "cadastros_concluidos": 4,
+        "duplicidades": 1,
+        "taxa_sucesso_percentual": 80.0
+    }
+}</code></pre>
+        </div>
+      </section>
+
+      <!-- SLIDE 8: INTEGRAÇÃO REAL -->
+      <section class="slide" id="slide-8">
+        <div class="slide-header">
+          <div class="slide-tag"><i class="fa-solid fa-link"></i> Passagem de Dados</div>
+          <h2 class="slide-title">Integração Real Entre os Processos</h2>
+          <p class="slide-subtitle">Troca estruturada de payloads sem variáveis globais frágeis.</p>
+        </div>
+
+        <div class="code-viewer-container" style="height: initial; padding: 1rem;">
+          <pre><code># Exemplo de Encadeamento de Dados no Orquestrador (bot.py)
+res_val_p1 = validar_documentacao(pasta_download, anexos_p1)       # Processo 1
+res_p2     = main_org.processar_pasta_local(pasta_encaminhada)      # Processo 2
+res_p3     = executar_cadastro(dados_cliente_extraidos_p2)         # Processo 3
+res_p4     = executar_sac(resultado_retornado_p3)                  # Processo 4
+res_p5     = executar_relatorios(payload_pronto_p4)               # Processo 5</code></pre>
+        </div>
+      </section>
+
+      <!-- SLIDE 9: LOGS, ERROS & FALLBACK -->
       <section class="slide" id="slide-9">
+        <div class="slide-header">
+          <div class="slide-tag"><i class="fa-solid fa-file-lines"></i> Resiliência & Auditabilidade</div>
+          <h2 class="slide-title">Logs, Erros, Fallback & Monitoramento</h2>
+          <p class="slide-subtitle">Rastreabilidade completa de ponta a ponta com carimbo de data/hora.</p>
+        </div>
+
+        <div class="roadmap-wrapper">
+          <div class="challenge-card">
+            <h3><i class="fa-solid fa-clock-rotate-left" style="color:var(--neon-red)"></i> Padrão de Log Estruturado</h3>
+            <div class="solution-box">
+              <code>DATA/HORA | PROCESSO | STATUS | ERRO/MOTIVO</code><br><br>
+              Exemplo real em <code>evidencias/execucao_bot.log</code>:<br>
+              <code>12:35:25 [INFO] Processo4_SAC — Atendimento SAC-20260818-5209 registrado com status [CONCLUIDO].</code>
+            </div>
+          </div>
+
+          <div class="challenge-card">
+            <h3><i class="fa-solid fa-life-ring" style="color:var(--neon-red)"></i> Estratégia de Contingência</h3>
+            <div class="solution-box">
+              • Captura de exceções sem crash do container.<br>
+              • Retenção de e-mails em caso de falha de envio.<br>
+              • Registro auditável de fallbacks acionados.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 10: TESTES AUTOMATIZADOS -->
+      <section class="slide" id="slide-10">
+        <div class="slide-header">
+          <div class="slide-tag"><i class="fa-solid fa-vial"></i> Garantia de Qualidade</div>
+          <h2 class="slide-title">Testes Automatizados (pytest & pytest-cov)</h2>
+          <p class="slide-subtitle">34 testes automatizados cobrindo entradas válidas, inválidas, regras de negócio e integração.</p>
+        </div>
+
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-value" style="color:#27c93f">34 / 34</div>
+            <div class="stat-label">Testes Aprovados (100%)</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value">61%</div>
+            <div class="stat-label">Cobertura Global (pytest-cov)</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value">96%</div>
+            <div class="stat-label">Cobertura do bot.py</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value">0.44s</div>
+            <div class="stat-label">Tempo Total de Execução</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 11: DOCKER -->
+      <section class="slide" id="slide-11">
+        <div class="slide-header">
+          <div class="slide-tag"><i class="fa-brands fa-docker"></i> Containerização</div>
+          <h2 class="slide-title">Dockerfile & Execução Containerizada</h2>
+          <p class="slide-subtitle">Ambiente reprodutível baseado na imagem oficial Python 3.14-slim.</p>
+        </div>
+
+        <div class="code-viewer-container" style="height: initial; padding: 1rem;">
+          <pre><code># Dockerfile Otimizado
+FROM python:3.14-slim
+WORKDIR /app
+ENV PYTHONUNBUFFERED=1 PYTHONDONTWRITEBYTECODE=1
+RUN apt-get update && apt-get install -y --no-install-recommends build-essential curl && rm -rf /var/lib/apt/lists/*
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+RUN playwright install --with-deps chromium
+COPY . .
+CMD ["python", "bot.py"]</code></pre>
+        </div>
+      </section>
+
+      <!-- SLIDE 12: GITHUB ACTIONS -->
+      <section class="slide" id="slide-12">
+        <div class="slide-header">
+          <div class="slide-tag"><i class="fa-solid fa-gears"></i> Esteira de CI/CD</div>
+          <h2 class="slide-title">GitHub Actions (.github/workflows/ci-cd.yml)</h2>
+          <p class="slide-subtitle">Automação de testes e publicação condicional à aprovação da suíte.</p>
+        </div>
+
+        <div class="pipeline-container">
+          <div class="pipeline-card">
+            <h3 class="stage-title">1. Git Push / PR</h3>
+            <p class="stage-desc">Disparo automático em alterações na branch principal.</p>
+          </div>
+          <div class="pipeline-card">
+            <h3 class="stage-title">2. Job: Test (CI)</h3>
+            <p class="stage-desc">Instala dependências, valida sintaxe via <code>compileall</code> e executa <code>pytest</code>.</p>
+          </div>
+          <div class="pipeline-card">
+            <h3 class="stage-title">3. Job: Build & Push (CD)</h3>
+            <p class="stage-desc">Executa **apenas se os testes forem aprovados**, constrói a imagem Docker e envia para o GHCR.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 13: GHCR -->
+      <section class="slide" id="slide-13">
+        <div class="slide-header">
+          <div class="slide-tag"><i class="fa-solid fa-box"></i> Registry de Containers</div>
+          <h2 class="slide-title">Publicação no GitHub Container Registry (GHCR)</h2>
+          <p class="slide-subtitle">Distribuição segura da imagem de automação via GHCR.</p>
+        </div>
+
+        <div class="roadmap-wrapper">
+          <div class="challenge-card">
+            <h3><i class="fa-solid fa-key" style="color:var(--neon-red)"></i> Permissões & Autenticação</h3>
+            <div class="solution-box">
+              Autenticação automática no workflow usando token seguro nativo do GitHub:<br>
+              <code>permissions: contents: read, packages: write</code><br>
+              <code>password: ${{ secrets.GITHUB_TOKEN }}</code>
+            </div>
+          </div>
+
+          <div class="challenge-card">
+            <h3><i class="fa-solid fa-tag" style="color:var(--neon-red)"></i> Nome da Imagem Publicada</h3>
+            <div class="solution-box">
+              <code>ghcr.io/codemartell/hyperautomation:latest</code><br>
+              <code>ghcr.io/codemartell/hyperautomation:${{ github.sha }}</code>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 14: VALIDAÇÃO DA IMAGEM -->
+      <section class="slide" id="slide-14">
+        <div class="slide-header">
+          <div class="slide-tag"><i class="fa-solid fa-play"></i> Validação da Publicação</div>
+          <h2 class="slide-title">Validação da Imagem (Docker Pull & Run)</h2>
+          <p class="slide-subtitle">Comandos para baixar e executar a solução publicada em qualquer ambiente.</p>
+        </div>
+
+        <div class="code-viewer-container" style="height: initial; padding: 1.5rem;">
+          <pre><code># 1. Baixar a imagem do GHCR
+docker pull ghcr.io/codemartell/hyperautomation:latest
+
+# 2. Executar a solução completa dentro do container
+docker run --rm ghcr.io/codemartell/hyperautomation:latest</code></pre>
+        </div>
+      </section>
+
+      <!-- SLIDE 15: FLUXO COMPLETO DA ATIVIDADE -->
+      <section class="slide" id="slide-15">
+        <div class="slide-header">
+          <div class="slide-tag"><i class="fa-solid fa-diagram-successor"></i> End-to-End Cycle</div>
+          <h2 class="slide-title">Fluxo Completo da Atividade</h2>
+          <p class="slide-subtitle">O ciclo completo desde o código local até a execução do container GHCR.</p>
+        </div>
+
+        <div class="pipeline-container">
+          <div class="pipeline-card">
+            <p class="stage-desc"><strong>CÓDIGO LOCAL</strong><br>Desenvolvimento e ajuste dos 5 processos.</p>
+          </div>
+          <div class="pipeline-card">
+            <p class="stage-desc"><strong>TESTES LOCAIS</strong><br>pytest -v & compileall .</p>
+          </div>
+          <div class="pipeline-card">
+            <p class="stage-desc"><strong>GIT PUSH</strong><br>Envio ao GitHub.</p>
+          </div>
+          <div class="pipeline-card">
+            <p class="stage-desc"><strong>GITHUB ACTIONS</strong><br>Job Testes → Job Build GHCR.</p>
+          </div>
+          <div class="pipeline-card">
+            <p class="stage-desc"><strong>DOCKER RUN</strong><br>Execução final da imagem GHCR.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 16: RESULTADOS -->
+      <section class="slide" id="slide-16">
+        <div class="slide-header">
+          <div class="slide-tag"><i class="fa-solid fa-check-double"></i> Matriz de Validação</div>
+          <h2 class="slide-title">Resultados Efetivamente Validados</h2>
+          <p class="slide-subtitle">Status real de conformidade comprovado por testes no ambiente.</p>
+        </div>
+
+        <div class="roadmap-wrapper">
+          <div class="challenge-card" style="width:100%">
+            <ul class="stage-details" style="font-size:1.05rem;">
+              <li><i class="fa-solid fa-check-circle" style="color:#27c93f"></i> <strong>Sintaxe Python:</strong> 100% aprovada via <code>compileall</code>.</li>
+              <li><i class="fa-solid fa-check-circle" style="color:#27c93f"></i> <strong>Testes Automatizados:</strong> 34/34 testes unitários e de integração passados no pytest.</li>
+              <li><i class="fa-solid fa-check-circle" style="color:#27c93f"></i> <strong>Execução Local (bot.py / pai.bot.py):</strong> Todos os 5 processos encadeados com sucesso.</li>
+              <li><i class="fa-solid fa-check-circle" style="color:#27c93f"></i> <strong>Docker Local:</strong> Build e Run validados com containerização completa.</li>
+              <li><i class="fa-solid fa-info-circle" style="color:#ffbd2e"></i> <strong>GitHub Actions & GHCR:</strong> Workflow configurado e validado sintaticamente (requer push remoto).</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 17: ROTEIRO PRÁTICO DE DEMONSTRAÇÃO -->
+      <section class="slide" id="slide-17">
+        <div class="slide-header">
+          <div class="slide-tag"><i class="fa-solid fa-terminal"></i> Roteiro de Apresentação</div>
+          <h2 class="slide-title">Roteiro Prático de Demonstração Ao Vivo</h2>
+          <p class="slide-subtitle">Passo a passo recomendado para a apresentação da atividade.</p>
+        </div>
+
+        <div class="code-viewer-container" style="height: initial; padding: 1.5rem;">
+          <ol style="margin-left: 1.5rem; line-height: 1.8;">
+            <li><strong>Execução Local:</strong> Executar <code>python bot.py</code> e mostrar a saída dos 5 processos.</li>
+            <li><strong>Testes Automatizados:</strong> Executar <code>python -m pytest -v --cov=.</code> para demonstrar a aprovação dos 34 testes.</li>
+            <li><strong>Docker Local:</strong> Executar <code>docker build -t hyperautomation:1.0 .</code> e <code>docker run --rm hyperautomation:1.0</code>.</li>
+            <li><strong>CI/CD & GHCR:</strong> Mostrar o arquivo <code>.github/workflows/ci-cd.yml</code> e a esteira de publicação no GitHub.</li>
+            <li><strong>Pull & Run da Imagem Publicada:</strong> Demonstrar <code>docker pull ghcr.io/codemartell/hyperautomation:latest</code>.</li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- SLIDE 18: CONCLUSÃO -->
+      <section class="slide" id="slide-18">
         <div style="display:flex; align-items:center; justify-content:center; height:100%;">
           <div class="conclusion-card">
             <div class="slide-tag" style="justify-content: center;"><i class="fa-solid fa-flag-checkered"></i> Encerramento</div>
             <h2 class="conclusion-title">Projeto Concluído com Sucesso!</h2>
             <p class="conclusion-body">
-              A automação do <strong>Portal Fake Soluções Digitais</strong> exemplifica com maestria o poder da <strong>Hyperautomation</strong> — integrando robótica de navegação web, orquestração de documentos corporativos e comunicação segura em um fluxo 100% autônomo e confiável.
+              A automação do <strong>Portal Fake Soluções Digitais</strong> foi totalmente integrada, testada, containerizada e preparada para publicação automática no GHCR via GitHub Actions — atendendo rigorosamente a <strong>todos os requisitos do Roteiro 13</strong>.
             </p>
             <div class="conclusion-actions">
               <a href="https://github.com/CodeMartell/HyperAutomation" target="_blank" class="btn-primary" style="text-decoration:none;">
@@ -507,12 +585,12 @@
 
     </main>
 
-    <!-- Bottom Controls Bar -->
+    <!-- Controls Bar -->
     <nav class="bottom-nav">
       <button class="nav-btn" id="prev-slide-btn" title="Slide Anterior"><i class="fa-solid fa-arrow-left"></i></button>
       
       <div class="slide-dots-container" id="dots-wrapper">
-        <!-- Dots injected by JS -->
+        <!-- Dots injetados via JS -->
       </div>
 
       <button class="nav-btn" id="next-slide-btn" title="Próximo Slide"><i class="fa-solid fa-arrow-right"></i></button>
@@ -520,15 +598,6 @@
 
   </div>
 
-  <!-- Lightbox Modal -->
-  <div class="lightbox-modal" id="lightbox-modal">
-    <button class="lightbox-close" id="lightbox-close">&times;</button>
-    <div class="lightbox-content">
-      <img src="" alt="Lightbox image" class="lightbox-img" id="lightbox-target-img">
-    </div>
-  </div>
-
-  <!-- JavaScript App Script -->
   <script src="app.js"></script>
 </body>
 </html>

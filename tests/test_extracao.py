@@ -43,7 +43,7 @@ class TestExtracaoDados(unittest.TestCase):
         texto = extrair_dados_simulados_de_fallback(p)
         self.assertIn("João", texto)
         self.assertIn("Silva", texto)
-        self.assertIn("123.456.789-00", texto)
+        self.assertIn("529.982.247-25", texto)
 
 if __name__ == "__main__":
     unittest.main()

@@ -8,3 +8,8 @@ google-auth-oauthlib
 openpyxl
 pandas
 pytesseract
+reportlab
+pytest
+pytest-cov
+python-pptx
+pypdf
